@@ -2,11 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+:root {
+  --primary: #0d9488;
+}
+
+
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  @apply bg-white;
+  font-family: "Playpen Sans Thai", cursive;
+  font-optical-sizing: auto;
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+
+}
+
+main {
+  @apply mx-auto max-w-7xl min-h-screen w-full;
+}
+
+
+button {
+  @apply rounded-md px-3 py-2;
 }
