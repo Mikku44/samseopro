@@ -31,7 +31,7 @@ export default function Footer() {
             <h3 className="text-lg font-bold mb-4 text-white">ติดต่อเรา</h3>
             <ul className="space-y-2 text-sm">
               <li>อีเมล: info@RundeeAds.com</li>
-              <li>โทร: 02-123-4567</li>
+              <li>โทร: 0954965989</li>
               <li>ที่อยู่: กรุงเทพมหานคร ประเทศไทย</li>
             </ul>
           </div>
