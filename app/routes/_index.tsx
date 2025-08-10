@@ -401,7 +401,7 @@ export default function Index() {
               <div className="flex flex-col items-center p-4 bg-red-50 rounded-lg">
                 <Phone className="w-8 h-8 text-red-600 mb-2" />
                 <h4 className="font-semibold text-gray-900 mb-1"> ติดต่อเราเลย</h4>
-                <p className="text-red-600 font-medium text-center">099-999-9999</p>
+                <p className="text-red-600 font-medium text-center">0954965989</p>
               </div>
 
               <div className="flex flex-col items-center p-4 bg-blue-50 rounded-lg">
@@ -413,7 +413,7 @@ export default function Index() {
               <div className="flex flex-col items-center p-4 bg-yellow-50 rounded-lg">
                 <MessageSquare className="w-8 h-8 text-yellow-600 mb-2" />
                 <h4 className="font-semibold text-gray-900 mb-1">Line ID</h4>
-                <p className="text-yellow-600 font-medium text-center">@rundeeads</p>
+                <p className="text-yellow-600 font-medium text-center">@655rkaej</p>
               </div>
             </div>
 
