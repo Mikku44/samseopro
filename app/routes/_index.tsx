@@ -4,10 +4,10 @@ import Layout from "~/components/Layout";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Same SEO Pro" },
-    { name: "description", content: "SamSEOPro - บริการ SEO แบบมืออาชีพ" },
+    { title: "Rundeeads" },
+    { name: "description", content: "RundeeAds - บริการ SEO แบบมืออาชีพ" },
     { name: "keywords", content: "SEO, การตลาดออนไลน์, คอร์ส SEO, ผู้เชี่ยวชาญ SEO" },
-    { property: "og:title", content: "SamSEOPro - บริการ SEO แบบมืออาชีพ" },
+    { property: "og:title", content: "RundeeAds - บริการ SEO แบบมืออาชีพ" },
     { property: "og:description", content: "เพิ่มยอดขาย เพิ่มผู้ชม ด้วยกลยุทธ์ SEO ที่ใช้ได้จริง" },
   ];
 };
@@ -23,21 +23,21 @@ export default function Index() {
               <div className="space-y-4">
                 <div className="inline-block text-[var(--primary)] font-medium">คุณกำลังจะก้าวเข้าสู่โลกของ</div>
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  <span className="bg-teal-100 px-2 py-1 inline-block">SamSEOPro</span> ·<br />
+                  <span className="bg-red-100 px-2 py-1 inline-block">RundeeAds</span> ·<br />
                   Organic Growth Builder
                 </h1>
                 <p className="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   คนเดียวที่คุ้มค่าเยอะที่สุดใน SEO โปรเจ็คต์ไทย
                 </p>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <button className="bg-teal-600 hover:bg-teal-700 text-white">House of SEO: คอมมูนิตี้ไซด์</button>
+                  <button className="bg-red-600 hover:bg-red-700 text-white">House of SEO: คอมมูนิตี้ไซด์</button>
                   <button>ติดต่อร่วมงาน</button>
                 </div>
               </div>
               <div className="mx-auto lg:mx-0 lg:flex lg:justify-end">
                 <div className="relative h-[350px] w-full max-w-[450px]">
                   <img
-                    src="https://images.unsplash.com/photo-1745450057131-c7847202d433?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    src="https://images.unsplash.com/photo-1608222351212-18fe0ec7b13b?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="Digital Marketing Expert"
                     className="object-cover rounded-lg w-full h-full"
                   />
@@ -48,11 +48,11 @@ export default function Index() {
         </section>
 
         {/* Services Section */}
-        <section className="py-12 bg-teal-50">
+        <section className="py-12 bg-red-50">
           <div className="container mx-auto px-4 md:px-6">
             <div className="text-center mb-10">
               <h2 className="text-3xl font-bold">
-                ร่วมงานกับ <span className="bg-teal-100 px-2 py-1">SamSEOPro</span> โปรเจ็คต์ ยังไงได้บ้าง?
+                ร่วมงานกับ <span className="bg-red-100 px-2 py-1">RundeeAds</span> โปรเจ็คต์ ยังไงได้บ้าง?
               </h2>
               <p className="mt-4 text-gray-500">
                 ธุรกิจหลักของเมอยู่ภายใต้ชื่อ SEO โปรเจ็คต์ไทย
@@ -84,8 +84,8 @@ export default function Index() {
               </div>
             </div>
 
-            <div className="mt-10 text-center">
-              <button className="bg-teal-600 hover:bg-teal-700 text-white">
+             <div className="mt-10 text-center flex justify-center">
+              <button className="bg-red-600 hover:bg-red-700 text-white flex gap-2">
                 ดูบริการทั้งหมด <ArrowRight className="ml-2 h-4 w-4" />
               </button>
             </div>
@@ -110,7 +110,7 @@ export default function Index() {
                   </div>
                 </div>
                 <p className="text-gray-600">
-                  "หลังจากทำงานร่วมกับทีม SEO ของ SamSEOPro ยอดขายของเราเพิ่มขึ้น 200% ภายใน 3 เดือน"
+                  &quot;หลังจากทำงานร่วมกับทีม SEO ของ RundeeAds ยอดขายของเราเพิ่มขึ้น 200% ภายใน 3 เดือน&quot;
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-sm border">
@@ -121,7 +121,7 @@ export default function Index() {
                     <p className="text-sm text-gray-500">Marketing Director, บริษัท XYZ</p>
                   </div>
                 </div>
-                <p className="text-gray-600">"กลยุทธ์ SEO ที่ได้รับคำแนะนำช่วยให้เราอยู่อันดับ 1 ใน Google สำหรับคีย์เวิร์ดหลักของเรา"</p>
+                <p className="text-gray-600">&quot;กลยุทธ์ SEO ที่ได้รับคำแนะนำช่วยให้เราอยู่อันดับ 1 ใน Google สำหรับคีย์เวิร์ดหลักของเรา&quot;</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-sm border">
                 <div className="flex items-center gap-4 mb-4">
@@ -131,7 +131,7 @@ export default function Index() {
                     <p className="text-sm text-gray-500">Owner, ร้าน DEF</p>
                   </div>
                 </div>
-                <p className="text-gray-600">"คอร์สเรียน SEO ในตำนานเปลี่ยนมุมมองการทำการตลาดออนไลน์ของผมไปเลย คุ้มค่ามาก"</p>
+                <p className="text-gray-600">&quot;คอร์สเรียน SEO ในตำนานเปลี่ยนมุมมองการทำการตลาดออนไลน์ของผมไปเลย คุ้มค่ามาก&quot;</p>
               </div>
             </div>
           </div>
@@ -145,8 +145,8 @@ export default function Index() {
               ปรึกษาฟรี! ให้เราช่วยวิเคราะห์ธุรกิจของคุณและวางแผนกลยุทธ์ SEO ที่เหมาะสมที่สุด
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-teal-700 hover:bg-gray-100">ติดต่อเรา</button>
-              <button className="border-white text-white hover:bg-white hover:text-teal-700">
+              <button className="bg-white text-red-700 hover:bg-gray-100">ติดต่อเรา</button>
+              <button className="border-white text-white hover:bg-white hover:text-red-700">
                 ดูผลงานของเรา
               </button>
             </div>
