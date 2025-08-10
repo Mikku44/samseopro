@@ -42,11 +42,11 @@ export default function Index() {
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="space-y-4">
-                <div className="inline-block text-[var(--primary)] font-medium">
+                <div className="inline-block text-[var(--secondary)] font-medium">
                   ธุรกิจของคุณพร้อมทะยานสู่โลกออนไลน์หรือยัง?
                 </div>
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  <span className="bg-red-100 px-2 py-1 inline-block">
+                  <span className="bg-blue-100 px-2 py-1 inline-block">
                     RundeeAds
                   </span>{" "}
                   ·<br />
@@ -56,7 +56,7 @@ export default function Index() {
                   คนเดียวที่คุ้มค่าเยอะที่สุดใน SEO โปรเจ็คต์ไทย
                 </p>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <button className="bg-red-600 hover:bg-red-700 text-white">
+                  <button className="bg-blue-600 hover:bg-blue-700 text-white">
                     House of SEO: คอมมูนิตี้ไซด์
                   </button>
                   <button>ติดต่อร่วมงาน</button>
@@ -77,11 +77,11 @@ export default function Index() {
 
 
         {/* google ad type1*/}
-        <section className="w-full py-16 md:py-24 bg-gradient-to-br from-red-50 to-emerald-50">
+        <section className="w-full py-16 md:py-24 bg-red-50 rounded-t-[100px]">
           <div className="container px-4 md:px-6 max-w-4xl mx-auto">
             {/* Header */}
             <div className="text-center mb-12">
-              <div className="inline-block mb-4 px-4 py-2 text-sm font-medium bg-red-100 text-red-800 rounded-full">
+              <div className="inline-block mb-4 px-4 py-2 text-sm font-medium bg-blue-100 text-slate-800 rounded-full">
                 🚀 โซลูชันธุรกิจออนไลน์
               </div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
@@ -128,7 +128,7 @@ export default function Index() {
               </h2>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div className="hover:shadow-lg transition-shadow border-red-200">
+                <div className="hover:shadow-lg rounded-xl bg-white transition-shadow border-red-200">
                   <div className="p-6">
                     <div className="flex items-center mb-4">
                       <Target className="w-8 h-8 text-red-600 mr-3" />
@@ -143,10 +143,10 @@ export default function Index() {
                   </div>
                 </div>
 
-                <div className="hover:shadow-lg transition-shadow border-red-200">
+                <div className="hover:shadow-lg rounded-xl bg-white transition-shadow border-blue-200">
                   <div className="p-6">
                     <div className="flex items-center mb-4">
-                      <TrendingUp className="w-8 h-8 text-red-600 mr-3" />
+                      <TrendingUp className="w-8 h-8 text-blue-600 mr-3" />
                       <h3 className="font-bold text-lg text-gray-900">
                          อยู่เหนือคู่แข่ง
                       </h3>
@@ -158,10 +158,10 @@ export default function Index() {
                   </div>
                 </div>
 
-                <div className="hover:shadow-lg transition-shadow border-red-200">
+                <div className="hover:shadow-lg rounded-xl bg-white transition-shadow border-yellow-200">
                   <div className="p-6">
                     <div className="flex items-center mb-4">
-                      <BarChart3 className="w-8 h-8 text-red-600 mr-3" />
+                      <BarChart3 className="w-8 h-8 text-yellow-600 mr-3" />
                       <h3 className="font-bold text-lg text-gray-900">
                         วัดผลได้จริง
                       </h3>
@@ -173,7 +173,7 @@ export default function Index() {
                   </div>
                 </div>
 
-                <div className="hover:shadow-lg transition-shadow border-red-200">
+                <div className="hover:shadow-lg rounded-xl bg-white transition-shadow border-red-200">
                   <div className="p-6">
                     <div className="flex items-center mb-4">
                       <DollarSign className="w-8 h-8 text-red-600 mr-3" />
@@ -187,10 +187,10 @@ export default function Index() {
                   </div>
                 </div>
 
-                <div className="hover:shadow-lg transition-shadow border-red-200 md:col-span-2 lg:col-span-1">
+                <div className="hover:shadow-lg rounded-xl bg-white transition-shadow border-blue-200 md:col-span-2 lg:col-span-1">
                   <div className="p-6">
                     <div className="flex items-center mb-4">
-                      <Zap className="w-8 h-8 text-red-600 mr-3" />
+                      <Zap className="w-8 h-8 text-blue-600 mr-3" />
                       <h3 className="font-bold text-lg text-gray-900">
                          เห็นผลลัพธ์ไว
                       </h3>
@@ -204,7 +204,7 @@ export default function Index() {
             </div>
 
             {/* Summary Section */}
-            <div className="mb-12 bg-gradient-to-r from-red-600 to-red-600 text-white border-0">
+            <div className="mb-12 bg-gradient-to-r from-red-600 to-red-600 rounded-xl text-white border-0">
               <div className="p-8 text-center">
                 <p className="text-lg md:text-xl leading-relaxed">
                   ในยุคที่การแข่งขันสูง การทำให้ธุรกิจของคุณ{" "}
@@ -236,12 +236,12 @@ export default function Index() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                  <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-lg font-semibold">
+                  <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg font-semibold">
                     เริ่มต้นเลย
                     {/* <ArrowRight className="w-5 h-5 ml-2" /> */}
                   </button>
 
-                  <button className="border-red-600 text-red-600 hover:bg-red-50 px-8 py-3 text-lg">
+                  <button className="border-blue-600 text-blue-600 hover:bg-red-50 px-8 py-3 text-lg">
                     ดูข้อมูลเพิ่มเติม
                   </button>
                 </div>
@@ -269,7 +269,7 @@ export default function Index() {
         </div>
 
         {/* Questions Section */}
-        <div className="mb-12 border-red-200 bg-white">
+        <div className="mb-12 border-red-200 bg-white rounded-xl">
           <div className="p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">อยากให้ธุรกิจของคุณ...</h2>
             <div className="grid md:grid-cols-2 gap-4">
@@ -290,7 +290,7 @@ export default function Index() {
                 <span className="text-gray-800">แต่ไม่มีเวลาศึกษา หรือทำ Google Ads เองแล้วไม่เห็นผล?</span>
               </div>
             </div>
-            <div className="mt-8 p-4 bg-red-600 text-white rounded-lg text-center">
+            <div className="mt-8 p-4 bg-blue-600 text-white rounded-lg text-center">
               <p className="text-xl font-semibold">ให้ทีมงานผู้เชี่ยวชาญของเราดูแล! </p>
             </div>
           </div>
@@ -390,10 +390,10 @@ export default function Index() {
         </div>
 
         {/* Call to Action */}
-        <div className="mb-8 bg-white border-2 border-red-200 shadow-xl">
+        <div className="mb-8 bg-white border-2 border-red-200 rounded-xl shadow-xl">
           <div className="p-8">
             <div className="text-center mb-8">
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">💬 ปรึกษาฟรี! ไม่มีค่าใช้จ่าย</h3>
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4"> ปรึกษาฟรี! ไม่มีค่าใช้จ่าย</h3>
               <p className="text-lg text-gray-700">เพื่อประเมินโอกาสทางธุรกิจของคุณบน Google Ads</p>
             </div>
 
@@ -418,7 +418,7 @@ export default function Index() {
             </div>
 
             <div className="flex justify-center">
-              <button className= "flex bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-lg font-semibold">
+              <button className= "flex bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg font-semibold">
                 ติดต่อเราตอนนี้
                 <ArrowRight className="m-1 w-5 h-5 ml-2" />
               </button>
