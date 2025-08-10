@@ -133,7 +133,7 @@ export default function Index() {
                     <div className="flex items-center mb-4">
                       <Target className="w-8 h-8 text-red-600 mr-3" />
                       <h3 className="font-bold text-lg text-gray-900">
-                        🎯 ตรงกลุ่มเป้าหมาย
+                         ตรงกลุ่มเป้าหมาย
                       </h3>
                     </div>
                     <p className="text-gray-700">
@@ -148,7 +148,7 @@ export default function Index() {
                     <div className="flex items-center mb-4">
                       <TrendingUp className="w-8 h-8 text-red-600 mr-3" />
                       <h3 className="font-bold text-lg text-gray-900">
-                        🔝 อยู่เหนือคู่แข่ง
+                         อยู่เหนือคู่แข่ง
                       </h3>
                     </div>
                     <p className="text-gray-700">
@@ -163,7 +163,7 @@ export default function Index() {
                     <div className="flex items-center mb-4">
                       <BarChart3 className="w-8 h-8 text-red-600 mr-3" />
                       <h3 className="font-bold text-lg text-gray-900">
-                        📊 วัดผลได้จริง
+                        วัดผลได้จริง
                       </h3>
                     </div>
                     <p className="text-gray-700">
@@ -178,7 +178,7 @@ export default function Index() {
                     <div className="flex items-center mb-4">
                       <DollarSign className="w-8 h-8 text-red-600 mr-3" />
                       <h3 className="font-bold text-lg text-gray-900">
-                        💰 ควบคุมงบประมาณง่าย
+                         ควบคุมงบประมาณง่าย
                       </h3>
                     </div>
                     <p className="text-gray-700">
@@ -192,7 +192,7 @@ export default function Index() {
                     <div className="flex items-center mb-4">
                       <Zap className="w-8 h-8 text-red-600 mr-3" />
                       <h3 className="font-bold text-lg text-gray-900">
-                        ⚡ เห็นผลลัพธ์ไว
+                         เห็นผลลัพธ์ไว
                       </h3>
                     </div>
                     <p className="text-gray-700">
@@ -221,10 +221,10 @@ export default function Index() {
             <div className="text-center">
               <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-red-200">
                 <div className="flex items-center justify-center mb-4">
-                  <CheckCircle className="w-6 h-6 text-green-500 mr-2" />
-                  <span className="text-lg font-semibold text-gray-900">
+                  {/* <CheckCircle className="w-6 h-6 text-green-500 mr-2" /> */}
+                  {/* <span className="text-lg font-semibold text-gray-900">
                     👉 อย่ารอช้า!
-                  </span>
+                  </span> */}
                 </div>
 
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
@@ -263,7 +263,7 @@ export default function Index() {
             บริการ Google Ads โดยมืออาชีพ
           </div>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            📈 เพิ่มยอดขาย ขยายธุรกิจให้ปัง!
+             เพิ่มยอดขาย ขยายธุรกิจให้ปัง!
           </h1>
           <p className="text-xl md:text-2xl text-red-600 font-semibold">ด้วยบริการทำ Google Ads โดยมืออาชีพ</p>
         </div>
@@ -291,7 +291,7 @@ export default function Index() {
               </div>
             </div>
             <div className="mt-8 p-4 bg-red-600 text-white rounded-lg text-center">
-              <p className="text-xl font-semibold">ให้ทีมงานผู้เชี่ยวชาญของเราดูแล! 🏆</p>
+              <p className="text-xl font-semibold">ให้ทีมงานผู้เชี่ยวชาญของเราดูแล! </p>
             </div>
           </div>
         </div>
@@ -400,19 +400,19 @@ export default function Index() {
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="flex flex-col items-center p-4 bg-red-50 rounded-lg">
                 <Phone className="w-8 h-8 text-red-600 mb-2" />
-                <h4 className="font-semibold text-gray-900 mb-1">📞 ติดต่อเราเลย</h4>
+                <h4 className="font-semibold text-gray-900 mb-1"> ติดต่อเราเลย</h4>
                 <p className="text-red-600 font-medium text-center">099-999-9999</p>
               </div>
 
               <div className="flex flex-col items-center p-4 bg-red-50 rounded-lg">
                 <Globe className="w-8 h-8 text-red-600 mb-2" />
-                <h4 className="font-semibold text-gray-900 mb-1">🌐 เว็บไซต์</h4>
+                <h4 className="font-semibold text-gray-900 mb-1">เว็บไซต์</h4>
                 <p className="text-red-600 font-medium text-center">www.rundeeads.com</p>
               </div>
 
               <div className="flex flex-col items-center p-4 bg-red-50 rounded-lg">
                 <MessageSquare className="w-8 h-8 text-red-600 mb-2" />
-                <h4 className="font-semibold text-gray-900 mb-1">📱 Line ID</h4>
+                <h4 className="font-semibold text-gray-900 mb-1">Line ID</h4>
                 <p className="text-red-600 font-medium text-center">@rundeeads</p>
               </div>
             </div>
