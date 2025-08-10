@@ -21,16 +21,16 @@ export default function Index() {
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="space-y-4">
-                <div className="inline-block text-[var(--primary)] font-medium">คุณกำลังจะก้าวเข้าสู่โลกของ</div>
+                <div className="inline-block text-[var(--secondary)] font-medium">คุณกำลังจะก้าวเข้าสู่โลกของ</div>
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  <span className="bg-red-100 px-2 py-1 inline-block">RundeeAds</span> ·<br />
+                  <span className="bg-blue-100 px-2 py-1 inline-block">RundeeAds</span> ·<br />
                   Organic Growth Builder
                 </h1>
                 <p className="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   คนเดียวที่คุ้มค่าเยอะที่สุดใน SEO โปรเจ็คต์ไทย
                 </p>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <button className="bg-red-600 hover:bg-red-700 text-white">House of SEO: คอมมูนิตี้ไซด์</button>
+                  <button className="bg-blue-600 hover:bg-blue-700 text-white">House of SEO: คอมมูนิตี้ไซด์</button>
                   <button>ติดต่อร่วมงาน</button>
                 </div>
               </div>
@@ -68,24 +68,24 @@ export default function Index() {
                 <p className="text-gray-500">วิเคราะห์เว็บไซต์และกลยุทธ์ SEO ของคุณอย่างละเอียด</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-sm">
-                <TrendingUp className="h-10 w-10 text-[var(--primary)] mb-4" />
+                <TrendingUp className="h-10 w-10 text-[var(--secondary)] mb-4" />
                 <h3 className="text-xl font-bold mb-2">Content Strategy</h3>
                 <p className="text-gray-500">วางแผนเนื้อหาที่ตอบโจทย์ทั้ง User และ Search Engine</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-sm">
-                <Target className="h-10 w-10 text-[var(--primary)] mb-4" />
+                <Target className="h-10 w-10 text-[var(--tertiary)] mb-4" />
                 <h3 className="text-xl font-bold mb-2">Keyword Research</h3>
                 <p className="text-gray-500">ค้นหาคีย์เวิร์ดที่มีศักยภาพสูงสุดสำหรับธุรกิจของคุณ</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-sm">
-                <Users className="h-10 w-10 text-[var(--primary)] mb-4" />
+                <Users className="h-10 w-10 text-black mb-4" />
                 <h3 className="text-xl font-bold mb-2">SEO Training</h3>
                 <p className="text-gray-500">อบรมทีมของคุณให้เข้าใจและทำ SEO ได้อย่างมีประสิทธิภาพ</p>
               </div>
             </div>
 
              <div className="mt-10 text-center flex justify-center">
-              <button className="bg-red-600 hover:bg-red-700 text-white flex gap-2">
+              <button className="bg-blue-600 hover:bg-blue-700 text-white flex gap-2">
                 ดูบริการทั้งหมด <ArrowRight className="ml-2 h-4 w-4" />
               </button>
             </div>
