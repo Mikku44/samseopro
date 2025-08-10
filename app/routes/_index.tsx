@@ -255,7 +255,7 @@ export default function Index() {
         </section>
 
 {/* google ad type2 */}
-        <section className="w-full py-16 md:py-24 bg-gradient-to-br from-red-50 to-emerald-50">
+        <section className="w-full py-16 md:py-24 bg-gradient-to-br from-red-50 to-blue-50">
       <div className="container px-4 md:px-6 max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -320,8 +320,8 @@ export default function Index() {
             <div className="hover:shadow-lg transition-shadow border-red-200">
               <div className="p-6">
                 <div className="flex items-start space-x-4">
-                  <div className="bg-red-100 p-3 rounded-full">
-                    <CheckCircle className="w-6 h-6 text-red-600" />
+                  <div className="bg-blue-100 p-3 rounded-full">
+                    <CheckCircle className="w-6 h-6 text-blue-600" />
                   </div>
                   <div>
                     <h3 className="font-bold text-lg text-gray-900 mb-2">✅ คัดเลือก Keyword แม่นยำ</h3>
@@ -334,8 +334,8 @@ export default function Index() {
             <div className="hover:shadow-lg transition-shadow border-red-200">
               <div className="p-6">
                 <div className="flex items-start space-x-4">
-                  <div className="bg-red-100 p-3 rounded-full">
-                    <MessageCircle className="w-6 h-6 text-red-600" />
+                  <div className="bg-yellow-100 p-3 rounded-full">
+                    <MessageCircle className="w-6 h-6 text-yellow-600" />
                   </div>
                   <div>
                     <h3 className="font-bold text-lg text-gray-900 mb-2">✅ สร้างสรรค์ข้อความโฆษณาดึงดูดใจ</h3>
@@ -362,8 +362,8 @@ export default function Index() {
             <div className="hover:shadow-lg transition-shadow border-red-200">
               <div className="p-6">
                 <div className="flex items-start space-x-4">
-                  <div className="bg-red-100 p-3 rounded-full">
-                    <TrendingUp className="w-6 h-6 text-red-600" />
+                  <div className="bg-blue-100 p-3 rounded-full">
+                    <TrendingUp className="w-6 h-6 text-blue-600" />
                   </div>
                   <div>
                     <h3 className="font-bold text-lg text-gray-900 mb-2">✅ ติดตามผลและปรับปรุงแคมเปญต่อเนื่อง</h3>
@@ -376,8 +376,8 @@ export default function Index() {
             <div className="hover:shadow-lg transition-shadow border-red-200">
               <div className="p-6">
                 <div className="flex items-start space-x-4">
-                  <div className="bg-red-100 p-3 rounded-full">
-                    <BarChart3 className="w-6 h-6 text-red-600" />
+                  <div className="bg-yellow-100 p-3 rounded-full">
+                    <BarChart3 className="w-6 h-6 text-yellow-600" />
                   </div>
                   <div>
                     <h3 className="font-bold text-lg text-gray-900 mb-2">✅ รายงานผลชัดเจน เข้าใจง่าย</h3>
@@ -404,16 +404,16 @@ export default function Index() {
                 <p className="text-red-600 font-medium text-center">099-999-9999</p>
               </div>
 
-              <div className="flex flex-col items-center p-4 bg-red-50 rounded-lg">
-                <Globe className="w-8 h-8 text-red-600 mb-2" />
+              <div className="flex flex-col items-center p-4 bg-blue-50 rounded-lg">
+                <Globe className="w-8 h-8 text-blue-600 mb-2" />
                 <h4 className="font-semibold text-gray-900 mb-1">เว็บไซต์</h4>
-                <p className="text-red-600 font-medium text-center">www.rundeeads.com</p>
+                <p className="text-blue-600 font-medium text-center">www.rundeeads.com</p>
               </div>
 
-              <div className="flex flex-col items-center p-4 bg-red-50 rounded-lg">
-                <MessageSquare className="w-8 h-8 text-red-600 mb-2" />
+              <div className="flex flex-col items-center p-4 bg-yellow-50 rounded-lg">
+                <MessageSquare className="w-8 h-8 text-yellow-600 mb-2" />
                 <h4 className="font-semibold text-gray-900 mb-1">Line ID</h4>
-                <p className="text-red-600 font-medium text-center">@rundeeads</p>
+                <p className="text-yellow-600 font-medium text-center">@rundeeads</p>
               </div>
             </div>
 
@@ -427,13 +427,13 @@ export default function Index() {
         </div>
 
         {/* Hashtags */}
-        <div className="flex flex-wrap justify-center gap-2 text-sm text-red-600">
-          <span className="bg-red-50 px-3 py-1 rounded-full">#GoogleAds</span>
-          <span className="bg-red-50 px-3 py-1 rounded-full">#การตลาดออนไลน์</span>
-          <span className="bg-red-50 px-3 py-1 rounded-full">#เพิ่มยอดขาย</span>
-          <span className="bg-red-50 px-3 py-1 rounded-full">#ธุรกิจออนไลน์</span>
-          <span className="bg-red-50 px-3 py-1 rounded-full">#DigitalMarketing</span>
-          <span className="bg-red-50 px-3 py-1 rounded-full">#rundeeads</span>
+        <div className="flex flex-wrap justify-center gap-2 text-sm ">
+          <span className="bg-red-50  text-red-600 px-3 py-1 rounded-full">#GoogleAds</span>
+          <span className="bg-blue-50 text-blue-600 px-3 py-1 rounded-full">#การตลาดออนไลน์</span>
+          <span className="bg-yellow-50 text-yellow-600 px-3 py-1 rounded-full">#เพิ่มยอดขาย</span>
+          <span className="bg-slate-50 text-slate-600 px-3 py-1 rounded-full">#ธุรกิจออนไลน์</span>
+          <span className="bg-blue-50 text-blue-600 px-3 py-1 rounded-full">#DigitalMarketing</span>
+          <span className="bg-red-50 text-red-600 px-3 py-1 rounded-full">#rundeeads</span>
         </div>
       </div>
     </section>
