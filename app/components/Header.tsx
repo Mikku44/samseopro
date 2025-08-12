@@ -7,11 +7,11 @@ export default function Header() {
   return (
     <header className="border-b">
       <div className="container  max-w-7xl px-4 mx-auto flex items-center justify-between py-4">
-        <span className="text-xl font-bold">
+        <a href="/"  className="text-xl font-bold">
           <img src="/icon.jpg"
           className="w-[130px]"
           alt="rudeeads logo" />
-        </span>
+        </a>
         {/* <nav className="hidden md:flex items-center space-x-6">
           <Link to="/" className="text-sm font-medium hover:text-primary">หน้าหลัก</Link>
           <Link to="/contact" className="text-sm font-medium hover:text-primary">ติดต่อ</Link>

@@ -3,8 +3,21 @@ import { ReactNode } from 'react'
 import Banner from './Banner'
 import Header from './Header'
 import Footer from './Footer'
+import { LinksFunction } from '@remix-run/react/dist/routeModules';
+import FoatingButton from './FoatingButton';
 
-export default function Layout ({ children }: { children: ReactNode }) {
+export const links: LinksFunction = () => {
+  return [
+    {
+      rel: "icon",
+      href: "/icon.jpg",
+      type: "image/jpg",
+    },
+
+  ];
+};
+
+export default function Layout ({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <div className='flex min-h-screen flex-col'>
       <link rel='preconnect' href='https://fonts.googleapis.com' />
@@ -14,12 +27,15 @@ export default function Layout ({ children }: { children: ReactNode }) {
         rel='stylesheet'
       />
 
+      <link rel="shortcut icon" href="icon.jpg" type="image/jpg" />
+
       <link
         href='https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap'
         rel='stylesheet'
       ></link>
       <Banner />
       <Header />
+      <FoatingButton />
       <div className='flex-1'>{children}</div>
       <Footer />
     </div>

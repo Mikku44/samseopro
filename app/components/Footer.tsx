@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="container  max-w-7xl mx-auto px-4 py-12">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           <div>
             <h3 className="text-lg font-bold mb-4 text-white">RundeeAds</h3>
             <p className="text-sm">ผู้เชี่ยวชาญด้านการตลาดออนไลน์และ SEO ที่จะช่วยให้ธุรกิจของคุณเติบโตอย่างยั่งยืน</p>
@@ -12,13 +12,14 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4 text-white">บริการของเรา</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link to="#" className="hover:text-white">SEO Audit</Link></li>
+              <li><Link to="/services/seo-training-service" className="hover:text-white">คอร์สอบรม SEO แบบมืออาชีพ</Link></li>
+              <li><Link to="#" className="hover:text-white">ตรวจสอบ SEO</Link></li>
               <li><Link to="#" className="hover:text-white">Content Strategy</Link></li>
               <li><Link to="#" className="hover:text-white">Keyword Research</Link></li>
               <li><Link to="#" className="hover:text-white">SEO Training</Link></li>
             </ul>
           </div>
-          <div>
+          {/* <div>
             <h3 className="text-lg font-bold mb-4 text-white">ความรู้</h3>
             <ul className="space-y-2 text-sm">
               <li><Link to="#" className="hover:text-white">บทความ</Link></li>
@@ -26,7 +27,7 @@ export default function Footer() {
               <li><Link to="#" className="hover:text-white">คำถามที่พบบ่อย</Link></li>
               <li><Link to="#" className="hover:text-white">กรณีศึกษา</Link></li>
             </ul>
-          </div>
+          </div> */}
           <div>
             <h3 className="text-lg font-bold mb-4 text-white">ติดต่อเรา</h3>
             <ul className="space-y-2 text-sm">
