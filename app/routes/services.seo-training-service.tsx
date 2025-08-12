@@ -83,7 +83,7 @@ export default function SEOTrainingService () {
             สิ่งที่คุณจะได้รับจากการอบรม
           </h2>
           <ul className='space-y-14 text-gray-700'>
-            <li className='flex items-center bg-white rounded-xl p-10 gap-4 justify-between'>
+            <li className='flex items-center flex-col bg-white rounded-xl p-10 gap-4 justify-between'>
               <img
                 src='https://images.unsplash.com/photo-1477013743164-ffc3a5e556da?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
                 alt='หลักการทำ SEO'
@@ -109,7 +109,7 @@ export default function SEOTrainingService () {
                 </p>
               </div>
             </li>
-            <li className='flex items-center bg-white rounded-xl p-10 gap-4 flex-row-reverse justify-between'>
+            <li className='flex items-center flex-col bg-white rounded-xl p-10 gap-4 md:flex-row-reverse justify-between'>
               <img 
                 src='https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=1251&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
                 alt='Workshop SEO'
@@ -134,7 +134,7 @@ export default function SEOTrainingService () {
                 </p>
               </div>
             </li>
-            <li className='flex items-center bg-white rounded-xl p-10 gap-4 justify-between'>
+            <li className='flex items-center flex-col bg-white rounded-xl p-10 gap-4 justify-between'>
               <img
                 src='https://images.unsplash.com/photo-1599658880436-c61792e70672?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
                 alt='SEO Tools'
@@ -158,7 +158,7 @@ export default function SEOTrainingService () {
                 </p>
               </div>
             </li>
-            <li className='flex items-center bg-white rounded-xl p-10 gap-4 flex-row-reverse justify-between'>
+            <li className='flex items-center flex-col bg-white rounded-xl p-10 gap-4 md:flex-row-reverse justify-between'>
               <img
                 src='https://images.unsplash.com/photo-1682420636597-0786f3406a94?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
                 alt='SEO Content'
@@ -183,7 +183,7 @@ export default function SEOTrainingService () {
                 </p>
               </div>
             </li>
-            <li className='flex items-center bg-white rounded-xl p-10 gap-4 justify-between'>
+            <li className='flex items-center flex-col bg-white rounded-xl p-10 gap-4 justify-between'>
               <img
                 src='https://images.unsplash.com/photo-1686061594183-8c864f508b00?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
                 alt='SEO Strategy'
@@ -204,7 +204,7 @@ export default function SEOTrainingService () {
                 </p>
               </div>
             </li>
-            <li className='flex items-center bg-white rounded-xl p-10 gap-4 flex-row-reverse justify-between'>
+            <li className='flex items-center flex-col bg-white rounded-xl p-10 gap-4 md:flex-row-reverse justify-between'>
               <img
                 src='https://images.unsplash.com/photo-1589330694653-ded6df03f754?q=80&w=1216&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
                 alt='SEO Certificate'
@@ -225,7 +225,7 @@ export default function SEOTrainingService () {
                 </p>
               </div>
             </li>
-            <li className='flex items-center bg-white rounded-xl p-10 gap-4 justify-between'>
+            <li className='flex items-center flex-col bg-white rounded-xl p-10 gap-4 justify-between'>
               <img
                 src='https://images.unsplash.com/photo-1591518756833-0a5e1a15a0b9?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
                 alt='SEO Community'
