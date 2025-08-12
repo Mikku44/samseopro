@@ -78,7 +78,7 @@ export default function SEOTrainingService () {
           </div>
         </section>
 
-        <section className='py-16 md:py-24 mx-auto  container max-w-[70vw]'>
+        <section className='py-16 md:py-24 mx-auto  container md:max-w-[70vw] max-w-[90vw]'>
           <h2 className='md:text-5xl text-3xl font-bold mb-14 text-center text-blue-500'>
             สิ่งที่คุณจะได้รับจากการอบรม
           </h2>
