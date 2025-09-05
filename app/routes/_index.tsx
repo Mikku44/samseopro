@@ -1,543 +1,369 @@
-import type { MetaFunction } from "@remix-run/node";
+import { MetaFunction } from '@remix-run/react'
 import {
   ArrowRight,
-  Award,
   BarChart3,
-  CheckCircle,
-  Clock,
+  Compass,
   DollarSign,
+  Feather,
+  FileText,
   Globe,
-  MessageCircle,
   MessageSquare,
   Phone,
+  RefreshCw,
+  Search,
   Target,
   TrendingUp,
-  Users,
-  Zap,
-} from "lucide-react";
-import Layout from "~/components/Layout";
+  Wallet,
+  Zap
+} from 'lucide-react'
+import CardBlog from '~/components/CardBlog'
+import { EmblaCarousel } from '~/components/Draggable'
+import Layout from '~/components/Layout'
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Rundee Ads" },
-    { name: "description", content: "RundeeAds - บริการ SEO แบบมืออาชีพ" },
+    { title: 'Rundee Ads' },
+    { name: 'description', content: 'RundeeAds - บริการ SEO แบบมืออาชีพ' },
     {
-      name: "keywords",
-      content: "SEO, การตลาดออนไลน์, คอร์ส SEO, ผู้เชี่ยวชาญ SEO",
+      name: 'keywords',
+      content: 'SEO, การตลาดออนไลน์, คอร์ส SEO, ผู้เชี่ยวชาญ SEO'
     },
-    { property: "og:title", content: "RundeeAds - บริการ SEO แบบมืออาชีพ" },
+    { property: 'og:title', content: 'RundeeAds - บริการ SEO แบบมืออาชีพ' },
     {
-      property: "og:description",
-      content: "เพิ่มยอดขาย เพิ่มผู้ชม ด้วยกลยุทธ์ SEO ที่ใช้ได้จริง",
-    },
-  ];
-};
+      property: 'og:description',
+      content: 'เพิ่มยอดขาย เพิ่มผู้ชม ด้วยกลยุทธ์ SEO ที่ใช้ได้จริง'
+    }
+  ]
+}
 
-export default function Index() {
+const serviceList = [
+  {
+    id: 1,
+    title: 'Strategic Business & Audience Analysis',
+    description: 'วิเคราะห์ธุรกิจและกลุ่มเป้าหมาย เพื่อวางกลยุทธ์ที่ใช่ที่สุด',
+    icon: <Compass />
+  },
+  {
+    id: 2,
+    title: 'Precise Keyword Selection',
+    description:
+      'คัดเลือก Keyword แม่นยำ ให้โฆษณาของคุณแสดงต่อคนที่ "พร้อมซื้อ"',
+    icon: <Search />
+  },
+  {
+    id: 3,
+    title: 'Creative Ad Copywriting',
+    description:
+      'สร้างสรรค์ข้อความโฆษณาดึงดูดใจ เพิ่ม CTR (Click-Through Rate)',
+    icon: <Feather />
+  },
+  {
+    id: 4,
+    title: 'Effective Budget Management',
+    description:
+      'บริหารจัดการงบประมาณอย่างคุ้มค่า ให้ทุกบาททุกสตางค์สร้างผลลัพธ์',
+    icon: <Wallet />
+  },
+  {
+    id: 5,
+    title: 'Continuous Campaign Optimization',
+    description: 'ติดตามผลและปรับปรุงแคมเปญต่อเนื่อง เพื่อประสิทธิภาพสูงสุด',
+    icon: <RefreshCw />
+  },
+  {
+    id: 6,
+    title: 'Clear & Transparent Reporting',
+    description: 'รายงานผลชัดเจน เข้าใจง่าย เห็นความก้าวหน้าของธุรกิจ',
+    icon: <FileText />
+  }
+]
+export default function Index () {
   return (
     <Layout>
-      <main className="flex-1 scroll-smooth">
-        {/* Hero Section */}
-        <section className="py-20 md:py-32 bg-gradient-to-b from-gray-50 to-white">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-              <div className="space-y-8">
-                <div className="inline-flex items-center px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
-                  ธุรกิจของคุณพร้อมทะยานสู่โลกออนไลน์หรือยัง?
-                </div>
-                
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-tight">
-                  <span className="text-blue-600">RundeeAds</span>
-                  <br />
-                  <span className="text-gray-600 text-3xl md:text-4xl lg:text-5xl font-normal">
-                    Organic Growth Builder
-                  </span>
-                </h1>
-                
-                <p className="text-xl text-gray-600 leading-relaxed">
-                  คนเดียวที่คุ้มค่าเยอะที่สุดใน SEO โปรเจ็คต์ไทย
-                </p>
-                
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <a href="#learnmore" className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors">
-                    อ่านเพิ่มเติม
-                  </a>
-                  {/* <button className="px-8 py-4 border border-gray-300 text-gray-700 hover:bg-gray-50 font-semibold rounded-lg transition-colors">
-                    ติดต่อร่วมงาน
-                  </button> */}
-                </div>
-              </div>
-              
-              <div className="relative">
-                <div className="relative h-[400px] w-full max-w-[500px] mx-auto">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-purple-600 rounded-2xl transform rotate-3"></div>
-                  <img
-                    alt="Digital Marketing Expert"
-                    src="https://images.unsplash.com/photo-1608222351212-18fe0ec7b13b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    className="relative object-cover rounded-2xl w-full h-full shadow-2xl"
-                  />
-                </div>
-              </div>
-            </div>
+      <section
+        className="w-full h-screen max-h-[32rem] p-5 md:p-24 relative overflow-hidden
+          bg-[url('/blue.jpg')] bg-cover bg-no-repeat bg-center"
+      >
+        {/* Text Content */}
+        <div className='h-full max-w-7xl md:px-20 mx-auto md:m-0 m-auto py-5 flex flex-col  justify-center gap-5 relative z-10'>
+          <div className='text-sm text-white/30'>
+            เพิ่มยอดขาย ขยายธุรกิจให้ปัง!
           </div>
-        </section>
+          <h1 className='md:text-5xl text-4xl text-white font-bold'>
+            RundeeAds <br />
+            Organic Growth Builder
+          </h1>
 
-        {/* Google Ads Section 1 */}
-        <section className="py-24 bg-white">
-          <div className="container px-4 md:px-6 max-w-6xl mx-auto">
-            {/* Header */}
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center px-4 py-2 bg-red-50 text-red-700 rounded-full text-sm font-medium mb-6">
-                🚀 โซลูชันธุรกิจออนไลน์
+          <h2 className='text-white mt-4'>
+            ให้คำแนะนำจากผู้ให้คำปรึกษา SEO ที่ไว้ใจได้
+          </h2>
+
+          <button className='relative z-10 px-5 w-fit'>ติดต่อเรา</button>
+        </div>
+
+        {/* Gradient Overlay */}
+        <div className='absolute inset-0 bg-gradient-to-b from-black/0 to-black/80'></div>
+      </section>
+
+      <section className='md:py-20 py-10 container-x min-h-[500px] flex justify-center flex-col'>
+        <h2 className='text-3xl font-bold mb-10'>
+          {' '}
+          บริการ Rundee Ads ของเราครอบคลุม:?
+        </h2>
+        <div className='flex md:flex-row flex-col justify-between gap-4'>
+          {serviceList.map(item => (
+            <div key={item.id} className='flex items-center flex-col gap-2'>
+              <div className='rounded-md bg-blue-950 flex p-2 text-white text-2xl size-[80px] items-center justify-center'>
+                {item.icon}
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                ธุรกิจของคุณพร้อมทะยานสู่โลกออนไลน์หรือยัง?
-              </h1>
-              <p className="text-2xl text-red-600 font-semibold">
-                ให้ Google Ads พาคุณไปถึงลูกค้าตัวจริง!
-              </p>
-            </div>
-
-            {/* Problems Section */}
-            <div className="mb-16">
-              <div className="bg-red-50 border border-red-100 rounded-2xl p-8">
-                <h2 className="text-2xl font-bold text-red-800 mb-8 text-center">
-                  เหนื่อยไหม? กับการที่...
-                </h2>
-                <div className="grid md:grid-cols-3 gap-6">
-                  <div className="flex items-center space-x-3 text-red-700">
-                    <div className="w-3 h-3 bg-red-500 rounded-full flex-shrink-0"></div>
-                    <span className="font-medium">ลูกค้าค้นหาธุรกิจของคุณไม่เจอ?</span>
-                  </div>
-                  <div className="flex items-center space-x-3 text-red-700">
-                    <div className="w-3 h-3 bg-red-500 rounded-full flex-shrink-0"></div>
-                    <span className="font-medium">ยอดขายไม่ปังเท่าที่หวัง?</span>
-                  </div>
-                  <div className="flex items-center space-x-3 text-red-700">
-                    <div className="w-3 h-3 bg-red-500 rounded-full flex-shrink-0"></div>
-                    <span className="font-medium">คู่แข่งนำหน้าไปหลายก้าว?</span>
-                  </div>
-                </div>
-                <div className="mt-8 p-6 bg-red-600 text-white rounded-xl text-center">
-                  <p className="text-xl font-semibold">
-                    ถึงเวลาแล้วที่ Google Ads จะเข้ามาเป็นอาวุธลับทางธุรกิจของคุณ!
-                  </p>
-                </div>
+              <div className='text-center'>
+                <div className='font-medium'>{item.title}</div>
+                <div className='text-sm text-black/50'>{item.description}</div>
               </div>
             </div>
+          ))}
+        </div>
+      </section>
 
-            {/* Why Google Ads Section */}
-            <div className="mb-16">
-              <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-                ✨ ทำไมต้อง Google Ads?
-              </h2>
+      <section className='md:py-20 py-10 bg-blue-950 overflow-hidden relative text-white min-h-[500px]'>
+        <div
+          className=' w-[300px] h-[600px] absolute left-[50%] rotate-45 top-0
+        opacity-30 bg-gradient-to-r to-blue-800 from-blue-300
+        rounded-t-[100%] rounded-e-[100px]  rounded-br-[700px]'
+        ></div>
+        <div className='container-x'>
+          <div className='text-sm text-white/30'>
+            ให้เราเป็นส่วนหนึ่งที่ทำให้
+          </div>
+          <h2 className='text-3xl font-bold mb-10'>
+            {' '}
+            ธุรกิจของคุณทะยานสู่โลกออนไลน์
+          </h2>
 
-              <div className="grid md:grid-cols-3 gap-8">
-                <div className="group">
-                  <div className="bg-white border border-gray-200 hover:border-red-300 hover:shadow-lg rounded-xl p-6 transition-all duration-300">
-                    <div className="flex items-center mb-4">
-                      <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mr-4">
-                        <Target className="w-6 h-6 text-red-600" />
-                      </div>
-                      <h3 className="font-bold text-lg text-gray-900">ตรงกลุ่มเป้าหมาย</h3>
-                    </div>
-                    <p className="text-gray-600 leading-relaxed">
-                      แสดงโฆษณาให้คนที่ &quot;กำลังค้นหา&quot; สินค้าหรือบริการของคุณเห็นทันที!
-                    </p>
-                  </div>
+          <div className='max-w-screen mx-auto overflow-hidden rounded-xl'>
+            <EmblaCarousel>
+              {[1, 2, 3, 4, 5].map(item => (
+                <CardBlog key={item} />
+              ))}
+            </EmblaCarousel>
+          </div>
+        </div>
+      </section>
+
+      <section className='md:py-20 py-10 container-x'>
+        <h2 className='text-3xl font-bold'> ทำไมต้อง RundeeAds?</h2>
+
+        <div className='grid md:grid-cols-3 gap-8 mt-10'>
+          <div className='group'>
+            <div className='bg-white border border-gray-200 hover:border-red-300 hover:shadow-lg rounded-xl p-6 transition-all duration-300'>
+              <div className='flex items-center mb-4'>
+                <div className='w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mr-4'>
+                  <Target className='w-6 h-6 text-red-600' />
                 </div>
-
-                <div className="group">
-                  <div className="bg-white border border-gray-200 hover:border-blue-300 hover:shadow-lg rounded-xl p-6 transition-all duration-300">
-                    <div className="flex items-center mb-4">
-                      <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
-                        <TrendingUp className="w-6 h-6 text-blue-600" />
-                      </div>
-                      <h3 className="font-bold text-lg text-gray-900">อยู่เหนือคู่แข่ง</h3>
-                    </div>
-                    <p className="text-gray-600 leading-relaxed">
-                      ปรากฏโดดเด่นบนหน้าแรก Google เพิ่มโอกาสให้ลูกค้าคลิกหาคุณก่อนใคร
-                    </p>
-                  </div>
-                </div>
-
-                <div className="group">
-                  <div className="bg-white border border-gray-200 hover:border-yellow-300 hover:shadow-lg rounded-xl p-6 transition-all duration-300">
-                    <div className="flex items-center mb-4">
-                      <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mr-4">
-                        <BarChart3 className="w-6 h-6 text-yellow-600" />
-                      </div>
-                      <h3 className="font-bold text-lg text-gray-900">วัดผลได้จริง</h3>
-                    </div>
-                    <p className="text-gray-600 leading-relaxed">
-                      รู้ว่าเงินทุกบาทที่จ่ายไป คุ้มค่าแค่ไหน ติดตาม ROI ได้ชัดเจน
-                    </p>
-                  </div>
-                </div>
-
-                <div className="group">
-                  <div className="bg-white border border-gray-200 hover:border-green-300 hover:shadow-lg rounded-xl p-6 transition-all duration-300">
-                    <div className="flex items-center mb-4">
-                      <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
-                        <DollarSign className="w-6 h-6 text-green-600" />
-                      </div>
-                      <h3 className="font-bold text-lg text-gray-900">ควบคุมงบประมาณง่าย</h3>
-                    </div>
-                    <p className="text-gray-600 leading-relaxed">
-                      กำหนดงบได้ตามต้องการ ไม่บานปลาย
-                    </p>
-                  </div>
-                </div>
-
-                <div className="group md:col-span-2">
-                  <div className="bg-white border border-gray-200 hover:border-purple-300 hover:shadow-lg rounded-xl p-6 transition-all duration-300">
-                    <div className="flex items-center mb-4">
-                      <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
-                        <Zap className="w-6 h-6 text-purple-600" />
-                      </div>
-                      <h3 className="font-bold text-lg text-gray-900">เห็นผลลัพธ์ไว</h3>
-                    </div>
-                    <p className="text-gray-600 leading-relaxed">
-                      สร้าง Traffic, Leads, และยอดขายได้รวดเร็วกว่าที่คิด
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Summary Section */}
-            <div className="mb-16">
-              <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-2xl text-white p-8 text-center">
-                <p className="text-xl leading-relaxed mb-4">
-                  ในยุคที่การแข่งขันสูง การทำให้ธุรกิจของคุณ{" "}
-                  <span className="font-bold underline">&quot;ถูกค้นพบ&quot;</span>{" "}
-                  คือกุญแจสำคัญสู่ความสำเร็จ
-                </p>
-                <p className="text-2xl font-bold">
-                  Google Ads คือคำตอบ!
-                </p>
-              </div>
-            </div>
-
-            {/* Call to Action */}
-            <div className="text-center">
-              <div className="bg-white border border-gray-200 rounded-2xl shadow-xl p-8">
-                <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                  เริ่มต้นสร้างแคมเปญ Google Ads ของคุณวันนี้
+                <h3 className='font-bold text-lg text-gray-900'>
+                  ตรงกลุ่มเป้าหมาย
                 </h3>
-
-                <p className="text-xl text-gray-600 mb-8">
-                  แล้วปลดล็อกศักยภาพธุรกิจให้เติบโตแบบก้าวกระโดด!
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                  <button className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors">
-                    เริ่มต้นเลย
-                  </button>
-
-                  <button className="px-8 py-4 border border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold rounded-lg transition-colors">
-                    ดูข้อมูลเพิ่มเติม
-                  </button>
-                </div>
-
-                <p className="text-sm text-gray-500 mt-6">
-                  🔗 ปรึกษาฟรี | ไม่มีค่าใช้จ่ายเริ่มต้น | รับประกันผลลัพธ์
-                </p>
               </div>
+              <p className='text-gray-600 leading-relaxed'>
+                แสดงโฆษณาให้คนที่ &quot;กำลังค้นหา&quot;
+                สินค้าหรือบริการของคุณเห็นทันที!
+              </p>
             </div>
           </div>
-        </section>
 
-        {/* Google Ads Section 2 */}
-        <section id="learnmore" className="py-24 bg-gray-50">
-          <div className="container px-4 md:px-6 max-w-6xl mx-auto">
-            {/* Header */}
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center px-4 py-2 bg-red-100 text-red-800 rounded-full text-sm font-medium mb-6">
-                บริการ Google Ads โดยมืออาชีพ
+          <div className='group'>
+            <div className='bg-white border border-gray-200 hover:border-blue-300 hover:shadow-lg rounded-xl p-6 transition-all duration-300'>
+              <div className='flex items-center mb-4'>
+                <div className='w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4'>
+                  <TrendingUp className='w-6 h-6 text-blue-600' />
+                </div>
+                <h3 className='font-bold text-lg text-gray-900'>
+                  อยู่เหนือคู่แข่ง
+                </h3>
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                เพิ่มยอดขาย ขยายธุรกิจให้ปัง!
-              </h1>
-              <p className="text-2xl text-red-600 font-semibold">
-                ด้วยบริการทำ Google Ads โดยมืออาชีพ
+              <p className='text-gray-600 leading-relaxed'>
+                ปรากฏโดดเด่นบนหน้าแรก Google เพิ่มโอกาสให้ลูกค้าคลิกหาคุณก่อนใคร
+              </p>
+            </div>
+          </div>
+
+          <div className='group'>
+            <div className='bg-white border border-gray-200 hover:border-yellow-300 hover:shadow-lg rounded-xl p-6 transition-all duration-300'>
+              <div className='flex items-center mb-4'>
+                <div className='w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mr-4'>
+                  <BarChart3 className='w-6 h-6 text-yellow-600' />
+                </div>
+                <h3 className='font-bold text-lg text-gray-900'>
+                  วัดผลได้จริง
+                </h3>
+              </div>
+              <p className='text-gray-600 leading-relaxed'>
+                รู้ว่าเงินทุกบาทที่จ่ายไป คุ้มค่าแค่ไหน ติดตาม ROI ได้ชัดเจน
+              </p>
+            </div>
+          </div>
+
+          <div className='group'>
+            <div className='bg-white border border-gray-200 hover:border-green-300 hover:shadow-lg rounded-xl p-6 transition-all duration-300'>
+              <div className='flex items-center mb-4'>
+                <div className='w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4'>
+                  <DollarSign className='w-6 h-6 text-green-600' />
+                </div>
+                <h3 className='font-bold text-lg text-gray-900'>
+                  ควบคุมงบประมาณง่าย
+                </h3>
+              </div>
+              <p className='text-gray-600 leading-relaxed'>
+                กำหนดงบได้ตามต้องการ ไม่บานปลาย
+              </p>
+            </div>
+          </div>
+
+          <div className='group md:col-span-2'>
+            <div className='bg-white border border-gray-200 hover:border-purple-300 hover:shadow-lg rounded-xl p-6 transition-all duration-300'>
+              <div className='flex items-center mb-4'>
+                <div className='w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4'>
+                  <Zap className='w-6 h-6 text-purple-600' />
+                </div>
+                <h3 className='font-bold text-lg text-gray-900'>
+                  เห็นผลลัพธ์ไว
+                </h3>
+              </div>
+              <p className='text-gray-600 leading-relaxed'>
+                สร้าง Traffic, Leads, และยอดขายได้รวดเร็วกว่าที่คิด
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className='bg-[--secondary] py-10'>
+        <div className='mb-12 container-x px-4 '>
+          <div className='bg-white p-8'>
+            <div className='text-center mb-8'>
+              <h3 className='text-3xl font-bold text-gray-900 mb-4'>
+                ปรึกษาฟรี! ไม่มีค่าใช้จ่าย
+              </h3>
+              <p className='text-xl text-gray-600'>
+                เพื่อประเมินโอกาสทางธุรกิจของคุณบน Google Ads
               </p>
             </div>
 
-            {/* Questions Section */}
-            <div className="mb-16">
-              <div className="bg-white border border-gray-200 rounded-2xl p-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-                  อยากให้ธุรกิจของคุณ...
-                </h2>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="flex items-center space-x-4 p-4 rounded-xl bg-red-50">
-                    <TrendingUp className="w-6 h-6 text-red-600 flex-shrink-0" />
-                    <span className="text-gray-800 font-medium">เข้าถึงลูกค้าใหม่ได้มากขึ้น?</span>
-                  </div>
-                  <div className="flex items-center space-x-4 p-4 rounded-xl bg-red-50">
-                    <Users className="w-6 h-6 text-red-600 flex-shrink-0" />
-                    <span className="text-gray-800 font-medium">สร้างแบรนด์ให้เป็นที่รู้จักในวงกว้าง?</span>
-                  </div>
-                  <div className="flex items-center space-x-4 p-4 rounded-xl bg-red-50">
-                    <Award className="w-6 h-6 text-red-600 flex-shrink-0" />
-                    <span className="text-gray-800 font-medium">แซงหน้าคู่แข่งบนโลกออนไลน์?</span>
-                  </div>
-                  <div className="flex items-center space-x-4 p-4 rounded-xl bg-red-50">
-                    <Clock className="w-6 h-6 text-red-600 flex-shrink-0" />
-                    <span className="text-gray-800 font-medium">แต่ไม่มีเวลาศึกษา หรือทำ Google Ads เองแล้วไม่เห็นผล?</span>
-                  </div>
-                </div>
-                <div className="mt-8 p-6 rounded-xl text-center">
-                  <p className="text-3xl text-slate-800 font-semibold">ให้ทีมงานผู้เชี่ยวชาญของเราดูแล!</p>
-                </div>
+            <div className='grid md:grid-cols-3 gap-6 mb-8'>
+              <div className='flex flex-col items-center p-6 bg-gray-50 rounded-xl'>
+                <Phone className='w-8 h-8 text-[#121b2a] mb-3' />
+                <h4 className='font-semibold text-gray-900 mb-2'>
+                  ติดต่อเราเลย
+                </h4>
+                <p className='text-[#121b2a] font-bold text-lg'>0954965989</p>
               </div>
-            </div>
 
-            {/* Services Section */}
-            <div className="mb-16">
-              <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-                บริการ Google Ads ของเราครอบคลุม:
-              </h2>
-
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-white border border-gray-200 hover:shadow-lg rounded-xl p-6 transition-all duration-300">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Users className="w-6 h-6 text-red-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-lg text-gray-900 mb-2">
-                        ✅ วิเคราะห์ธุรกิจและกลุ่มเป้าหมาย
-                      </h3>
-                      <p className="text-gray-600">เพื่อวางกลยุทธ์ที่ใช่ที่สุด</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white border border-gray-200 hover:shadow-lg rounded-xl p-6 transition-all duration-300">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <CheckCircle className="w-6 h-6 text-blue-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-lg text-gray-900 mb-2">
-                        ✅ คัดเลือก Keyword แม่นยำ
-                      </h3>
-                      <p className="text-gray-600">
-                        ให้โฆษณาของคุณแสดงต่อคนที่ &quot;พร้อมซื้อ&quot;
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white border border-gray-200 hover:shadow-lg rounded-xl p-6 transition-all duration-300">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <MessageCircle className="w-6 h-6 text-yellow-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-lg text-gray-900 mb-2">
-                        ✅ สร้างสรรค์ข้อความโฆษณาดึงดูดใจ
-                      </h3>
-                      <p className="text-gray-600">เพิ่ม CTR (Click-Through Rate)</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white border border-gray-200 hover:shadow-lg rounded-xl p-6 transition-all duration-300">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <BarChart3 className="w-6 h-6 text-red-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-lg text-gray-900 mb-2">
-                        ✅ บริหารจัดการงบประมาณอย่างคุ้มค่า
-                      </h3>
-                      <p className="text-gray-600">ให้ทุกบาททุกสตางค์สร้างผลลัพธ์</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white border border-gray-200 hover:shadow-lg rounded-xl p-6 transition-all duration-300">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <TrendingUp className="w-6 h-6 text-blue-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-lg text-gray-900 mb-2">
-                        ✅ ติดตามผลและปรับปรุงแคมเปญต่อเนื่อง
-                      </h3>
-                      <p className="text-gray-600">เพื่อประสิทธิภาพสูงสุด</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white border border-gray-200 hover:shadow-lg rounded-xl p-6 transition-all duration-300">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <BarChart3 className="w-6 h-6 text-yellow-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-lg text-gray-900 mb-2">
-                        ✅ รายงานผลชัดเจน เข้าใจง่าย
-                      </h3>
-                      <p className="text-gray-600">เห็นความก้าวหน้าของธุรกิจ</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Call to Action */}
-            <div className="mb-12">
-              <div className="bg-white border border-gray-200 rounded-2xl shadow-xl p-8">
-                <div className="text-center mb-8">
-                  <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                    ปรึกษาฟรี! ไม่มีค่าใช้จ่าย
-                  </h3>
-                  <p className="text-xl text-gray-600">
-                    เพื่อประเมินโอกาสทางธุรกิจของคุณบน Google Ads
-                  </p>
-                </div>
-
-                <div className="grid md:grid-cols-3 gap-6 mb-8">
-                  <div className="flex flex-col items-center p-6 bg-red-50 rounded-xl">
-                    <Phone className="w-8 h-8 text-red-600 mb-3" />
-                    <h4 className="font-semibold text-gray-900 mb-2">ติดต่อเราเลย</h4>
-                    <p className="text-red-600 font-bold text-lg">0954965989</p>
-                  </div>
-
-                  <div className="flex flex-col items-center p-6 bg-blue-50 rounded-xl">
-                    <Globe className="w-8 h-8 text-blue-600 mb-3" />
-                    <h4 className="font-semibold text-gray-900 mb-2">เว็บไซต์</h4>
-                    <p className="text-blue-600 font-bold text-lg">www.rundeeads.com</p>
-                  </div>
-
-                  <div className="flex flex-col items-center p-6 bg-yellow-50 rounded-xl">
-                    <MessageSquare className="w-8 h-8 text-yellow-600 mb-3" />
-                    <h4 className="font-semibold text-gray-900 mb-2">Line ID</h4>
-                    <p className="text-yellow-600 font-bold text-lg">@655rkaej</p>
-                  </div>
-                </div>
-
-                <div className="flex justify-center">
-                  <a href="/contact-us">
-                    <button className="flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors">
-                      ติดต่อเราตอนนี้
-                      <ArrowRight className="w-5 h-5 ml-2" />
-                    </button>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Hashtags */}
-            <div className="flex flex-wrap justify-center gap-3">
-              <span className="bg-red-100 text-red-700 px-4 py-2 rounded-full text-sm font-medium">
-                #GoogleAds
-              </span>
-              <span className="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium">
-                #การตลาดออนไลน์
-              </span>
-              <span className="bg-yellow-100 text-yellow-700 px-4 py-2 rounded-full text-sm font-medium">
-                #เพิ่มยอดขาย
-              </span>
-              <span className="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium">
-                #ธุรกิจออนไลน์
-              </span>
-              <span className="bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-medium">
-                #DigitalMarketing
-              </span>
-              <span className="bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium">
-                #rundeeads
-              </span>
-            </div>
-          </div>
-        </section>
-
-        {/* Testimonials */}
-        <section className="py-24 bg-white">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                ลูกค้าของเราพูดถึงเราอย่างไร
-              </h2>
-              <p className="text-xl text-gray-600">
-                ความสำเร็จของลูกค้าคือความสำเร็จของเรา
-              </p>
-            </div>
-
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              <div className="bg-white border border-gray-200 hover:shadow-lg rounded-xl p-8 transition-all duration-300">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600"></div>
-                  <div>
-                    <p className="font-bold text-gray-900">คุณสมชาย</p>
-                    <p className="text-sm text-gray-500">CEO, บริษัท ABC</p>
-                  </div>
-                </div>
-                <p className="text-gray-600 leading-relaxed">
-                  &quot;หลังจากทำงานร่วมกับทีม SEO ของ RundeeAds
-                  ยอดขายของเราเพิ่มขึ้น 200% ภายใน 3 เดือน&quot;
+              <div className='flex flex-col items-center p-6 bg-gray-50 rounded-xl'>
+                <Globe className='w-8 h-8 text-[#121b2a] mb-3' />
+                <h4 className='font-semibold text-gray-900 mb-2'>เว็บไซต์</h4>
+                <p className='text-[#121b2a] font-bold text-lg'>
+                  www.rundeeads.com
                 </p>
               </div>
-              
-              <div className="bg-white border border-gray-200 hover:shadow-lg rounded-xl p-8 transition-all duration-300">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-pink-500 to-red-600"></div>
-                  <div>
-                    <p className="font-bold text-gray-900">คุณสมศรี</p>
-                    <p className="text-sm text-gray-500">Marketing Director, บริษัท XYZ</p>
-                  </div>
-                </div>
-                <p className="text-gray-600 leading-relaxed">
-                  &quot;กลยุทธ์ SEO ที่ได้รับคำแนะนำช่วยให้เราอยู่อันดับ 1 ใน Google
-                  สำหรับคีย์เวิร์ดหลักของเรา&quot;
-                </p>
-              </div>
-              
-              <div className="bg-white border border-gray-200 hover:shadow-lg rounded-xl p-8 transition-all duration-300">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-green-500 to-blue-600"></div>
-                  <div>
-                    <p className="font-bold text-gray-900">คุณสมหมาย</p>
-                    <p className="text-sm text-gray-500">Owner, ร้าน DEF</p>
-                  </div>
-                </div>
-                <p className="text-gray-600 leading-relaxed">
-                  &quot;คอร์สเรียน SEO
-                  ในตำนานเปลี่ยนมุมมองการทำการตลาดออนไลน์ของผมไปเลย คุ้มค่ามาก&quot;
-                </p>
+
+              <div className='flex flex-col items-center p-6 bg-gray-50 rounded-xl'>
+                <MessageSquare className='w-8 h-8 text-[#121b2a] mb-3' />
+                <h4 className='font-semibold text-gray-900 mb-2'>Line ID</h4>
+                <p className='text-[#121b2a] font-bold text-lg'>@655rkaej</p>
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* CTA Section */}
-        <section className="py-24 bg-gradient-to-r from-blue-600 to-blue-700">
-          <div className="container mx-auto px-4 md:px-6 text-center">
-            <h2 className="text-4xl font-bold mb-6 text-white">
-              พร้อมเริ่มเติบโตอย่างยั่งยืนกับเราหรือยัง?
-            </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-              ปรึกษาฟรี! ให้เราช่วยวิเคราะห์ธุรกิจของคุณและวางแผนกลยุทธ์ SEO
-              ที่เหมาะสมที่สุด
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/contact-us">
-                <button className="px-8 py-4 bg-white text-blue-700 hover:bg-gray-100 font-semibold rounded-lg transition-colors">
-                  ติดต่อเรา
+            <div className='flex justify-center'>
+              <a href='/contact-us'>
+                <button className='flex items-center px-8 py-4 bg-[#121b2a] hover:bg-gray-800 text-white font-semibold rounded-lg transition-colors'>
+                  ติดต่อเราตอนนี้
+                  <ArrowRight className='w-5 h-5 ml-2' />
                 </button>
               </a>
-              {/* <button className="px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-blue-700 font-semibold rounded-lg transition-colors">
-                ดูผลงานของเรา
-              </button> */}
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+
+        {/* Hashtags */}
+        <div className='flex flex-wrap justify-center gap-3'>
+          <span className='bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium'>
+            #GoogleAds
+          </span>
+          <span className='bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium'>
+            #การตลาดออนไลน์
+          </span>
+          <span className='bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium'>
+            #เพิ่มยอดขาย
+          </span>
+          <span className='bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium'>
+            #ธุรกิจออนไลน์
+          </span>
+          <span className='bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium'>
+            #DigitalMarketing
+          </span>
+          <span className='bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium'>
+            #rundeeads
+          </span>
+        </div>
+      </section>
+
+      <section className='py-24 bg-white'>
+        <div className='container mx-auto px-4 md:px-6'>
+          <div className='text-center mb-16'>
+            <h2 className='text-4xl font-bold text-gray-900 mb-4'>
+              ทีมงานของเรา
+            </h2>
+            <p className='text-xl text-gray-600'>
+              ผู้เชี่ยวชาญที่พร้อมช่วยให้ธุรกิจของคุณเติบโต
+            </p>
+          </div>
+
+          <div className='grid gap-8 md:grid-cols-2 lg:grid-cols-3'>
+            <div className='bg-white border border-gray-200 hover:shadow-lg rounded-xl p-8 transition-all duration-300'>
+              <div className='flex flex-col items-center gap-4 mb-6 text-center'>
+                <div className='h-24 w-24 rounded-full bg-gradient-to-br from-blue-500 to-purple-600'></div>
+                <div>
+                  <p className='font-bold text-gray-900 text-lg'>คุณสมชาย</p>
+                  <p className='text-sm text-gray-500'>SEO Specialist</p>
+                </div>
+              </div>
+              <p className='text-gray-600 leading-relaxed text-center'>
+                ผู้เชี่ยวชาญด้านการวิเคราะห์คีย์เวิร์ดและการวางกลยุทธ์ SEO
+                ที่ช่วยให้ธุรกิจติดอันดับ Google อย่างยั่งยืน
+              </p>
+            </div>
+
+            <div className='bg-white border border-gray-200 hover:shadow-lg rounded-xl p-8 transition-all duration-300'>
+              <div className='flex flex-col items-center gap-4 mb-6 text-center'>
+                <div className='h-24 w-24 rounded-full bg-gradient-to-br from-pink-500 to-red-600'></div>
+                <div>
+                  <p className='font-bold text-gray-900 text-lg'>คุณสมศรี</p>
+                  <p className='text-sm text-gray-500'>PPC & Ads Manager</p>
+                </div>
+              </div>
+              <p className='text-gray-600 leading-relaxed text-center'>
+                ผู้ดูแลแคมเปญโฆษณาออนไลน์ที่เชี่ยวชาญการบริหารงบประมาณและเพิ่ม
+                CTR ให้เกิดผลลัพธ์สูงสุด
+              </p>
+            </div>
+
+            <div className='bg-white border border-gray-200 hover:shadow-lg rounded-xl p-8 transition-all duration-300'>
+              <div className='flex flex-col items-center gap-4 mb-6 text-center'>
+                <div className='h-24 w-24 rounded-full bg-gradient-to-br from-green-500 to-blue-600'></div>
+                <div>
+                  <p className='font-bold text-gray-900 text-lg'>คุณสมหมาย</p>
+                  <p className='text-sm text-gray-500'>
+                    Digital Marketing Consultant
+                  </p>
+                </div>
+              </div>
+              <p className='text-gray-600 leading-relaxed text-center'>
+                ที่ปรึกษาด้านการตลาดดิจิทัลที่สามารถวางแผนและนำเสนอโซลูชันที่ครอบคลุมสำหรับธุรกิจทุกขนาด
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </Layout>
-  );
+  )
 }

@@ -1,31 +1,62 @@
-
-import { Search } from "lucide-react"
-
-
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { HiMenu, HiX } from "react-icons/hi";
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const menuList = [
+    { href: "/", label: "หน้าแรก", id: 1 },
+    { href: "/services/seo-training-service", label: "คอร์สอบรม SEO แบบมืออาชีพ", id: 2 },
+  ];
+
   return (
-    <header className="border-b">
-      <div className="container  max-w-7xl px-4 mx-auto flex items-center justify-between py-4">
-        <a href="/"  className="text-xl font-bold">
-          <img src="/icon.jpg"
-          className="w-[130px]"
-          alt="rudeeads logo" />
+    <header className="bg-[#121b2a]">
+      <div className="container max-w-7xl px-4 mx-auto flex items-center justify-between py-2">
+        <a href="/" className="text-xl font-bold">
+          <img src="/icon.png" className="w-[100px]" alt="rudeeads logo" />
         </a>
-        {/* <nav className="hidden md:flex items-center space-x-6">
-          <Link to="/" className="text-sm font-medium hover:text-primary">หน้าหลัก</Link>
-          <Link to="/contact" className="text-sm font-medium hover:text-primary">ติดต่อ</Link>
-        </nav> */}
-        <div className="flex items-center gap-4">
-          <div className="relative hidden md:flex items-center">
-            <input type="search" placeholder="Search" className="w-[200px] pl-8" />
-            <Search className="absolute left-2 h-4 w-4 text-muted-foreground" />
-          </div>
-          <button className="md:hidden">
-            <Search className="h-5 w-5" />
-          </button>
-        </div>
+
+        {/* Desktop Menu */}
+        <nav className="hidden md:flex items-center space-x-6">
+          {menuList?.map((item) => (
+            <Link
+              to={item?.href}
+              key={item.id}
+              className="text-sm font-medium hover:text-primary hover:border-b-white border-b-transparent border-b duration-200 text-white"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-white text-2xl bg-transparent"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <HiX /> : <HiMenu />}
+        </button>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      {isOpen && (
+        <nav className="md:hidden  bg-[#121b2a] border-t border-gray-700">
+          <ul className="flex flex-col space-y-2 p-4">
+            {menuList?.map((item) => (
+              <li key={item.id}>
+                <Link
+                  to={item?.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block text-sm font-medium text-white hover:text-primary py-2"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
     </header>
-  )
+  );
 }

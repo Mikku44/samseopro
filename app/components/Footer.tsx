@@ -13,10 +13,10 @@ export default function Footer() {
             <h3 className="text-lg font-bold mb-4 text-white">บริการของเรา</h3>
             <ul className="space-y-2 text-sm">
               <li><Link to="/services/seo-training-service" className="hover:text-white">คอร์สอบรม SEO แบบมืออาชีพ</Link></li>
-              <li><Link to="#" className="hover:text-white">ตรวจสอบ SEO</Link></li>
+              {/* <li><Link to="#" className="hover:text-white">ตรวจสอบ SEO</Link></li>
               <li><Link to="#" className="hover:text-white">Content Strategy</Link></li>
               <li><Link to="#" className="hover:text-white">Keyword Research</Link></li>
-              <li><Link to="#" className="hover:text-white">SEO Training</Link></li>
+              <li><Link to="#" className="hover:text-white">SEO Training</Link></li> */}
             </ul>
           </div>
           {/* <div>
