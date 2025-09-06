@@ -1,7 +1,7 @@
 
 export default function CardBlog() {
   return (
-    <div className="min-w-[200px] grid  h-[300px] bg-white rounded-xl p-5">
+    <div className="min-w-[200px] grid border border-gray-200/80 h-[300px] bg-white rounded-xl p-5">
         <div className="h-[30%]">
             <img src="/icon.png" alt="cover" />
         </div>

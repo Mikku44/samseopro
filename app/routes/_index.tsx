@@ -1,4 +1,4 @@
-import { MetaFunction } from '@remix-run/react'
+import { Link, MetaFunction } from '@remix-run/react'
 import {
   ArrowRight,
   BarChart3,
@@ -86,7 +86,7 @@ export default function Index () {
       >
         {/* Text Content */}
         <div className='h-full max-w-7xl md:px-20 mx-auto md:m-0 m-auto py-5 flex flex-col  justify-center gap-5 relative z-10'>
-          <div className='text-sm text-white/30'>
+          <div className=' text-white/80'>
             เพิ่มยอดขาย ขยายธุรกิจให้ปัง!
           </div>
           <h1 className='md:text-5xl text-4xl text-white font-bold'>
@@ -98,7 +98,7 @@ export default function Index () {
             ให้คำแนะนำจากผู้ให้คำปรึกษา SEO ที่ไว้ใจได้
           </h2>
 
-          <button className='relative z-10 px-5 w-fit'>ติดต่อเรา</button>
+          <a href={"#contact"}><button className='relative z-10 px-5 w-fit'>ติดต่อเรา</button></a>
         </div>
 
         {/* Gradient Overlay */}
@@ -237,7 +237,7 @@ export default function Index () {
         </div>
       </section>
 
-      <section className='bg-[--secondary] py-10'>
+      <section id="contact" className='bg-[--secondary] py-10'>
         <div className='mb-12 container-x px-4 '>
           <div className='bg-white p-8'>
             <div className='text-center mb-8'>

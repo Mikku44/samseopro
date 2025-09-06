@@ -108,7 +108,7 @@ export default function ContactUs () {
     <Layout>
       <div className='min-h-screen bg-gray-50'>
         {/* Header Section */}
-        <section className='bg-gradient-to-b from-blue-600 to-blue-700 py-20'>
+        <section className='bg-gradient-to-b from-blue-800 to-blue-950 py-20'>
           <div className='container mx-auto px-4 md:px-6 text-center'>
             <h1 className='text-4xl md:text-5xl font-bold text-white mb-6'>
               ติดต่อเรา
@@ -141,13 +141,13 @@ export default function ContactUs () {
                   <div className='bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow'>
                     <div className='flex items-start space-x-4'>
                       <div className='w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0'>
-                        <Phone className='w-6 h-6 text-blue-600' />
+                        <Phone className='w-6 h-6 text-blue-800' />
                       </div>
                       <div>
                         <h3 className='font-semibold text-gray-900 mb-2'>
                           โทรศัพท์
                         </h3>
-                        <p className='text-blue-600 font-bold text-lg'>
+                        <p className='text-blue-800 font-bold text-lg'>
                           0954965989
                         </p>
                         <p className='text-sm text-gray-500 mt-1'>
@@ -176,24 +176,7 @@ export default function ContactUs () {
                     </div>
                   </div>
 
-                  <div className='bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow'>
-                    <div className='flex items-start space-x-4'>
-                      <div className='w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0'>
-                        <Globe className='w-6 h-6 text-purple-600' />
-                      </div>
-                      <div>
-                        <h3 className='font-semibold text-gray-900 mb-2'>
-                          เว็บไซต์
-                        </h3>
-                        <p className='text-purple-600 font-bold text-lg'>
-                          www.rundeeads.com
-                        </p>
-                        <p className='text-sm text-gray-500 mt-1'>
-                          ข้อมูลเพิ่มเติมและบล็อก
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+                 
 
                   <div className='bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow'>
                     <div className='flex items-start space-x-4'>
@@ -218,7 +201,7 @@ export default function ContactUs () {
                 {/* Working Hours */}
                 <div className='bg-blue-50 border border-blue-200 rounded-xl p-6'>
                   <div className='flex items-center space-x-3 mb-4'>
-                    <Clock className='w-6 h-6 text-blue-600' />
+                    <Clock className='w-6 h-6 text-blue-800' />
                     <h3 className='font-semibold text-gray-900'>เวลาทำการ</h3>
                   </div>
                   <div className='space-y-2 text-sm'>
@@ -396,7 +379,7 @@ export default function ContactUs () {
                       type='button'
                       onClick={handleSubmit}
                       disabled={isSubmitted}
-                      className='w-full flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-700 disabled:bg-green-500 text-white font-semibold rounded-lg transition-colors'
+                      className='w-full flex items-center justify-center px-8 py-4 bg-blue-800 hover:bg-blue-950 disabled:bg-green-500 text-white font-semibold rounded-lg transition-colors'
                     >
                       {isSubmitted ? (
                         <>
@@ -418,7 +401,7 @@ export default function ContactUs () {
         </section>
 
         {/* Quick Contact Section */}
-        <section className='py-16 bg-blue-600'>
+        <section className='py-16 bg-blue-800'>
           <div className='container mx-auto px-4 md:px-6 text-center'>
             <h2 className='text-3xl font-bold text-white mb-4'>
               ต้องการความช่วยเหลือด่วน?
@@ -427,10 +410,12 @@ export default function ContactUs () {
               ติดต่อเราผ่าน Line Official Account
               สำหรับการตอบกลับที่รวดเร็วที่สุด
             </p>
-            <div className='flex flex-col sm:flex-row gap-4 justify-center'>
+            <div className='flex flex-col sm:flex-row gap-4 items-center justify-center'>
               <a
                 href='tel:0954965989'
-                className='inline-flex items-center px-8 py-4 bg-white text-blue-700 hover:bg-gray-100 font-semibold rounded-lg transition-colors'
+                className='inline-flex items-center px-8 py-5
+                
+                bg-white text-blue-950 hover:bg-gray-100 font-semibold rounded-full transition-colors'
               >
                 <Phone className='w-5 h-5 mr-2' />
                 โทรเลย 095-496-5989
