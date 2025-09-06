@@ -9,7 +9,7 @@ export default function CoursePricingCTA() {
   ];
 
   return (
-    <section className="relative w-full rounded-3xl text-neutral-900 dark:text-neutral-100 bg-neutral-100 dark:bg-neutral-900/40">
+    <section className="relative w-full rounded-3xl text-neutral-900  bg-neutral-100 ">
       <div className="container mx-auto px-4 py-20 text-center">
         {/* Title */}
         <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-6">
@@ -48,7 +48,7 @@ export default function CoursePricingCTA() {
           <p className="text-lg md:text-xl font-medium leading-relaxed">
             พร้อมเปลี่ยนงบโฆษณาที่เคยเสียไป ให้กลายเป็นกำไรแล้วหรือยัง?
           </p>
-          <p className="text-base md:text-lg text-neutral-700 dark:text-neutral-300  leading-relaxed">
+          <p className="text-base md:text-lg text-neutral-700   leading-relaxed">
             การลงทุนครั้งนี้ ไม่ใช่แค่การเรียนวิธีใช้เครื่องมือ แต่คือการซื้อ{" "}
             <span className="font-semibold">&quot;ประสบการณ์&quot;</span> และ{" "}
             <span className="font-semibold">&quot;ทางลัด&quot;</span> สู่ความสำเร็จจากคนที่เห็นภาพรวมมาแล้วกว่าพันธุรกิจ

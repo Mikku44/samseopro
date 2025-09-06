@@ -32,12 +32,12 @@ export default function CourseTargetAudience() {
           {audiences.map((item, idx) => (
             <div
               key={idx}
-              className="rounded-xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 p-6 shadow-sm"
+              className="rounded-xl border border-neutral-200 bg-white  p-6 shadow-sm"
             >
               <h3 className="text-lg font-medium text-[--secondary] mb-2">
                 {item.title}
               </h3>
-              <p className="text-sm md:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
+              <p className="text-sm md:text-base text-neutral-600  leading-relaxed">
                 {item.desc}
               </p>
             </div>

@@ -56,11 +56,11 @@ const item = {
 
 export default function GoogleAdsCourseTimeline() {
   return (
-    <section className="relative w-full text-neutral-900 dark:text-neutral-100">
+    <section className="relative w-full text-neutral-900 ">
       <div className="container mx-auto px-4 py-12">
         <header className="mb-10 max-w-2xl">
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">หลักสูตร Google Ads – ไทม์ไลน์การเรียน</h2>
-          <p className="text-neutral-600 dark:text-neutral-400 mt-2 text-sm md:text-base">เรียนเป็นลำดับขั้น ตั้งแต่ปูพื้นฐานไปจนถึงทำจริง วิเคราะห์ ปรับแต่ง และเวิร์กชอปเฉพาะธุรกิจคุณ</p>
+          <p className="text-neutral-600 mt-2 text-sm md:text-base">เรียนเป็นลำดับขั้น ตั้งแต่ปูพื้นฐานไปจนถึงทำจริง วิเคราะห์ ปรับแต่ง และเวิร์กชอปเฉพาะธุรกิจคุณ</p>
         </header>
 
         <motion.ol
@@ -68,12 +68,12 @@ export default function GoogleAdsCourseTimeline() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={container}
-          className="relative ml-6 space-y-8 border-l border-neutral-200 dark:border-neutral-700"
+          className="relative ml-6 space-y-8 border-l border-neutral-200 "
         >
           {parts.map((section) => (
             <motion.li key={section.part} variants={item} className="relative pl-6">
               {/* Node */}
-              <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-[--secondary] ring-4 ring-white dark:ring-neutral-900" />
+              <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-[--secondary] ring-4 ring-white " />
 
               {/* Card */}
               <div className="space-y-3">
