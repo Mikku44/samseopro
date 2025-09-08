@@ -1,4 +1,4 @@
-import { Link, MetaFunction } from '@remix-run/react'
+import {  MetaFunction } from '@remix-run/react'
 import {
   ArrowRight,
   BarChart3,
@@ -81,9 +81,15 @@ export default function Index () {
   return (
     <Layout>
       <section
-        className="w-full h-screen max-h-[32rem] p-5 md:p-24 relative overflow-hidden
-          bg-[url('/blue.jpg')] bg-cover bg-no-repeat bg-center"
+        className="w-full h-screen max-h-[600px] p-5 md:p-24 relative overflow-hidden
+          bg-[url('/bg.avif')]
+          bg-cover bg-no-repeat bg-center"
       >
+        {/* <div className="absolute size-[100px] rounded-full bg-gradient-to-tr from-blue-500 to-transparent"></div> */}
+
+        <div className="">
+          <img src="/computer.png" className='w-[500px] absolute right-0 mr-[100px]' alt="" />
+        </div>
         {/* Text Content */}
         <div className='h-full max-w-7xl md:px-20 mx-auto md:m-0 m-auto py-5 flex flex-col  justify-center gap-5 relative z-10'>
           <div className=' text-white/80'>
@@ -98,17 +104,17 @@ export default function Index () {
             ให้คำแนะนำจากผู้ให้คำปรึกษา SEO ที่ไว้ใจได้
           </h2>
 
-          <a href={"#contact"}><button className='relative z-10 px-5 w-fit'>ติดต่อเรา</button></a>
+          <a href={"#contact"}><button className='relative z-10 px-5 w-fit bg-white'>ติดต่อเรา</button></a>
         </div>
 
         {/* Gradient Overlay */}
         <div className='absolute inset-0 bg-gradient-to-b from-black/0 to-black/80'></div>
       </section>
 
-      <section className='md:py-20 py-10 container-x min-h-[500px] flex justify-center flex-col'>
+      <section className='md:py-20 py-10 container-x min-h-[600px] flex justify-center flex-col'>
         <h2 className='text-3xl font-bold mb-10'>
           {' '}
-          บริการ Rundee Ads ของเราครอบคลุม:?
+          บริการ Rundee Ads ของเราครอบคลุม?
         </h2>
         <div className='flex md:flex-row flex-col justify-between gap-4'>
           {serviceList.map(item => (
@@ -237,9 +243,9 @@ export default function Index () {
         </div>
       </section>
 
-      <section id="contact" className='bg-[--secondary] py-10'>
+      <section id="contact" className='bg-[url("/bg.avif")] py-10'>
         <div className='mb-12 container-x px-4 '>
-          <div className='bg-white p-8'>
+          <div className='bg-white p-8 rounded-xl'>
             <div className='text-center mb-8'>
               <h3 className='text-3xl font-bold text-gray-900 mb-4'>
                 ปรึกษาฟรี! ไม่มีค่าใช้จ่าย

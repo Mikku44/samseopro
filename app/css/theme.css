@@ -1,15 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
-
 :root {
-  --primary: #b91c1c;
-  --secondary: #121b2a;
-  --tertiary: #FF9B00;
-  --default: #0000;
-
   --color-blue: oklch(45% 50% 264deg);
   --color-red: oklch(50% 55% 31deg);
 
@@ -41,42 +30,4 @@
     --color-gray-900: oklch(95% 2% 264deg / 90%);
     --color-gray-950: oklch(94% 1.5% 264deg / 95%);
   }
-}
-
-
-.blue-corner {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100px;
-  height: 100px;
-  background: linear-gradient(135deg, #3b82f6, #60a5fa); /* blue gradient */
-  clip-path: polygon(100% 0, 100% 100%, 0 0); /* triangle corner */
-}
-
-
-html,
-body {
-  isolation: isolate;
-  @apply bg-white;
-  font-family: "Noto Sans Thai", "Playpen Sans Thai", cursive;
-  font-optical-sizing: auto;
-
-
-}
-
-main {
-  @apply mx-auto max-w-7xl px-4 min-h-screen w-full;
-}
-
-.container-x {
-  @apply mx-auto max-w-7xl px-4 w-full;
-}
-
-
-
-
-button,
-.button {
-  @apply rounded-md px-3 py-2 text-black/70 duration-150 hover:opacity-90;
 }
