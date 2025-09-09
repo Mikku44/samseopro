@@ -19,7 +19,7 @@ export default function CourseTargetAudience() {
   ];
 
   return (
-    <section className="relative w-full ">
+    <section className="relative w-full">
       <div className="container mx-auto px-4 py-12">
         <header className="mb-10 text-center">
           <div className="text-white/80 text-lg">หากกำลังสงสัย</div>
@@ -32,12 +32,12 @@ export default function CourseTargetAudience() {
           {audiences.map((item, idx) => (
             <div
               key={idx}
-              className="rounded-xl border border-neutral-200 bg-white  p-6 shadow-sm"
+              className="p-6 rounded-2xl border border-white/20 bg-white/5 backdrop-blur-sm text-white/80 text-base"
             >
-              <h3 className="text-lg font-medium text-[--secondary] mb-2">
+              <h3 className="text-lg font-medium  mb-2">
                 {item.title}
               </h3>
-              <p className="text-sm md:text-base text-neutral-600  leading-relaxed">
+              <p className="text-sm md:text-base leading-relaxed">
                 {item.desc}
               </p>
             </div>

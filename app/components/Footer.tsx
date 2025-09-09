@@ -1,4 +1,8 @@
 import { Link } from "@remix-run/react"
+import { FaLine } from "react-icons/fa6"
+import { IoCall } from "react-icons/io5"
+import { MdEmail } from "react-icons/md"
+import { RiMapPinFill } from "react-icons/ri"
 
 export default function Footer() {
   return (
@@ -31,11 +35,20 @@ export default function Footer() {
             </ul>
           </div> */}
           <div>
-            <h3 className="text-lg font-bold mb-4 text-white">ติดต่อเรา</h3>
+            <h3 className="text-lg font-bold mb-4 text-white">ติดต่อ Rundde Ads</h3>
             <ul className="space-y-2 text-sm">
-              <li>อีเมล: rundee.ads@gmail.com</li>
-              <li>โทร: 0954965989</li>
-              <li>ที่อยู่: กรุงเทพมหานคร ประเทศไทย</li>
+              <a 
+              href="/#" rel="nofollow"
+              className="flex gap-1 items-center"><RiMapPinFill className="text-2xl" />กรุงเทพมหานคร ประเทศไทย</a>
+              <a 
+              href="mailto:rundee.ads@gmail.com" rel="nofollow"
+              className="flex gap-1 items-center"><MdEmail className="text-2xl"/> rundee.ads@gmail.com</a>
+              <a 
+              href="tel:0954965989" rel="nofollow"
+              className="flex gap-1 items-center"><IoCall className="text-2xl"/> 0954965989</a>
+              <a 
+              href="https://line.me/R/ti/p/@655rkaej" rel="nofollow"
+              className="flex gap-1 items-center"><FaLine className="text-xl" /> @655rkaej</a>
             </ul>
           </div>
         </div>
