@@ -89,7 +89,7 @@ export default function SEOTrainingService () {
         <div className='absolute inset-0 bg-gradient-to-b from-black/0 to-black/80'></div>
       </motion.section>
 
-      <section className='md:min-h-[80vh] mt-10'>
+      <section className=' mt-10'>
         <div className='container-x mx-auto py-16 flex items-center justify-between md:flex-row flex-col-reverse gap-10'>
           {/* Text Content */}
           <div className='md:basis-1/2'>
