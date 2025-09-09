@@ -234,7 +234,7 @@ export default function SEOTrainingService () {
 
       <section className='min-h-[80vh] relative mt-5 z-10'>
         <div className='container-x mx-auto py-10 text-center'>
-          <h2 className='bg-gradient-to-r md:text-5xl py-2 text-4xl font-bold mb-1 from-blue-500 to-purple-500 text-transparent bg-clip-text'>
+          <h2 className=' md:text-5xl py-2 text-4xl font-bold mb-1 bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text'>
             สิ่งที่คุณจะได้เรียนรู้ในคอร์สนี้
           </h2>
           <div className='md:text-5xl py-2 text-4xl '>

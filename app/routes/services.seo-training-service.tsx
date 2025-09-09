@@ -2,6 +2,7 @@
 import Layout from '~/components/Layout'
 import type { MetaFunction } from '@remix-run/node'
 import { BookOpen, Users, CheckCircle, Clock, Send } from 'lucide-react'
+import { motion } from 'framer-motion'
 import { useState } from 'react'
 
 export const meta: MetaFunction = () => {
@@ -66,281 +67,288 @@ export default function SEOTrainingService () {
     <Layout>
       <div className='min-h-screen bg-gray-50'>
         {/* Hero */}
-        <section className='bg-gradient-to-b from-indigo-600 to-indigo-700 py-20 text-center text-white'>
-          <div className='container mx-auto px-4 md:px-6'>
-            <h1 className='text-4xl md:text-5xl font-bold mb-6'>
+
+        <motion.section
+          className=' w-full h-screen max-h-[600px] p-5 md:p-24 relative overflow-hidden
+         bg-blue-800 bg-cover bg-no-repeat bg-center *:
+         bg-[url("/bg.avif")]'
+        >
+          {/* Text Content */}
+          <div className='h-full max-w-7xl md:px-20 mx-auto md:m-0 m-auto py-5 flex flex-col justify-center gap-5 relative z-10'>
+            <motion.div
+              className='text-white/80'
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+            >
+              เพิ่มยอดขาย ขยายธุรกิจให้ปัง!
+            </motion.div>
+
+            <motion.h1
+              className='md:text-5xl text-4xl text-white font-bold'
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8, ease: 'easeOut' }}
+            >
+              RundeeAds <br />
               คอร์สอบรม SEO แบบมืออาชีพ
-            </h1>
-            <p className='text-xl max-w-2xl mx-auto leading-relaxed'>
+            </motion.h1>
+
+            <motion.h2
+              className='text-white mt-4'
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8, ease: 'easeOut' }}
+            >
               เรียนรู้การทำ SEO อย่างถูกต้อง ปฏิบัติได้จริง
               เพิ่มอันดับเว็บไซต์บน Google ด้วยกลยุทธ์ที่ใช้ได้ผล
-            </p>
+            </motion.h2>
           </div>
-        </section>
+
+          {/* Gradient Overlay */}
+          <div className='absolute inset-0 bg-gradient-to-b from-black/0 to-black/80'></div>
+        </motion.section>
 
         <section className='py-16 md:py-24 mx-auto  container md:max-w-[70vw] max-w-[90vw]'>
-          <h2 className='md:text-5xl text-3xl font-bold mb-14 text-center text-blue-500'>
+          <motion.div
+            className='text-gray-500/80 text-center'
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+          >
+            ถ้าคุณเรียนกับเรา
+          </motion.div>
+          <h2
+            className='md:text-5xl text-3xl font-bold mb-14 text-center py-3
+          bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text'
+          >
             สิ่งที่คุณจะได้รับจากการอบรม
           </h2>
-          <ul className='space-y-14 text-gray-700'>
-            <li className='flex items-center flex-col bg-white rounded-xl p-10 gap-4 justify-between'>
-              <img
-                src='https://images.unsplash.com/photo-1477013743164-ffc3a5e556da?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-                alt='หลักการทำ SEO'
-                className='w-[300px] h-[300px] rounded-lg object-cover'
-              />
-              <div>
-                <p className='font-semibold'>
-                  เข้าใจหลักการทำ SEO ทั้ง On-page และ Off-page อย่างลึกซึ้ง
-                </p>
-                <p className='text-sm text-gray-600'>
-                  เรียนรู้ตั้งแต่พื้นฐานจนถึงเทคนิคระดับสูง รวมถึง:
-                  <ul className='list-disc ml-5 mt-2 space-y-1'>
-                    <li>การปรับโครงสร้างเว็บไซต์ให้เป็นมิตรกับ SEO</li>
-                    <li>
-                      เทคนิคการเขียนเนื้อหาให้ติดอันดับ (Keyword Optimization)
-                    </li>
-                    <li>การออกแบบโครงสร้างลิงก์ภายใน (Internal Linking)</li>
-                    <li>
-                      กลยุทธ์สร้างลิงก์คุณภาพจากเว็บภายนอก (Backlink Building)
-                    </li>
-                    <li>การทำ Technical SEO เพื่อแก้ไขปัญหาการจัดอันดับ</li>
+
+          <div className='shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] rounded-2xl mb-16'>
+            <img
+              src='/background(2).jpg'
+              alt='background'
+              className='w-full h-full object-cover rounded-2xl'
+            />
+          </div>
+          <ul className='grid gap-10 md:gap-14 md:grid-cols-2 text-gray-800'>
+            {[
+              {
+                title:
+                  'เข้าใจหลักการทำ SEO ทั้ง On-page และ Off-page อย่างลึกซึ้ง',
+                img: 'https://images.unsplash.com/photo-1477013743164-ffc3a5e556da?q=80&w=1170&auto=format&fit=crop',
+                items: [
+                  'การปรับโครงสร้างเว็บไซต์ให้เป็นมิตรกับ SEO',
+                  'เทคนิคการเขียนเนื้อหาให้ติดอันดับ (Keyword Optimization)',
+                  'การออกแบบโครงสร้างลิงก์ภายใน (Internal Linking)',
+                  'กลยุทธ์สร้างลิงก์คุณภาพจากเว็บภายนอก (Backlink Building)',
+                  'การทำ Technical SEO เพื่อแก้ไขปัญหาการจัดอันดับ'
+                ]
+              },
+              {
+                title:
+                  'Workshop ปฏิบัติจริง กับกรณีศึกษา 5 ธุรกิจที่แตกต่างกัน',
+                img: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=1251&auto=format&fit=crop',
+                items: [
+                  'E-commerce: เทคนิคเพิ่มอันดับสำหรับหน้าสินค้า',
+                  'เว็บบริการ: กลยุทธ์ดึงดูดลูกค้าในพื้นที่ (Local SEO)',
+                  'เว็บเนื้อหา: การสร้าง Traffic จากบทความยาว (Long-form Content)',
+                  'เว็บใหม่: วิธีเร่งให้ติดอันดับเร็วขึ้น',
+                  'เว็บที่มีปัญหาโดนแพนด้าลงโทษ (Google Penalty)'
+                ]
+              },
+              {
+                title: 'เชี่ยวชาญเครื่องมือวิเคราะห์ SEO ครบทุกด้าน',
+                img: 'https://images.unsplash.com/photo-1599658880436-c61792e70672?q=80&w=1170&auto=format&fit=crop',
+                items: [
+                  'Google Search Console - วิเคราะห์ปัญหาจาก Google โดยตรง',
+                  'Google Analytics 4 - ติดตามพฤติกรรมผู้ใช้',
+                  'Ahrefs/SEMrush - วิเคราะห์คู่แข่งและโอกาสคีย์เวิร์ด',
+                  'Screaming Frog - สแกนหาปัญหา Technical SEO',
+                  'ChatGPT + SEO Tools - ใช้ AI ช่วยงาน SEO'
+                ]
+              },
+              {
+                title: 'เทคนิคการสร้างเนื้อหาแบบ SEO ที่ได้ผลจริงในปี 2024',
+                img: 'https://images.unsplash.com/photo-1682420636597-0786f3406a94?q=80&w=627&auto=format&fit=crop',
+                items: [
+                  'การเขียนให้ตอบโจทย์ EEAT (Experience, Expertise, Authoritativeness, Trustworthiness)',
+                  'การใช้ AI ช่วยงาน SEO อย่างถูกวิธี',
+                  'เทคนิค Featured Snippet เพื่อยึดตำแหน่งอันดับ 0',
+                  'กลยุทธ์ Content Cluster สำหรับเพิ่ม Authority',
+                  'การทำ Video SEO สำหรับ YouTube และ Google Video'
+                ]
+              },
+              {
+                title: 'แผนปฏิบัติการ SEO 3 เดือน พร้อมระบบติดตามผล',
+                img: 'https://images.unsplash.com/photo-1686061594183-8c864f508b00?q=80&w=1170&auto=format&fit=crop',
+                items: [
+                  'แบบฟอร์ม Audit เว็บไซต์แบบละเอียด',
+                  'แผนงานรายเดือนพร้อม Key Milestones',
+                  'เทมเพลตรายงานผลให้ลูกค้า/ทีมงาน',
+                  'ระบบติดตามความคืบหน้าแบบ KPI Dashboard'
+                ]
+              },
+              {
+                title: 'ใบประกาศนียบัตรพร้อมสิทธิพิเศษสำหรับสมาชิก',
+                img: 'https://images.unsplash.com/photo-1589330694653-ded6df03f754?q=80&w=1216&auto=format&fit=crop',
+                items: [
+                  'ใบประกาศนียบัตรรับรองโดย RundeeAds และพันธมิตร',
+                  'สิทธิ์เข้ากลุ่มปรึกษาปัญหา SEO หลังอบรม',
+                  'สิทธิ์รับอัปเดตเนื้อหาเวอร์ชันล่าสุดฟรี 1 ปี',
+                  'ส่วนลดพิเศษสำหรับคอร์สอัพสกิลอื่นๆ',
+                  'โอกาสได้รับการแนะนำงานจากเครือข่ายพันธมิตร'
+                ]
+              },
+              {
+                title: 'การเข้าสู่ชุมชนนัก SEO มืออาชีพ',
+                img: 'https://images.unsplash.com/photo-1591518756833-0a5e1a15a0b9?q=80&w=687&auto=format&fit=crop',
+                items: [
+                  'เข้ากลุ่มปิดสำหรับศิษย์เก่า',
+                  'โอกาสร่วมงาน Networking Event ทุก 3 เดือน',
+                  'ระบบ Mentorship จากผู้เชี่ยวชาญ',
+                  'พื้นที่แบ่งปันผลงานและกรณีศึกษาจริง'
+                ]
+              }
+            ].map((card, i) => (
+              <li
+                key={i}
+                className='flex flex-col overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-300'
+              >
+                <img
+                  src={card.img}
+                  alt={card.title}
+                  className='h-64 w-full object-cover'
+                />
+                <div className='flex flex-col p-6 space-y-4'>
+                  <h3 className='text-lg md:text-xl font-semibold'>
+                    {card.title}
+                  </h3>
+                  <ul className='list-disc ml-5 space-y-2 text-sm text-gray-600'>
+                    {card.items.map((it, j) => (
+                      <li key={j}>{it}</li>
+                    ))}
                   </ul>
-                </p>
-              </div>
-            </li>
-            <li className='flex items-center flex-col bg-white rounded-xl p-10 gap-4 md:flex-row-reverse justify-between'>
-              <img 
-                src='https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=1251&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-                alt='Workshop SEO'
-                className='w-[300px] h-[300px] rounded-lg object-cover'
-              />
-              <div>
-                <p className='font-semibold'>
-                  Workshop ปฏิบัติจริง กับกรณีศึกษา 5 ธุรกิจที่แตกต่างกัน
-                </p>
-                <p className='text-sm text-gray-600'>
-                  ลงมือทำจริงทุกขั้นตอนผ่านตัวอย่างธุรกิจจริง:
-                  <ul className='list-disc ml-5 mt-2 space-y-1'>
-                    <li>E-commerce: เทคนิคเพิ่มอันดับสำหรับหน้าสินค้า</li>
-                    <li>เว็บบริการ: กลยุทธ์ดึงดูดลูกค้าในพื้นที่ (Local SEO)</li>
-                    <li>
-                      เว็บเนื้อหา: การสร้าง Traffic จากบทความยาว (Long-form
-                      Content)
-                    </li>
-                    <li>เว็บใหม่: วิธีเร่งให้ติดอันดับเร็วขึ้น</li>
-                    <li>เว็บที่มีปัญหาโดนแพนด้าลงโทษ (Google Penalty)</li>
-                  </ul>
-                </p>
-              </div>
-            </li>
-            <li className='flex items-center flex-col bg-white rounded-xl p-10 gap-4 justify-between'>
-              <img
-                src='https://images.unsplash.com/photo-1599658880436-c61792e70672?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-                alt='SEO Tools'
-                className='w-[300px] h-[300px] rounded-lg object-cover'
-              />
-              <div>
-                <p className='font-semibold'>
-                  เชี่ยวชาญเครื่องมือวิเคราะห์ SEO ครบทุกด้าน
-                </p>
-                <p className='text-sm text-gray-600'>
-                  ฝึกใช้งานเครื่องมือระดับมืออาชีพทั้งฟรีและเสียเงิน:
-                  <ul className='list-disc ml-5 mt-2 space-y-1'>
-                    <li>
-                      Google Search Console - วิเคราะห์ปัญหาจาก Google โดยตรง
-                    </li>
-                    <li>Google Analytics 4 - ติดตามพฤติกรรมผู้ใช้</li>
-                    <li>Ahrefs/SEMrush - วิเคราะห์คู่แข่งและโอกาสคีย์เวิร์ด</li>
-                    <li>Screaming Frog - สแกนหาปัญหา Technical SEO</li>
-                    <li>ChatGPT + SEO Tools - ใช้ AI ช่วยงาน SEO</li>
-                  </ul>
-                </p>
-              </div>
-            </li>
-            <li className='flex items-center flex-col bg-white rounded-xl p-10 gap-4 md:flex-row-reverse justify-between'>
-              <img
-                src='https://images.unsplash.com/photo-1682420636597-0786f3406a94?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-                alt='SEO Content'
-                className='w-[300px] h-[300px] rounded-lg object-cover'
-              />
-              <div>
-                <p className='font-semibold'>
-                  เทคนิคการสร้างเนื้อหาแบบ SEO ที่ได้ผลจริงในปี 2024
-                </p>
-                <p className='text-sm text-gray-600'>
-                  อัปเดตเทคนิคล่าสุดที่ทำงานได้ผล:
-                  <ul className='list-disc ml-5 mt-2 space-y-1'>
-                    <li>
-                      การเขียนให้ตอบโจทย์ EEAT (Experience, Expertise,
-                      Authoritativeness, Trustworthiness)
-                    </li>
-                    <li>การใช้ AI ช่วยงาน SEO อย่างถูกวิธี</li>
-                    <li>เทคนิค Featured Snippet เพื่อยึดตำแหน่งอันดับ 0</li>
-                    <li>กลยุทธ์ Content Cluster สำหรับเพิ่ม Authority</li>
-                    <li>การทำ Video SEO สำหรับ YouTube และ Google Video</li>
-                  </ul>
-                </p>
-              </div>
-            </li>
-            <li className='flex items-center flex-col bg-white rounded-xl p-10 gap-4 justify-between'>
-              <img
-                src='https://images.unsplash.com/photo-1686061594183-8c864f508b00?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-                alt='SEO Strategy'
-                className='w-[300px] h-[300px] rounded-lg object-cover'
-              />
-              <div>
-                <p className='font-semibold'>
-                  แผนปฏิบัติการ SEO 3 เดือน พร้อมระบบติดตามผล
-                </p>
-                <p className='text-sm text-gray-600'>
-                  รับเทมเพลตและเครื่องมือสำหรับ:
-                  <ul className='list-disc ml-5 mt-2 space-y-1'>
-                    <li>แบบฟอร์ม Audit เว็บไซต์แบบละเอียด</li>
-                    <li>แผนงานรายเดือนพร้อม Key Milestones</li>
-                    <li>เทมเพลตรายงานผลให้ลูกค้า/ทีมงาน</li>
-                    <li>ระบบติดตามความคืบหน้าแบบ KPI Dashboard</li>
-                  </ul>
-                </p>
-              </div>
-            </li>
-            <li className='flex items-center flex-col bg-white rounded-xl p-10 gap-4 md:flex-row-reverse justify-between'>
-              <img
-                src='https://images.unsplash.com/photo-1589330694653-ded6df03f754?q=80&w=1216&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-                alt='SEO Certificate'
-                className='w-[300px] h-[300px] rounded-lg object-cover'
-              />
-              <div>
-                <p className='font-semibold'>
-                  ใบประกาศนียบัตรพร้อมสิทธิพิเศษสำหรับสมาชิก
-                </p>
-                <p className='text-sm text-gray-600'>
-                  <ul className='list-disc ml-5 mt-2 space-y-1'>
-                    <li>ใบประกาศนียบัตรรับรองโดย RundeeAds และพันธมิตร</li>
-                    <li>สิทธิ์เข้ากลุ่มปรึกษาปัญหา SEO หลังอบรม</li>
-                    <li>สิทธิ์รับอัปเดตเนื้อหาเวอร์ชันล่าสุดฟรี 1 ปี</li>
-                    <li>ส่วนลดพิเศษสำหรับคอร์สอัพสกิลอื่นๆ</li>
-                    <li>โอกาสได้รับการแนะนำงานจากเครือข่ายพันธมิตร</li>
-                  </ul>
-                </p>
-              </div>
-            </li>
-            <li className='flex items-center flex-col bg-white rounded-xl p-10 gap-4 justify-between'>
-              <img
-                src='https://images.unsplash.com/photo-1591518756833-0a5e1a15a0b9?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-                alt='SEO Community'
-                className='w-[300px] h-[300px] rounded-lg object-cover'
-              />
-              <div>
-                <p className='font-semibold'>การเข้าสู่ชุมชนนัก SEO มืออาชีพ</p>
-                <p className='text-sm text-gray-600'>
-                  <ul className='list-disc ml-5 mt-2 space-y-1'>
-                    <li>เข้ากลุ่มปิดสำหรับศิษย์เก่า</li>
-                    <li>โอกาสร่วมงาน Networking Event ทุก 3 เดือน</li>
-                    <li>ระบบ Mentorship จากผู้เชี่ยวชาญ</li>
-                    <li>พื้นที่แบ่งปันผลงานและกรณีศึกษาจริง</li>
-                  </ul>
-                </p>
-              </div>
-            </li>
+                </div>
+              </li>
+            ))}
           </ul>
         </section>
 
         {/* Service Details */}
-        <section className='py-16 md:py-24'>
-          <div className='container mx-auto px-4 md:px-6 max-w-7xl grid lg:grid-cols-2 gap-12'>
+        <section className='py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white'>
+          <div className='container mx-auto px-4 md:px-6 max-w-7xl grid lg:grid-cols-2 gap-16'>
             {/* Left - Content */}
             <div>
-              <h2 className='text-3xl font-bold mb-6 text-gray-900'>
+              <h2 className='text-4xl font-bold mb-8 text-gray-900 leading-tight'>
                 สิ่งที่คุณจะได้รับจากการอบรม
               </h2>
-              <ul className='space-y-4 text-gray-700'>
+
+              <ul className='space-y-5 text-gray-700'>
                 <li className='flex items-start'>
-                  <CheckCircle className='text-green-500 w-6 h-6 mt-1 mr-3' />
-                  เข้าใจหลักการทำ SEO ทั้ง On-page และ Off-page
+                  <CheckCircle className='text-green-500 w-6 h-6 mt-1 mr-3 flex-shrink-0' />
+                  <span>เข้าใจหลักการทำ SEO ทั้ง On-page และ Off-page</span>
                 </li>
                 <li className='flex items-start'>
-                  <CheckCircle className='text-green-500 w-6 h-6 mt-1 mr-3' />
-                  Workshop ปฏิบัติจริง พร้อมตัวอย่างจากเคสจริง
+                  <CheckCircle className='text-green-500 w-6 h-6 mt-1 mr-3 flex-shrink-0' />
+                  <span>Workshop ปฏิบัติจริง พร้อมตัวอย่างจากเคสจริง</span>
                 </li>
                 <li className='flex items-start'>
-                  <CheckCircle className='text-green-500 w-6 h-6 mt-1 mr-3' />
-                  เรียนรู้เครื่องมือวิเคราะห์ SEO ที่มืออาชีพใช้
+                  <CheckCircle className='text-green-500 w-6 h-6 mt-1 mr-3 flex-shrink-0' />
+                  <span>เรียนรู้เครื่องมือวิเคราะห์ SEO ที่มืออาชีพใช้</span>
                 </li>
                 <li className='flex items-start'>
-                  <CheckCircle className='text-green-500 w-6 h-6 mt-1 mr-3' />
-                  ใบประกาศนียบัตรเมื่อจบคอร์ส
+                  <CheckCircle className='text-green-500 w-6 h-6 mt-1 mr-3 flex-shrink-0' />
+                  <span>ใบประกาศนียบัตรเมื่อจบคอร์ส</span>
                 </li>
               </ul>
 
-              <div className='mt-8 space-y-4'>
-                <div className='flex items-center'>
-                  <Users className='text-indigo-600 w-6 h-6 mr-3' />
+              <div className='mt-10 space-y-4'>
+                <div className='flex items-center text-gray-800'>
+                  <Users className='text-indigo-600 w-6 h-6 mr-3 flex-shrink-0' />
                   <span>เหมาะสำหรับนักการตลาด, เจ้าของธุรกิจ, ฟรีแลนซ์</span>
                 </div>
-                <div className='flex items-center'>
-                  <Clock className='text-indigo-600 w-6 h-6 mr-3' />
+                <div className='flex items-center text-gray-800'>
+                  <Clock className='text-indigo-600 w-6 h-6 mr-3 flex-shrink-0' />
                   <span>ระยะเวลาอบรม: 1 วันเต็ม (09:00 - 17:00)</span>
                 </div>
               </div>
             </div>
 
             {/* Right - Form */}
-            <div className='bg-white rounded-2xl border border-gray-200 p-8 shadow-lg'>
+            <div className='bg-white rounded-2xl border border-gray-200 p-10 shadow-xl'>
               <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                 ลงทะเบียนอบรม
               </h3>
-              <p className='text-gray-600 mb-6'>
+              <p className='text-gray-600 mb-8 leading-relaxed'>
                 กรอกฟอร์มเพื่อสำรองที่นั่ง ทีมงานจะติดต่อกลับภายใน 24 ชั่วโมง
               </p>
 
               <form onSubmit={handleSubmit} className='space-y-6'>
                 <div>
+                  <label htmlFor='name' className='sr-only'>
+                    ชื่อ-นามสกุล
+                  </label>
                   <input
                     type='text'
+                    id='name'
                     name='name'
                     placeholder='ชื่อ-นามสกุล *'
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500'
+                    className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition'
                   />
                 </div>
                 <div>
+                  <label htmlFor='email' className='sr-only'>
+                    อีเมล
+                  </label>
                   <input
                     type='email'
+                    id='email'
                     name='email'
                     placeholder='อีเมล *'
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500'
+                    className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition'
                   />
                 </div>
                 <div>
+                  <label htmlFor='phone' className='sr-only'>
+                    เบอร์โทรศัพท์
+                  </label>
                   <input
                     type='tel'
+                    id='phone'
                     name='phone'
                     placeholder='เบอร์โทรศัพท์'
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500'
+                    className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition'
                   />
                 </div>
                 <div>
+                  <label htmlFor='message' className='sr-only'>
+                    ความต้องการเพิ่มเติม
+                  </label>
                   <textarea
+                    id='message'
                     name='message'
                     placeholder='ความต้องการเพิ่มเติม'
                     value={formData.message}
                     onChange={handleInputChange}
                     rows={4}
-                    className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 resize-none'
+                    className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition resize-none'
                   />
                 </div>
+
                 <button
                   type='submit'
                   disabled={isSubmitted}
-                  className='w-full flex items-center justify-center px-6 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg transition-colors'
+                  className='w-full flex items-center justify-center px-6 py-4 bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 text-white font-semibold rounded-lg transition-colors'
                 >
                   {isSubmitted ? (
                     <>
@@ -360,7 +368,7 @@ export default function SEOTrainingService () {
         </section>
 
         {/* CTA */}
-        <section className='py-16 bg-indigo-600 text-center text-white'>
+        <section className='py-16 bg-[url("/bg.avif")] text-center text-white'>
           <h2 className='text-3xl font-bold mb-4'>
             พร้อมเริ่มเรียนรู้ SEO อย่างจริงจัง?
           </h2>
