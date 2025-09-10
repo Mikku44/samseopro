@@ -1,4 +1,4 @@
-import {  MetaFunction } from '@remix-run/react'
+import { MetaFunction } from '@remix-run/react'
 import {
   ArrowRight,
   BarChart3,
@@ -19,6 +19,7 @@ import {
 import CardBlog from '~/components/CardBlog'
 import { EmblaCarousel } from '~/components/Draggable'
 import Layout from '~/components/Layout'
+import { getBlogs } from '~/services/blogService'
 
 export const meta: MetaFunction = () => {
   return [
@@ -77,7 +78,31 @@ const serviceList = [
     icon: <FileText />
   }
 ]
+
+
+const teamList = [
+  {
+    src : "/team3.jpg",
+    name : "PPC & Ads Manager",
+    role : "PPC & Ads Manager",
+    description : "ผู้ดูแลแคมเปญโฆษณาออนไลน์ที่เชี่ยวชาญการบริหารงบประมาณและเพิ่ม CTR ให้เกิดผลลัพธ์สูงสุด"
+  },
+  {
+    src : "/team1.jpg",
+    name : "SEO",
+    role : "SEO Specialist",
+    description : "ผู้เชี่ยวชาญด้านการวิเคราะห์คีย์เวิร์ดและการวางกลยุทธ์ SEO ที่ช่วยให้ธุรกิจติดอันดับ Google อย่างยั่งยืน"
+  },
+  {
+    src : "/team2.jpg",
+    name : "DMC",
+    role : "Digital Marketing Consultant",
+    description : "ที่ปรึกษาด้านการตลาดดิจิทัลที่สามารถวางแผนและนำเสนอโซลูชันที่ครอบคลุมสำหรับธุรกิจทุกขนาด"
+  },
+]
 export default function Index () {
+
+  const blogs = getBlogs();
   return (
     <Layout>
       <section
@@ -87,14 +112,16 @@ export default function Index () {
       >
         {/* <div className="absolute size-[100px] rounded-full bg-gradient-to-tr from-blue-500 to-transparent"></div> */}
 
-        <div className="">
-          <img src="/computer.png" className='w-[500px] absolute right-0 mr-[100px]' alt="" />
+        <div className=''>
+          <img
+            src='/computer.png'
+            className='w-[500px] absolute right-0 mr-[100px]'
+            alt=''
+          />
         </div>
         {/* Text Content */}
         <div className='h-full max-w-7xl md:px-20 mx-auto md:m-0 m-auto py-5 flex flex-col  justify-center gap-5 relative z-10'>
-          <div className=' text-white/80'>
-            เพิ่มยอดขาย ขยายธุรกิจให้ปัง!
-          </div>
+          <div className=' text-white/80'>เพิ่มยอดขาย ขยายธุรกิจให้ปัง!</div>
           <h1 className='md:text-5xl text-4xl text-white font-bold'>
             RundeeAds <br />
             Organic Growth Builder
@@ -104,7 +131,11 @@ export default function Index () {
             ให้คำแนะนำจากผู้ให้คำปรึกษา SEO ที่ไว้ใจได้
           </h2>
 
-          <a href={"#contact"}><button className='relative z-10 px-5 w-fit bg-white'>ติดต่อเรา</button></a>
+          <a href={'#contact'}>
+            <button className='relative z-10 px-5 w-fit bg-white'>
+              ติดต่อเรา
+            </button>
+          </a>
         </div>
 
         {/* Gradient Overlay */}
@@ -131,7 +162,7 @@ export default function Index () {
         </div>
       </section>
 
-      <section className='md:py-20 py-10 bg-blue-950 overflow-hidden relative text-white min-h-[500px]'>
+      <section className='md:py-20 py-10 bg-[url("/bg.avif")] overflow-hidden relative text-white min-h-[500px]'>
         <div
           className=' w-[300px] h-[600px] absolute left-[50%] rotate-45 top-0
         opacity-30 bg-gradient-to-r to-blue-800 from-blue-300
@@ -146,10 +177,10 @@ export default function Index () {
             ธุรกิจของคุณทะยานสู่โลกออนไลน์
           </h2>
 
-          <div className='max-w-screen mx-auto overflow-hidden rounded-xl'>
+          <div className='max-w-screen mx-auto overflow-hidden rounded-xl '>
             <EmblaCarousel>
-              {[1, 2, 3, 4, 5].map(item => (
-                <CardBlog key={item} />
+              {blogs.map((data,index) => (
+                <CardBlog data={data} key={index} />
               ))}
             </EmblaCarousel>
           </div>
@@ -243,7 +274,7 @@ export default function Index () {
         </div>
       </section>
 
-      <section id="contact" className='bg-[url("/bg.avif")] py-10'>
+      <section id='contact' className='bg-[url("/bg.avif")] py-10'>
         <div className='mb-12 container-x px-4 '>
           <div className='bg-white p-8 rounded-xl'>
             <div className='text-center mb-8'>
@@ -313,8 +344,8 @@ export default function Index () {
         </div>
       </section>
 
-      <section className='py-24 bg-white'>
-        <div className='container mx-auto px-4 md:px-6'>
+      <section className='pt-24 bg-white'>
+        <div className=''>
           <div className='text-center mb-16'>
             <h2 className='text-4xl font-bold text-gray-900 mb-4'>
               ทีมงานของเรา
@@ -324,49 +355,29 @@ export default function Index () {
             </p>
           </div>
 
-          <div className='grid gap-8 md:grid-cols-2 lg:grid-cols-3'>
-            <div className='bg-white border border-gray-200 hover:shadow-lg rounded-xl p-8 transition-all duration-300'>
+          <div className='grid  lg:grid-cols-3'>
+            {teamList.map((item,idex) =><div key={idex} className='relative group md:h-[600px] h-[500px] '>
               <div className='flex flex-col items-center gap-4 mb-6 text-center'>
-                <div className='h-24 w-24 rounded-full bg-gradient-to-br from-blue-500 to-purple-600'></div>
-                <div>
-                  <p className='font-bold text-gray-900 text-lg'>คุณสมชาย</p>
-                  <p className='text-sm text-gray-500'>SEO Specialist</p>
+                <div className='h-full w-full md:h-[600px] h-[500px] flex overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600'>
+                  <img
+                    src={item.src}
+                    alt=''
+                    className='w-full h-full object-cover'
+                  />
                 </div>
               </div>
-              <p className='text-gray-600 leading-relaxed text-center'>
-                ผู้เชี่ยวชาญด้านการวิเคราะห์คีย์เวิร์ดและการวางกลยุทธ์ SEO
-                ที่ช่วยให้ธุรกิจติดอันดับ Google อย่างยั่งยืน
-              </p>
-            </div>
-
-            <div className='bg-white border border-gray-200 hover:shadow-lg rounded-xl p-8 transition-all duration-300'>
-              <div className='flex flex-col items-center gap-4 mb-6 text-center'>
-                <div className='h-24 w-24 rounded-full bg-gradient-to-br from-pink-500 to-red-600'></div>
+              <div className='absolute bottom-0 opacity-0 group-hover:bg-gradient-to-t from-blue-500 to-black/0 group-hover:opacity-100 duration-150
+               w-full h-full'></div>
+              <div className='text-center space-y-2 absolute opacity-0 group-hover:opacity-100 duration-150 bottom-0 m-5'>
                 <div>
-                  <p className='font-bold text-gray-900 text-lg'>คุณสมศรี</p>
-                  <p className='text-sm text-gray-500'>PPC & Ads Manager</p>
+                  <p className='font-bold text-white text-lg'>{item.name}</p>
+                  <p className='text-sm text-white'>{item.role}</p>
                 </div>
+                <p className='text-white leading-relaxed text-center'>
+                  {item.description}
+                </p>
               </div>
-              <p className='text-gray-600 leading-relaxed text-center'>
-                ผู้ดูแลแคมเปญโฆษณาออนไลน์ที่เชี่ยวชาญการบริหารงบประมาณและเพิ่ม
-                CTR ให้เกิดผลลัพธ์สูงสุด
-              </p>
-            </div>
-
-            <div className='bg-white border border-gray-200 hover:shadow-lg rounded-xl p-8 transition-all duration-300'>
-              <div className='flex flex-col items-center gap-4 mb-6 text-center'>
-                <div className='h-24 w-24 rounded-full bg-gradient-to-br from-green-500 to-blue-600'></div>
-                <div>
-                  <p className='font-bold text-gray-900 text-lg'>คุณสมหมาย</p>
-                  <p className='text-sm text-gray-500'>
-                    Digital Marketing Consultant
-                  </p>
-                </div>
-              </div>
-              <p className='text-gray-600 leading-relaxed text-center'>
-                ที่ปรึกษาด้านการตลาดดิจิทัลที่สามารถวางแผนและนำเสนอโซลูชันที่ครอบคลุมสำหรับธุรกิจทุกขนาด
-              </p>
-            </div>
+            </div>)}
           </div>
         </div>
       </section>
