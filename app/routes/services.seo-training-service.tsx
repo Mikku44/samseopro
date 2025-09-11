@@ -11,7 +11,7 @@ export const meta: MetaFunction = () => {
     {
       name: 'description',
       content:
-        'คอร์สอบรม SEO จากผู้เชี่ยวชาญ เรียนรู้การทำ SEO อย่างถูกต้อง เข้าใจกลยุทธ์การตลาดออนไลน์ ปฏิบัติได้จริง พร้อมใบประกาศนียบัตร'
+        'บริการรับทำ SEOจากผู้เชี่ยวชาญ เรียนรู้การทำ SEO อย่างถูกต้อง เข้าใจกลยุทธ์การตลาดออนไลน์ ปฏิบัติได้จริง พร้อมใบประกาศนียบัตร'
     },
     {
       name: 'keywords',
@@ -91,7 +91,7 @@ export default function SEOTrainingService () {
               transition={{ delay: 0.3, duration: 0.8, ease: 'easeOut' }}
             >
               RundeeAds <br />
-              คอร์สอบรม SEO แบบมืออาชีพ
+              บริการรับทำ SEOแบบมืออาชีพ
             </motion.h1>
 
             <motion.h2

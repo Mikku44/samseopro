@@ -8,8 +8,8 @@
 
 //   const menuList = [
 //     { href: "/", label: "หน้าแรก", id: 1 },
-//     { href: "/services/seo-training-service", label: "คอร์สอบรม SEO แบบมืออาชีพ", id: 2 },
-//     { href: "/services/ads-training-service", label: "คอร์สอบรม SEO แบบมืออาชีพ", id: 3 },
+//     { href: "/services/seo-training-service", label: "บริการรับทำ SEOแบบมืออาชีพ", id: 2 },
+//     { href: "/services/ads-training-service", label: "บริการรับทำ SEOแบบมืออาชีพ", id: 3 },
 //     { href: "/services/web-maker", label: "บริการออกแบบเว็บไซต์", id: 4 },
 //     { href: "/contact-us", label: "ติดต่อเรา", id: 5 },
 //   ];
@@ -96,7 +96,7 @@ const menuList = [
       {
         href: '/services/seo-training-service',
         description: 'SEO',
-        title: 'คอร์สอบรม SEO แบบมืออาชีพ'
+        title: 'บริการรับทำ SEOแบบมืออาชีพ'
       },
       {
         href: '/services/ads-training-service',
@@ -111,7 +111,7 @@ const menuList = [
   //   href: '/services/ads-training-service',
 
   //   content: [],
-  //   label: 'คอร์สอบรม SEO แบบมืออาชีพ',
+  //   label: 'บริการรับทำ SEOแบบมืออาชีพ',
   //   id: 3
   // },
   {
