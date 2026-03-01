@@ -82,25 +82,25 @@ const serviceList = [
 
 const teamList = [
   {
-    src : "/team3.jpg",
-    name : "PPC & Ads Manager",
-    role : "PPC & Ads Manager",
-    description : "ผู้ดูแลแคมเปญโฆษณาออนไลน์ที่เชี่ยวชาญการบริหารงบประมาณและเพิ่ม CTR ให้เกิดผลลัพธ์สูงสุด"
+    src: "/team3.jpg",
+    name: "PPC & Ads Manager",
+    role: "PPC & Ads Manager",
+    description: "ผู้ดูแลแคมเปญโฆษณาออนไลน์ที่เชี่ยวชาญการบริหารงบประมาณและเพิ่ม CTR ให้เกิดผลลัพธ์สูงสุด"
   },
   {
-    src : "/team1.jpg",
-    name : "SEO",
-    role : "SEO Specialist",
-    description : "ผู้เชี่ยวชาญด้านการวิเคราะห์คีย์เวิร์ดและการวางกลยุทธ์ SEO ที่ช่วยให้ธุรกิจติดอันดับ Google อย่างยั่งยืน"
+    src: "/team1.jpg",
+    name: "SEO",
+    role: "SEO Specialist",
+    description: "ผู้เชี่ยวชาญด้านการวิเคราะห์คีย์เวิร์ดและการวางกลยุทธ์ SEO ที่ช่วยให้ธุรกิจติดอันดับ Google อย่างยั่งยืน"
   },
   {
-    src : "/team2.jpg",
-    name : "DMC",
-    role : "Digital Marketing Consultant",
-    description : "ที่ปรึกษาด้านการตลาดดิจิทัลที่สามารถวางแผนและนำเสนอโซลูชันที่ครอบคลุมสำหรับธุรกิจทุกขนาด"
+    src: "/team2.jpg",
+    name: "DMC",
+    role: "Digital Marketing Consultant",
+    description: "ที่ปรึกษาด้านการตลาดดิจิทัลที่สามารถวางแผนและนำเสนอโซลูชันที่ครอบคลุมสำหรับธุรกิจทุกขนาด"
   },
 ]
-export default function Index () {
+export default function Index() {
 
   const blogs = getBlogs();
   return (
@@ -143,11 +143,15 @@ export default function Index () {
       </section>
 
       <section className='md:py-20 py-10 container-x min-h-[600px] flex justify-center flex-col'>
-        <h2 className='text-3xl font-bold mb-10'>
-          {' '}
-          บริการ Rundee Ads ของเราครอบคลุม?
-        </h2>
-        <div className='flex md:flex-row flex-col justify-between gap-4'>
+        <div className="max-w-2xl mb-16">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
+            บริการของเราครอบคลุมอะไรบ้าง?
+          </h2>
+          <p className="text-slate-600 text-lg">
+            เราดูแลทุกขั้นตอนของการทำโฆษณาออนไลน์ เพื่อให้ธุรกิจของคุณเติบโตอย่างยั่งยืน
+          </p>
+        </div>
+        <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
           {serviceList.map(item => (
             <div key={item.id} className='flex items-center flex-col gap-2'>
               <div className='rounded-md bg-blue-950 flex p-2 text-white text-2xl size-[80px] items-center justify-center'>
@@ -162,24 +166,27 @@ export default function Index () {
         </div>
       </section>
 
-      <section className='md:py-20 py-10 bg-[url("/bg.avif")] overflow-hidden relative text-white min-h-[500px]'>
+      <section className='md:py-20 py-10 bg-[radial-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-indigo-500 via-indigo-900 to-[#121b2a] overflow-hidden relative text-white min-h-[500px]'>
         <div
-          className=' w-[300px] h-[600px] absolute left-[50%] rotate-45 top-0
-        opacity-30 bg-gradient-to-r to-blue-800 from-blue-300
-        rounded-t-[100%] rounded-e-[100px]  rounded-br-[700px]'
+          className="absolute -top-20 -right-20 w-[600px] h-[600px] 
+             bg-gradient-to-br from-blue-500/10 to-transparent 
+             rounded-full border border-white/5 backdrop-blur-[2px] 
+             rotate-12 pointer-events-none z-0"
         ></div>
         <div className='container-x'>
-          <div className='text-sm text-white/30'>
-            ให้เราเป็นส่วนหนึ่งที่ทำให้
+          <div className="mb-12 ">
+            <span className='text-sm uppercase tracking-[0.2em] text-gray-400 font-semibold'>
+              ให้เราเป็นส่วนหนึ่งที่ทำให้
+            </span>
+            <h2 className='text-3xl md:text-5xl font-extrabold mt-2 tracking-tight'>
+              ธุรกิจของคุณทะยานสู่โลกออนไลน์ <br />
+              <span className="text-white/60 text-2xl md:text-3xl font-medium">ด้วยกลยุทธ์ที่เราเชี่ยวชาญ</span>
+            </h2>
           </div>
-          <h2 className='text-3xl font-bold mb-10'>
-            {' '}
-            ธุรกิจของคุณทะยานสู่โลกออนไลน์
-          </h2>
 
           <div className='max-w-screen mx-auto overflow-hidden rounded-xl '>
             <EmblaCarousel>
-              {blogs.map((data,index) => (
+              {blogs.map((data, index) => (
                 <CardBlog data={data} key={index} />
               ))}
             </EmblaCarousel>
@@ -356,7 +363,7 @@ export default function Index () {
           </div>
 
           <div className='grid  lg:grid-cols-3'>
-            {teamList.map((item,idex) =><div key={idex} className='relative group md:h-[600px] h-[500px] '>
+            {teamList.map((item, idex) => <div key={idex} className='relative group md:h-[600px] h-[500px] '>
               <div className='flex flex-col items-center gap-4 mb-6 text-center'>
                 <div className='h-full w-full md:h-[600px] h-[500px] flex overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600'>
                   <img

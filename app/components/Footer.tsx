@@ -1,59 +1,88 @@
 import { Link } from "@remix-run/react"
 import { FaLine } from "react-icons/fa6"
-import { IoCall } from "react-icons/io5"
-import { MdEmail } from "react-icons/md"
-import { RiMapPinFill } from "react-icons/ri"
+import { IoCallOutline } from "react-icons/io5"
+import { MdOutlineEmail, MdOutlineLocationOn } from "react-icons/md"
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300">
-      <div className="container  max-w-7xl mx-auto px-4 py-12">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <div>
-            <h3 className="text-lg font-bold mb-4 text-white">RundeeAds</h3>
-            <p className="text-sm">ผู้เชี่ยวชาญด้านการตลาดออนไลน์และ SEO ที่จะช่วยให้ธุรกิจของคุณเติบโตอย่างยั่งยืน</p>
+    <footer className="bg-slate-950 text-slate-400 border-t border-white/5">
+      <div className="container max-w-7xl mx-auto px-6 py-16">
+        <div className="grid gap-12 lg:grid-cols-4 md:grid-cols-2">
+          
+          {/* Brand Column */}
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold text-white tracking-tight">
+              Rundee<span className="text-blue-500">Ads</span>
+            </h3>
+            <p className="text-sm leading-relaxed">
+              ผู้เชี่ยวชาญด้านการตลาดออนไลน์และ SEO 
+              ที่จะช่วยให้ธุรกิจของคุณเติบโตอย่างยั่งยืนในยุคดิจิทัล
+            </p>
           </div>
+
+          {/* Services Column */}
           <div>
-            <h3 className="text-lg font-bold mb-4 text-white">บริการของเรา</h3>
-            <ul className="space-y-2 text-sm">
-              <li><Link to="/services/seo-training-service" className="hover:text-white">บริการรับทำ SEOแบบมืออาชีพ</Link></li>
-              <li><Link to="/services/ads-training-service" className="hover:text-white">คอร์สอบรม Gpogle Ads แบบมืออาชีพ</Link></li>
-              <li><Link to="/services/web-maker" className="hover:text-white">บริการออกแบบเว็บไซต์</Link></li>
-              {/* <li><Link to="#" className="hover:text-white">ตรวจสอบ SEO</Link></li>
-              <li><Link to="#" className="hover:text-white">Content Strategy</Link></li>
-              <li><Link to="#" className="hover:text-white">Keyword Research</Link></li>
-              <li><Link to="#" className="hover:text-white">SEO Training</Link></li> */}
+            <h4 className="text-white font-semibold mb-6">บริการของเรา</h4>
+            <ul className="space-y-4 text-sm">
+              <li>
+                <Link to="/services/seo-training-service" className="hover:text-blue-400 transition-colors">
+                  บริการรับทำ SEO มืออาชีพ
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/ads-training-service" className="hover:text-blue-400 transition-colors">
+                  คอร์สอบรม Google Ads
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/web-maker" className="hover:text-blue-400 transition-colors">
+                  บริการออกแบบเว็บไซต์
+                </Link>
+              </li>
             </ul>
           </div>
-          {/* <div>
-            <h3 className="text-lg font-bold mb-4 text-white">ความรู้</h3>
-            <ul className="space-y-2 text-sm">
-              <li><Link to="#" className="hover:text-white">บทความ</Link></li>
-              <li><Link to="#" className="hover:text-white">คอร์สเรียน</Link></li>
-              <li><Link to="#" className="hover:text-white">คำถามที่พบบ่อย</Link></li>
-              <li><Link to="#" className="hover:text-white">กรณีศึกษา</Link></li>
-            </ul>
-          </div> */}
+
+          {/* Contact Details Column */}
           <div>
-            <h3 className="text-lg font-bold mb-4 text-white">ติดต่อ Rundde Ads</h3>
-            <ul className="space-y-2 text-sm">
-              <a 
-              href="/#" rel="nofollow"
-              className="flex gap-1 items-center"><RiMapPinFill className="text-2xl" />กรุงเทพมหานคร ประเทศไทย</a>
-              <a 
-              href="mailto:rundee.ads@gmail.com" rel="nofollow"
-              className="flex gap-1 items-center"><MdEmail className="text-2xl"/> rundee.ads@gmail.com</a>
-              <a 
-              href="tel:0954965989" rel="nofollow"
-              className="flex gap-1 items-center"><IoCall className="text-2xl"/> 0954965989</a>
-              <a 
-              href="https://line.me/R/ti/p/@655rkaej" rel="nofollow"
-              className="flex gap-1 items-center"><FaLine className="text-xl" /> @655rkaej</a>
-            </ul>
+            <h4 className="text-white font-semibold mb-6">การติดต่อ</h4>
+            <div className="space-y-4 text-sm">
+              <div className="flex items-start gap-3">
+                <MdOutlineLocationOn className="text-xl text-blue-500 shrink-0" />
+                <span>กรุงเทพมหานคร ประเทศไทย</span>
+              </div>
+              <a href="mailto:rundee.ads@gmail.com" className="flex items-center gap-3 hover:text-white transition-colors">
+                <MdOutlineEmail className="text-xl text-blue-500 shrink-0" />
+                <span>rundee.ads@gmail.com</span>
+              </a>
+              <a href="tel:0954965989" className="flex items-center gap-3 hover:text-white transition-colors">
+                <IoCallOutline className="text-xl text-blue-500 shrink-0" />
+                <span>095-496-5989</span>
+              </a>
+            </div>
           </div>
+
+          {/* Action Column */}
+          <div>
+            <h4 className="text-white font-semibold mb-6">ติดตามเรา</h4>
+            <a
+              href="https://line.me/R/ti/p/@655rkaej"
+              rel="nofollow"
+              className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-[#06C755] hover:bg-[#05b34c] text-white font-bold rounded-xl transition-all duration-300 shadow-lg shadow-[#06C755]/10 hover:shadow-[#06C755]/20 hover:-translate-y-0.5"
+            >
+              <FaLine className="text-2xl" />
+              <span>Add Friend</span>
+            </a>
+          </div>
+
         </div>
-        <div className="border-t border-gray-800 mt-8 pt-8 text-sm text-center">
-          <p>© 2025 RundeeAds. สงวนลิขสิทธิ์ทั้งหมด.</p>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-white/5 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs tracking-wider uppercase">
+          <p>© 2026 RundeeAds. All Rights Reserved.</p>
+          {/* <div className="flex gap-6">
+            <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+          </div> */}
         </div>
       </div>
     </footer>
