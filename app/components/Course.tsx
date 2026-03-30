@@ -56,7 +56,7 @@ const item = {
 
 export default function GoogleAdsCourseTimeline () {
   return (
-    <section className='relative w-full text-neutral-900 '>
+    <section className='relative w-full text-white '>
       <div className='container mx-auto px-4 '>
         {/* <header className="mb-10 max-w-2xl">
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">หลักสูตร Google Ads – ไทม์ไลน์การเรียน</h2>
@@ -82,7 +82,7 @@ export default function GoogleAdsCourseTimeline () {
               {/* Card */}
               <div className='space-y-3 p-6 rounded-2xl border border-gray-500/20 shadow bg-blue-200/5 backdrop-blur-sm'>
                 <div>
-                  <span className='block text-sm font-medium text-[--secondary] '>
+                  <span className='block text-sm font-medium text-blue-500 '>
                     {section.part}
                   </span>
                   <h3 className='text-lg md:text-xl font-semibold from-blue-500 to-green-500 text-transparent bg-clip-text bg-gradient-to-r'>

@@ -1,7 +1,7 @@
 // app/routes/services/seo-training-service.tsx
 import Layout from '~/components/Layout'
 import type { MetaFunction } from '@remix-run/node'
-import { BookOpen, Users, CheckCircle, Clock, Send } from 'lucide-react'
+import { BookOpen, Users, CheckCircle, Clock, Send, ArrowRight, Target, BarChart3, Globe, MessageSquare } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 
@@ -41,7 +41,7 @@ export const meta: MetaFunction = () => {
   ]
 }
 
-export default function SEOTrainingService () {
+export default function SEOTrainingService() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -57,331 +57,318 @@ export default function SEOTrainingService () {
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitted(true)
-    setTimeout(() => setIsSubmitted(false), 3000)
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitted(true);
+
+  try {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbzQmgdhOim_POLNraGZWQ8Nn8qd3R5cCbnJ6V6EzzREWpqvdr4Qk6Akse8qlRkMpDreEQ/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    setTimeout(() => setIsSubmitted(false), 3000);
+  } catch (error) {
+    console.error("Error submitting form:", error);
+    setIsSubmitted(false);
+    alert("Something went wrong. Please try again.");
   }
+};
 
   return (
     <Layout>
-      <div className='min-h-screen bg-gray-50'>
-        {/* Hero */}
+      <div className='min-h-screen relative overflow-hidden'>
+        {/* Dynamic Background Elements */}
+        <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/10 rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-[10%] right-[-5%] w-[35%] h-[35%] bg-indigo-600/10 rounded-full blur-[100px]"></div>
+        </div>
 
-        <motion.section
-          className=' w-full h-screen max-h-[600px] p-5 md:p-24 relative overflow-hidden
-         bg-blue-800 bg-cover bg-no-repeat bg-center *:
-         bg-[url("/bg.avif")]'
-        >
-          {/* Text Content */}
-          <div className='h-full max-w-7xl md:px-20 mx-auto md:m-0 m-auto py-5 flex flex-col justify-center gap-5 relative z-10'>
-            <motion.div
-              className='text-white/80'
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
-            >
-              เพิ่มยอดขาย ขยายธุรกิจให้ปัง!
-            </motion.div>
-
-            <motion.h1
-              className='md:text-5xl text-4xl text-white font-bold'
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8, ease: 'easeOut' }}
-            >
-              RundeeAds <br />
-              บริการรับทำ SEOแบบมืออาชีพ
-            </motion.h1>
-
-            <motion.h2
-              className='text-white mt-4'
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8, ease: 'easeOut' }}
-            >
-              เรียนรู้การทำ SEO อย่างถูกต้อง ปฏิบัติได้จริง
-              เพิ่มอันดับเว็บไซต์บน Google ด้วยกลยุทธ์ที่ใช้ได้ผล
-            </motion.h2>
-          </div>
-
-          {/* Gradient Overlay */}
-          <div className='absolute inset-0 bg-gradient-to-b from-black/0 to-black/80'></div>
-        </motion.section>
-
-        <section className='py-16 md:py-24 mx-auto  container md:max-w-[70vw] max-w-[90vw]'>
-          <motion.div
-            className='text-gray-500/80 text-center'
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-          >
-            ถ้าคุณเรียนกับเรา
-          </motion.div>
-          <h2
-            className='md:text-5xl text-3xl font-bold mb-14 text-center py-3
-          bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text'
-          >
-            สิ่งที่คุณจะได้รับจากการอบรม
-          </h2>
-
-          <div className='shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] rounded-2xl mb-16'>
-            <img
-              src='/background(2).jpg'
-              alt='background'
-              className='w-full h-full object-cover rounded-2xl'
-            />
-          </div>
-          <ul className='grid gap-10 md:gap-14 md:grid-cols-2 text-gray-800'>
-            {[
-              {
-                title:
-                  'เข้าใจหลักการทำ SEO ทั้ง On-page และ Off-page อย่างลึกซึ้ง',
-                img: 'https://images.unsplash.com/photo-1477013743164-ffc3a5e556da?q=80&w=1170&auto=format&fit=crop',
-                items: [
-                  'การปรับโครงสร้างเว็บไซต์ให้เป็นมิตรกับ SEO',
-                  'เทคนิคการเขียนเนื้อหาให้ติดอันดับ (Keyword Optimization)',
-                  'การออกแบบโครงสร้างลิงก์ภายใน (Internal Linking)',
-                  'กลยุทธ์สร้างลิงก์คุณภาพจากเว็บภายนอก (Backlink Building)',
-                  'การทำ Technical SEO เพื่อแก้ไขปัญหาการจัดอันดับ'
-                ]
-              },
-              {
-                title:
-                  'Workshop ปฏิบัติจริง กับกรณีศึกษา 5 ธุรกิจที่แตกต่างกัน',
-                img: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=1251&auto=format&fit=crop',
-                items: [
-                  'E-commerce: เทคนิคเพิ่มอันดับสำหรับหน้าสินค้า',
-                  'เว็บบริการ: กลยุทธ์ดึงดูดลูกค้าในพื้นที่ (Local SEO)',
-                  'เว็บเนื้อหา: การสร้าง Traffic จากบทความยาว (Long-form Content)',
-                  'เว็บใหม่: วิธีเร่งให้ติดอันดับเร็วขึ้น',
-                  'เว็บที่มีปัญหาโดนแพนด้าลงโทษ (Google Penalty)'
-                ]
-              },
-              {
-                title: 'เชี่ยวชาญเครื่องมือวิเคราะห์ SEO ครบทุกด้าน',
-                img: 'https://images.unsplash.com/photo-1599658880436-c61792e70672?q=80&w=1170&auto=format&fit=crop',
-                items: [
-                  'Google Search Console - วิเคราะห์ปัญหาจาก Google โดยตรง',
-                  'Google Analytics 4 - ติดตามพฤติกรรมผู้ใช้',
-                  'Ahrefs/SEMrush - วิเคราะห์คู่แข่งและโอกาสคีย์เวิร์ด',
-                  'Screaming Frog - สแกนหาปัญหา Technical SEO',
-                  'ChatGPT + SEO Tools - ใช้ AI ช่วยงาน SEO'
-                ]
-              },
-              {
-                title: 'เทคนิคการสร้างเนื้อหาแบบ SEO ที่ได้ผลจริงในปี 2024',
-                img: 'https://images.unsplash.com/photo-1682420636597-0786f3406a94?q=80&w=627&auto=format&fit=crop',
-                items: [
-                  'การเขียนให้ตอบโจทย์ EEAT (Experience, Expertise, Authoritativeness, Trustworthiness)',
-                  'การใช้ AI ช่วยงาน SEO อย่างถูกวิธี',
-                  'เทคนิค Featured Snippet เพื่อยึดตำแหน่งอันดับ 0',
-                  'กลยุทธ์ Content Cluster สำหรับเพิ่ม Authority',
-                  'การทำ Video SEO สำหรับ YouTube และ Google Video'
-                ]
-              },
-              {
-                title: 'แผนปฏิบัติการ SEO 3 เดือน พร้อมระบบติดตามผล',
-                img: 'https://images.unsplash.com/photo-1686061594183-8c864f508b00?q=80&w=1170&auto=format&fit=crop',
-                items: [
-                  'แบบฟอร์ม Audit เว็บไซต์แบบละเอียด',
-                  'แผนงานรายเดือนพร้อม Key Milestones',
-                  'เทมเพลตรายงานผลให้ลูกค้า/ทีมงาน',
-                  'ระบบติดตามความคืบหน้าแบบ KPI Dashboard'
-                ]
-              },
-              {
-                title: 'ใบประกาศนียบัตรพร้อมสิทธิพิเศษสำหรับสมาชิก',
-                img: 'https://images.unsplash.com/photo-1589330694653-ded6df03f754?q=80&w=1216&auto=format&fit=crop',
-                items: [
-                  'ใบประกาศนียบัตรรับรองโดย RundeeAds และพันธมิตร',
-                  'สิทธิ์เข้ากลุ่มปรึกษาปัญหา SEO หลังอบรม',
-                  'สิทธิ์รับอัปเดตเนื้อหาเวอร์ชันล่าสุดฟรี 1 ปี',
-                  'ส่วนลดพิเศษสำหรับคอร์สอัพสกิลอื่นๆ',
-                  'โอกาสได้รับการแนะนำงานจากเครือข่ายพันธมิตร'
-                ]
-              },
-              {
-                title: 'การเข้าสู่ชุมชนนัก SEO มืออาชีพ',
-                img: 'https://images.unsplash.com/photo-1591518756833-0a5e1a15a0b9?q=80&w=687&auto=format&fit=crop',
-                items: [
-                  'เข้ากลุ่มปิดสำหรับศิษย์เก่า',
-                  'โอกาสร่วมงาน Networking Event ทุก 3 เดือน',
-                  'ระบบ Mentorship จากผู้เชี่ยวชาญ',
-                  'พื้นที่แบ่งปันผลงานและกรณีศึกษาจริง'
-                ]
-              }
-            ].map((card, i) => (
-              <li
-                key={i}
-                className='flex flex-col overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-300'
+        {/* Hero Section */}
+        <section className='w-full min-h-[70vh] flex items-center relative overflow-hidden pt-32 pb-20'>
+          <div className='container-x relative z-10'>
+            <div className='max-w-4xl'>
+              <motion.div
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border-white/10 mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
               >
-                <img
-                  src={card.img}
-                  alt={card.title}
-                  className='h-64 w-full object-cover'
-                />
-                <div className='flex flex-col p-6 space-y-4'>
-                  <h3 className='text-lg md:text-xl font-semibold'>
-                    {card.title}
-                  </h3>
-                  <ul className='list-disc ml-5 space-y-2 text-sm text-gray-600'>
-                    {card.items.map((it, j) => (
-                      <li key={j}>{it}</li>
-                    ))}
-                  </ul>
-                </div>
-              </li>
-            ))}
-          </ul>
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                </span>
+                <span className="text-xs font-medium text-blue-200/80 tracking-wider uppercase">ยกระดับทักษะ SEO ของคุณ</span>
+              </motion.div>
+
+              <motion.h1
+                className='text-5xl md:text-7xl font-bold leading-tight tracking-tight text-white mb-8'
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.8 }}
+              >
+                RundeeAds <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">
+                  บริการรับทำ SEOแบบมืออาชีพ
+                </span>
+              </motion.h1>
+
+              <motion.p
+                className='text-xl md:text-2xl text-slate-300/90 leading-relaxed max-w-2xl mb-12'
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+              >
+                เรียนรู้การทำ SEO อย่างถูกต้อง ปฏิบัติได้จริง เพิ่มอันดับเว็บไซต์บน Google ด้วยกลยุทธ์ที่ใช้ได้ผลจริงในปี 2024
+              </motion.p>
+
+              <motion.div
+                className="flex flex-wrap gap-4"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.8 }}
+              >
+                <a href='#register'>
+                  <button className='glass-button-primary px-10 py-4 rounded-full text-white font-bold text-lg shadow-[0_0_30px_rgba(59,130,246,0.2)]'>
+                    ลงทะเบียนเรียน
+                  </button>
+                </a>
+                <a href="#content">
+                  <button className='glass-button px-10 py-4 rounded-full text-white font-semibold text-lg'>
+                    รายละเอียดคอร์ส
+                  </button>
+                </a>
+              </motion.div>
+            </div>
+          </div>
+          
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#020617] pointer-events-none"></div>
         </section>
 
-        {/* Service Details */}
-        <section className='py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white'>
-          <div className='container mx-auto px-4 md:px-6 max-w-7xl grid lg:grid-cols-2 gap-16'>
-            {/* Left - Content */}
-            <div>
-              <h2 className='text-4xl font-bold mb-8 text-gray-900 leading-tight'>
-                สิ่งที่คุณจะได้รับจากการอบรม
-              </h2>
+        {/* Benefits Section */}
+        <section id="content" className='py-24 md:py-32 container-x relative z-10'>
+          <div className="text-center mb-20">
+            <motion.p
+              className='text-blue-400 font-semibold tracking-widest uppercase text-sm mb-4'
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+            >
+              INVEST IN YOUR FUTURE
+            </motion.p>
+            <h2 className='text-4xl md:text-6xl font-bold text-white tracking-tight mb-6'>
+              สิ่งที่คุณจะได้รับจาก<span className="text-blue-500">การอบรม</span>
+            </h2>
+            <div className="w-24 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
+          </div>
 
-              <ul className='space-y-5 text-gray-700'>
-                <li className='flex items-start'>
-                  <CheckCircle className='text-green-500 w-6 h-6 mt-1 mr-3 flex-shrink-0' />
-                  <span>เข้าใจหลักการทำ SEO ทั้ง On-page และ Off-page</span>
-                </li>
-                <li className='flex items-start'>
-                  <CheckCircle className='text-green-500 w-6 h-6 mt-1 mr-3 flex-shrink-0' />
-                  <span>Workshop ปฏิบัติจริง พร้อมตัวอย่างจากเคสจริง</span>
-                </li>
-                <li className='flex items-start'>
-                  <CheckCircle className='text-green-500 w-6 h-6 mt-1 mr-3 flex-shrink-0' />
-                  <span>เรียนรู้เครื่องมือวิเคราะห์ SEO ที่มืออาชีพใช้</span>
-                </li>
-                <li className='flex items-start'>
-                  <CheckCircle className='text-green-500 w-6 h-6 mt-1 mr-3 flex-shrink-0' />
-                  <span>ใบประกาศนียบัตรเมื่อจบคอร์ส</span>
-                </li>
-              </ul>
-
-              <div className='mt-10 space-y-4'>
-                <div className='flex items-center text-gray-800'>
-                  <Users className='text-indigo-600 w-6 h-6 mr-3 flex-shrink-0' />
-                  <span>เหมาะสำหรับนักการตลาด, เจ้าของธุรกิจ, ฟรีแลนซ์</span>
+          <div className='grid gap-8 md:grid-cols-2 lg:grid-cols-3'>
+            {[
+              {
+                title: 'หลักการทำ SEO เชิงลึก',
+                icon: <Target className="w-8 h-8 text-blue-400" />,
+                description: 'เข้าใจทั้ง On-page และ Off-page อย่างลึกซึ้ง พร้อมเทคนิค Keyword Optimization ที่แม่นยำ',
+                items: ['Technical SEO Audit', 'Content Architecture', 'Link Building Strategy']
+              },
+              {
+                title: 'Workshop ปฏิบัติจริง',
+                icon: <BarChart3 className="w-8 h-8 text-indigo-400" />,
+                description: 'เรียนรู้ผ่านกรณีศึกษาจริงจาก 5 ประเภทธุรกิจ เพื่อให้คุณนำไปปรับใช้ได้กับทุกสถานการณ์',
+                items: ['E-commerce Strategy', 'Local SEO Focus', 'Penalty Recovery']
+              },
+              {
+                title: 'เครื่องมือระดับมืออาชีพ',
+                icon: <Globe className="w-8 h-8 text-purple-400" />,
+                description: 'เชี่ยวชาญการใช้เครื่องมือวิเคราะห์ระดับโลก อาทิ GSC, GA4, Ahrefs และการใช้ AI ช่วยงาน SEO',
+                items: ['Data-Driven Insights', 'Competitor Analysis', 'AI-Powered Content']
+              }
+            ].map((card, i) => (
+              <motion.div
+                key={i}
+                className='glass-card p-10 group'
+                whileHover={{ y: -10 }}
+              >
+                <div className="size-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-8 group-hover:bg-blue-500/20 transition-all duration-500">
+                  {card.icon}
                 </div>
-                <div className='flex items-center text-gray-800'>
-                  <Clock className='text-indigo-600 w-6 h-6 mr-3 flex-shrink-0' />
-                  <span>ระยะเวลาอบรม: 1 วันเต็ม (09:00 - 17:00)</span>
+                <h3 className='text-2xl font-bold text-white mb-4'>{card.title}</h3>
+                <p className='text-slate-400 leading-relaxed mb-6'>{card.description}</p>
+                <ul className="space-y-3">
+                  {card.items.map((item, j) => (
+                    <li key={j} className="flex items-center text-sm text-slate-300">
+                      <CheckCircle className="w-4 h-4 text-blue-500 mr-2" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Course Details Grid */}
+        <section className="py-24 container-x relative z-10">
+          <div className="grid lg:grid-cols-2 gap-8">
+            {[
+              {
+                title: 'แผนปฏิบัติการ SEO 3 เดือน',
+                img: 'https://images.unsplash.com/photo-1686061594183-8c864f508b00?q=80&w=1170&auto=format&fit=crop',
+                desc: 'ระบบติดตามผลและ Key Milestones ที่ช่วยให้คุณเห็นความก้าวหน้าอย่างชัดเจน'
+              },
+              {
+                title: 'ใบประกาศนียบัตรรับรอง',
+                img: 'https://images.unsplash.com/photo-1589330694653-ded6df03f754?q=80&w=1216&auto=format&fit=crop',
+                desc: 'การันตีความรู้ความสามารถ พร้อมสิทธิ์เข้ากลุ่มที่ปรึกษาหลังจบการอบรม'
+              }
+            ].map((item, i) => (
+              <div key={i} className="glass-card overflow-hidden group">
+                <div className="aspect-video overflow-hidden">
+                  <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-60 group-hover:opacity-80" />
+                </div>
+                <div className="p-10">
+                  <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
+                  <p className="text-slate-400 text-lg leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Registration Section */}
+        <section id="register" className='py-24 md:py-32 relative z-10'>
+          <div className='container-x max-w-6xl'>
+            <div
+           
+            className='glass-card p-1 md:p-12 overflow-hidden relative border-white/5'>
+              <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/10 blur-[120px] -mr-48 -mt-48"></div>
+              
+              <div className='grid lg:grid-cols-2 gap-16 relative z-10'>
+                <div>
+                  <h2 className='text-4xl md:text-5xl font-bold text-white mb-8 leading-tight'>
+                    พร้อมยกระดับ <br />
+                    <span className="text-blue-500">ธุรกิจของคุณหรือยัง?</span>
+                  </h2>
+                  <p className='text-xl text-slate-300 leading-relaxed mb-10'>
+                    คอร์สนี้ออกแบบมาสำหรับนักการตลาด เจ้าของธุรกิจ และฟรีแลนซ์ที่ต้องการผลลัพธ์ที่จับต้องได้จริง
+                  </p>
+
+                  <div className='space-y-6'>
+                    <div className='flex items-center p-6 glass rounded-full border-white/5'>
+                      <div className="p-3 bg-blue-500/10 rounded-full mr-6">
+                        <Clock className='w-6 h-6 text-blue-400' />
+                      </div>
+                      <div>
+                        <p className='text-sm text-slate-400 uppercase tracking-widest'>ระยะเวลาอบรม</p>
+                        <p className='text-white font-bold text-lg'>1 วันเต็ม (09:00 - 17:00)</p>
+                      </div>
+                    </div>
+                    
+                    <div className='flex items-center p-6 glass rounded-full border-white/5'>
+                      <div className="p-3 bg-indigo-500/10 rounded-full mr-6">
+                        <Users className='w-6 h-6 text-indigo-400' />
+                      </div>
+                      <div>
+                        <p className='text-sm text-slate-400 uppercase tracking-widest'>รูปแบบการเรียน</p>
+                        <p className='text-white font-bold text-lg'>Intensive Workshop</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Form */}
+                <div 
+                 style={{
+              borderRadius:20
+            }}
+                className='glass p-8 md:p-10 rounded-sm border-white/10 shadow-2xl'>
+                  <h3 className='text-2xl font-bold text-white mb-2'>ลงทะเบียนสำรองที่นั่ง</h3>
+                  <p className='text-slate-400 mb-8'>กรอกข้อมูลเพื่อให้ทีมงานติดต่อกลับภายใน 24 ชม.</p>
+
+                  <form onSubmit={handleSubmit} className='space-y-5'>
+                    <input
+                      type='text'
+                      name='name'
+                      placeholder='ชื่อ-นามสกุล *'
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      className='w-full px-6 py-4 bg-white/5 border border-white/10 rounded-full text-white placeholder:text-slate-500 focus:border-blue-500 focus:bg-white/10 transition-all outline-none'
+                    />
+                    <input
+                      type='email'
+                      name='email'
+                      placeholder='อีเมล *'
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className='w-full px-6 py-4 bg-white/5 border border-white/10 rounded-full text-white placeholder:text-slate-500 focus:border-blue-500 focus:bg-white/10 transition-all outline-none'
+                    />
+                    <input
+                      type='tel'
+                      name='phone'
+                      placeholder='เบอร์โทรศัพท์'
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className='w-full px-6 py-4 bg-white/5 border border-white/10 rounded-full text-white placeholder:text-slate-500 focus:border-blue-500 focus:bg-white/10 transition-all outline-none'
+                    />
+                    <textarea
+                      name='message'
+                      placeholder='ความต้องการเพิ่มเติม'
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      rows={3}
+                      className='w-full px-6 py-5 bg-white/5 border border-white/10 rounded-[2rem] text-white placeholder:text-slate-500 focus:border-blue-500 focus:bg-white/10 transition-all outline-none resize-none'
+                    />
+
+                    <button
+                      type='submit'
+                      disabled={isSubmitted}
+                      className='w-full glass-button-primary py-5 rounded-full text-white font-bold text-lg hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-all'
+                    >
+                      {isSubmitted ? (
+                        <span className="flex items-center justify-center">
+                          <CheckCircle className='w-5 h-5 mr-2' />
+                          ส่งข้อมูลเรียบร้อย!
+                        </span>
+                      ) : (
+                        <span className="flex items-center justify-center">
+                          <Send className='w-5 h-5 mr-2' />
+                          ลงทะเบียนเลย
+                        </span>
+                      )}
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>
-
-            {/* Right - Form */}
-            <div className='bg-white rounded-2xl border border-gray-200 p-10 shadow-xl'>
-              <h3 className='text-2xl font-bold text-gray-900 mb-4'>
-                ลงทะเบียนอบรม
-              </h3>
-              <p className='text-gray-600 mb-8 leading-relaxed'>
-                กรอกฟอร์มเพื่อสำรองที่นั่ง ทีมงานจะติดต่อกลับภายใน 24 ชั่วโมง
-              </p>
-
-              <form onSubmit={handleSubmit} className='space-y-6'>
-                <div>
-                  <label htmlFor='name' className='sr-only'>
-                    ชื่อ-นามสกุล
-                  </label>
-                  <input
-                    type='text'
-                    id='name'
-                    name='name'
-                    placeholder='ชื่อ-นามสกุล *'
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition'
-                  />
-                </div>
-                <div>
-                  <label htmlFor='email' className='sr-only'>
-                    อีเมล
-                  </label>
-                  <input
-                    type='email'
-                    id='email'
-                    name='email'
-                    placeholder='อีเมล *'
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition'
-                  />
-                </div>
-                <div>
-                  <label htmlFor='phone' className='sr-only'>
-                    เบอร์โทรศัพท์
-                  </label>
-                  <input
-                    type='tel'
-                    id='phone'
-                    name='phone'
-                    placeholder='เบอร์โทรศัพท์'
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition'
-                  />
-                </div>
-                <div>
-                  <label htmlFor='message' className='sr-only'>
-                    ความต้องการเพิ่มเติม
-                  </label>
-                  <textarea
-                    id='message'
-                    name='message'
-                    placeholder='ความต้องการเพิ่มเติม'
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    rows={4}
-                    className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition resize-none'
-                  />
-                </div>
-
-                <button
-                  type='submit'
-                  disabled={isSubmitted}
-                  className='w-full flex items-center justify-center px-6 py-4 bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 text-white font-semibold rounded-lg transition-colors'
-                >
-                  {isSubmitted ? (
-                    <>
-                      <CheckCircle className='w-5 h-5 mr-2' />
-                      ส่งข้อมูลเรียบร้อย!
-                    </>
-                  ) : (
-                    <>
-                      <Send className='w-5 h-5 mr-2' />
-                      ส่งข้อมูลลงทะเบียน
-                    </>
-                  )}
-                </button>
-              </form>
-            </div>
           </div>
         </section>
 
-        {/* CTA */}
-        <section className='py-16 bg-[url("/bg.avif")] text-center text-white'>
-          <h2 className='text-3xl font-bold mb-4'>
-            พร้อมเริ่มเรียนรู้ SEO อย่างจริงจัง?
-          </h2>
-          <p className='max-w-2xl mx-auto mb-8 text-indigo-100'>
-            สำรองที่นั่งของคุณวันนี้เพื่อยกระดับทักษะการทำการตลาดออนไลน์
-          </p>
-          <a
-            href='tel:0954965989'
-            className='inline-flex items-center px-8 py-4 bg-white text-indigo-700 hover:bg-gray-100 font-semibold rounded-lg transition-colors'
-          >
-            <BookOpen className='w-5 h-5 mr-2' />
-            โทรสอบถาม 095-496-5989
-          </a>
+        {/* Footer CTA */}
+        <section className='pb-20 relative z-10'>
+          <div className='container-x text-center'>
+            <div className="glass-card p-16 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10"></div>
+              <div className="relative z-10">
+                <h2 className='text-3xl md:text-5xl font-bold text-white mb-6'>
+                  ต้องการข้อมูลเพิ่มเติม?
+                </h2>
+                <p className='text-xl text-slate-400 mb-10 max-w-2xl mx-auto'>
+                  โทรสอบถามรายละเอียดคอร์สและรอบการอบรมที่ว่างอยู่ได้โดยตรง
+                </p>
+                <a
+                  href='tel:0954965989'
+                  className='glass-button-primary px-12 py-5 rounded-full text-white font-bold text-xl inline-flex items-center'
+                >
+                  <MessageSquare className='w-6 h-6 mr-3' />
+                  095-496-5989
+                </a>
+              </div>
+            </div>
+          </div>
         </section>
       </div>
     </Layout>

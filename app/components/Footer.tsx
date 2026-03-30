@@ -5,17 +5,17 @@ import { MdOutlineEmail, MdOutlineLocationOn } from "react-icons/md"
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-950 text-slate-400 border-t border-white/5">
+    <footer className="backdrop-blur-xl bg-slate-900/80 text-slate-300 border-t border-white/10">
       <div className="container max-w-7xl mx-auto px-6 py-16">
         <div className="grid gap-12 lg:grid-cols-4 md:grid-cols-2">
-          
+
           {/* Brand Column */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold text-white tracking-tight">
-              Rundee<span className="text-blue-500">Ads</span>
+              Rundee<span className="text-blue-400">Ads</span>
             </h3>
-            <p className="text-sm leading-relaxed">
-              ผู้เชี่ยวชาญด้านการตลาดออนไลน์และ SEO 
+            <p className="text-sm leading-relaxed text-slate-300">
+              ผู้เชี่ยวชาญด้านการตลาดออนไลน์และ SEO
               ที่จะช่วยให้ธุรกิจของคุณเติบโตอย่างยั่งยืนในยุคดิจิทัล
             </p>
           </div>
@@ -47,15 +47,15 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-6">การติดต่อ</h4>
             <div className="space-y-4 text-sm">
               <div className="flex items-start gap-3">
-                <MdOutlineLocationOn className="text-xl text-blue-500 shrink-0" />
+                <MdOutlineLocationOn className="text-xl text-blue-400 shrink-0" />
                 <span>กรุงเทพมหานคร ประเทศไทย</span>
               </div>
               <a href="mailto:rundee.ads@gmail.com" className="flex items-center gap-3 hover:text-white transition-colors">
-                <MdOutlineEmail className="text-xl text-blue-500 shrink-0" />
+                <MdOutlineEmail className="text-xl text-blue-400 shrink-0" />
                 <span>rundee.ads@gmail.com</span>
               </a>
               <a href="tel:0954965989" className="flex items-center gap-3 hover:text-white transition-colors">
-                <IoCallOutline className="text-xl text-blue-500 shrink-0" />
+                <IoCallOutline className="text-xl text-blue-400 shrink-0" />
                 <span>095-496-5989</span>
               </a>
             </div>
@@ -67,7 +67,7 @@ export default function Footer() {
             <a
               href="https://line.me/R/ti/p/@655rkaej"
               rel="nofollow"
-              className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-[#06C755] hover:bg-[#05b34c] text-white font-bold rounded-xl transition-all duration-300 shadow-lg shadow-[#06C755]/10 hover:shadow-[#06C755]/20 hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold rounded-xl transition-all duration-300 shadow-lg shadow-green-500/30 hover:shadow-green-500/50 hover:-translate-y-1 backdrop-blur-sm"
             >
               <FaLine className="text-2xl" />
               <span>Add Friend</span>
@@ -77,7 +77,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/5 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs tracking-wider uppercase">
+        <div className="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs tracking-wider uppercase">
           <p>© 2026 RundeeAds. All Rights Reserved.</p>
           {/* <div className="flex gap-6">
             <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>

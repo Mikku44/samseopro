@@ -13,6 +13,7 @@ import {
 } from 'lucide-react'
 import Layout from '~/components/Layout'
 import type { MetaFunction } from '@remix-run/node'
+import { FaLine } from 'react-icons/fa6'
 
 export const meta: MetaFunction = () => {
   return [
@@ -77,7 +78,7 @@ export const meta: MetaFunction = () => {
   ]
 }
 
-export default function ContactUs () {
+export default function ContactUs() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -106,11 +107,15 @@ export default function ContactUs () {
 
   return (
     <Layout>
-      <div className='min-h-screen bg-gray-50'>
+      <div className='min-h-screen mt-20'>
+        {/* Gradient Orbs Background */}
+        <div className="gradient-orb w-[500px] h-[500px] bg-purple-500 top-0 left-0"></div>
+        <div className="gradient-orb w-[400px] h-[400px] bg-blue-500 bottom-0 right-0"></div>
+
         {/* Header Section */}
-        <section className='bg-gradient-to-b from-blue-800 to-blue-950 py-20'>
-          <div className='container mx-auto px-4 md:px-6 text-center'>
-            <h1 className='text-4xl md:text-5xl font-bold text-white mb-6'>
+        <section className='bg-gradient-to-b from-blue-800/90 to-blue-950/90 backdrop-blur-md py-20 relative'>
+          <div className='container mx-auto px-4 md:px-6 text-center relative z-10'>
+            <h1 className='text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg'>
               ติดต่อเรา
             </h1>
             <p className='text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed'>
@@ -121,16 +126,16 @@ export default function ContactUs () {
         </section>
 
         {/* Main Content */}
-        <section className='py-16 md:py-24'>
+        <section className='py-16 md:py-24 relative z-10'>
           <div className='container mx-auto px-4 md:px-6 max-w-7xl'>
             <div className='grid lg:grid-cols-3 gap-12'>
               {/* Contact Information */}
               <div className='lg:col-span-1 space-y-8'>
                 <div>
-                  <h2 className='text-2xl font-bold text-gray-900 mb-6'>
+                  <h2 className='text-2xl font-bold text-white mb-6 drop-shadow-md'>
                     ช่องทางการติดต่อ
                   </h2>
-                  <p className='text-gray-600 mb-8 leading-relaxed'>
+                  <p className='text-white/80 mb-8 leading-relaxed'>
                     เรายินดีให้คำปรึกษาฟรี!
                     ติดต่อเราผ่านช่องทางที่สะดวกที่สุดสำหรับคุณ
                   </p>
@@ -138,59 +143,57 @@ export default function ContactUs () {
 
                 {/* Contact Cards */}
                 <div className='space-y-6'>
-                  <div className='bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow'>
+                  <div className='glass-card p-6 hover:bg-white/25 transition-all duration-300'>
                     <div className='flex items-start space-x-4'>
-                      <div className='w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0'>
-                        <Phone className='w-6 h-6 text-blue-800' />
+                      <div className='w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg'>
+                        <Phone className='w-6 h-6 text-white' />
                       </div>
                       <div>
-                        <h3 className='font-semibold text-gray-900 mb-2'>
+                        <h3 className='font-semibold text-white mb-2'>
                           โทรศัพท์
                         </h3>
-                        <p className='text-blue-800 font-bold text-lg'>
+                        <p className='text-white font-bold text-lg'>
                           0954965989
                         </p>
-                        <p className='text-sm text-gray-500 mt-1'>
+                        <p className='text-sm text-white/60 mt-1'>
                           พร้อมรับสายทุกวัน 9:00 - 18:00
                         </p>
                       </div>
                     </div>
                   </div>
 
-                  <div className='bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow'>
+                  <div className='glass-card p-6 hover:bg-white/25 transition-all duration-300'>
                     <div className='flex items-start space-x-4'>
-                      <div className='w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0'>
-                        <MessageSquare className='w-6 h-6 text-green-600' />
+                      <div className='w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg'>
+                        <MessageSquare className='w-6 h-6 text-white' />
                       </div>
                       <div>
-                        <h3 className='font-semibold text-gray-900 mb-2'>
+                        <h3 className='font-semibold text-white mb-2'>
                           Line Official
                         </h3>
-                        <p className='text-green-600 font-bold text-lg'>
+                        <p className='text-white font-bold text-lg'>
                           @655rkaej
                         </p>
-                        <p className='text-sm text-gray-500 mt-1'>
+                        <p className='text-sm text-white/60 mt-1'>
                           ตอบกลับเร็วที่สุด 24/7
                         </p>
                       </div>
                     </div>
                   </div>
 
-                 
-
-                  <div className='bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow'>
+                  <div className='glass-card p-6 hover:bg-white/25 transition-all duration-300'>
                     <div className='flex items-start space-x-4'>
-                      <div className='w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0'>
-                        <Mail className='w-6 h-6 text-red-600' />
+                      <div className='w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg'>
+                        <Mail className='w-6 h-6 text-white' />
                       </div>
                       <div>
-                        <h3 className='font-semibold text-gray-900 mb-2'>
+                        <h3 className='font-semibold text-white mb-2'>
                           อีเมล
                         </h3>
-                        <p className='text-red-600 font-bold text-lg'>
+                        <p className='text-white font-bold text-lg'>
                           rundee.ads@gmail.com
                         </p>
-                        <p className='text-sm text-gray-500 mt-1'>
+                        <p className='text-sm text-white/60 mt-1'>
                           สำหรับข้อมูลโดยละเอียด
                         </p>
                       </div>
@@ -199,23 +202,23 @@ export default function ContactUs () {
                 </div>
 
                 {/* Working Hours */}
-                <div className='bg-blue-50 border border-blue-200 rounded-xl p-6'>
+                <div className='glass-card p-6'>
                   <div className='flex items-center space-x-3 mb-4'>
-                    <Clock className='w-6 h-6 text-blue-800' />
-                    <h3 className='font-semibold text-gray-900'>เวลาทำการ</h3>
+                    <Clock className='w-6 h-6 text-white' />
+                    <h3 className='font-semibold text-white'>เวลาทำการ</h3>
                   </div>
                   <div className='space-y-2 text-sm'>
                     <div className='flex justify-between'>
-                      <span className='text-gray-600'>จันทร์ - ศุกร์</span>
-                      <span className='font-medium'>09:00 - 18:00</span>
+                      <span className='text-white/70'>จันทร์ - ศุกร์</span>
+                      <span className='font-medium text-white'>09:00 - 18:00</span>
                     </div>
                     <div className='flex justify-between'>
-                      <span className='text-gray-600'>เสาร์</span>
-                      <span className='font-medium'>09:00 - 16:00</span>
+                      <span className='text-white/70'>เสาร์</span>
+                      <span className='font-medium text-white'>09:00 - 16:00</span>
                     </div>
                     <div className='flex justify-between'>
-                      <span className='text-gray-600'>อาทิตย์</span>
-                      <span className='font-medium'>ปิด</span>
+                      <span className='text-white/70'>อาทิตย์</span>
+                      <span className='font-medium text-white'>ปิด</span>
                     </div>
                   </div>
                 </div>
@@ -223,12 +226,12 @@ export default function ContactUs () {
 
               {/* Contact Form */}
               <div className='lg:col-span-2'>
-                <div className='bg-white border border-gray-200 rounded-2xl p-8 shadow-lg'>
+                <div className='glass-card p-8'>
                   <div className='mb-8'>
-                    <h2 className='text-2xl font-bold text-gray-900 mb-4'>
+                    <h2 className='text-2xl font-bold text-white mb-4 drop-shadow-md'>
                       ส่งข้อความถึงเรา
                     </h2>
-                    <p className='text-gray-600'>
+                    <p className='text-white/70'>
                       กรอกฟอร์มด้านล่าง เราจะติดต่อกลับภายใน 24 ชั่วโมง
                     </p>
                   </div>
@@ -236,36 +239,36 @@ export default function ContactUs () {
                   <div className='space-y-6'>
                     <div className='grid md:grid-cols-2 gap-6'>
                       <div>
-                        <div className='block text-sm font-medium text-gray-700 mb-2'>
+                        <div className='block text-sm font-medium text-white/80 mb-2'>
                           ชื่อ-นามสกุล *
                         </div>
                         <div className='relative'>
-                          <User className='absolute left-3 top-3 h-5 w-5 text-gray-400' />
+                          <User className='absolute left-3 top-3 h-5 w-5 text-white/50' />
                           <input
                             type='text'
                             name='name'
                             value={formData.name}
                             onChange={handleInputChange}
                             required
-                            className='w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent'
+                            className='w-full pl-10 pr-4 py-3 glass-button text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent'
                             placeholder='กรุณากรอกชื่อของคุณ'
                           />
                         </div>
                       </div>
 
                       <div>
-                        <div className='block text-sm font-medium text-gray-700 mb-2'>
+                        <div className='block text-sm font-medium text-white/80 mb-2'>
                           อีเมล *
                         </div>
                         <div className='relative'>
-                          <Mail className='absolute left-3 top-3 h-5 w-5 text-gray-400' />
+                          <Mail className='absolute left-3 top-3 h-5 w-5 text-white/50' />
                           <input
                             type='email'
                             name='email'
                             value={formData.email}
                             onChange={handleInputChange}
                             required
-                            className='w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent'
+                            className='w-full pl-10 pr-4 py-3 glass-button text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent'
                             placeholder='your@email.com'
                           />
                         </div>
@@ -274,34 +277,34 @@ export default function ContactUs () {
 
                     <div className='grid md:grid-cols-2 gap-6'>
                       <div>
-                        <div className='block text-sm font-medium text-gray-700 mb-2'>
+                        <div className='block text-sm font-medium text-white/80 mb-2'>
                           บริษัท/องค์กร
                         </div>
                         <div className='relative'>
-                          <Building className='absolute left-3 top-3 h-5 w-5 text-gray-400' />
+                          <Building className='absolute left-3 top-3 h-5 w-5 text-white/50' />
                           <input
                             type='text'
                             name='company'
                             value={formData.company}
                             onChange={handleInputChange}
-                            className='w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent'
+                            className='w-full pl-10 pr-4 py-3 glass-button text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent'
                             placeholder='ชื่อบริษัทหรือองค์กร'
                           />
                         </div>
                       </div>
 
                       <div>
-                        <div className='block text-sm font-medium text-gray-700 mb-2'>
+                        <div className='block text-sm font-medium text-white/80 mb-2'>
                           เบอร์โทรศัพท์
                         </div>
                         <div className='relative'>
-                          <Phone className='absolute left-3 top-3 h-5 w-5 text-gray-400' />
+                          <Phone className='absolute left-3 top-3 h-5 w-5 text-white/50' />
                           <input
                             type='tel'
                             name='phone'
                             value={formData.phone}
                             onChange={handleInputChange}
-                            className='w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent'
+                            className='w-full pl-10 pr-4 py-3 glass-button text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent'
                             placeholder='0xx-xxx-xxxx'
                           />
                         </div>
@@ -310,76 +313,75 @@ export default function ContactUs () {
 
                     <div className='grid md:grid-cols-2 gap-6'>
                       <div>
-                        <div className='block text-sm font-medium text-gray-700 mb-2'>
+                        <div className='block text-sm font-medium text-white/80 mb-2'>
                           บริการที่สนใจ
                         </div>
                         <select
                           name='service'
                           value={formData.service}
                           onChange={handleInputChange}
-                          className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent'
+                          className='w-full px-4 py-3 glass-button text-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent'
                         >
-                          <option value=''>เลือกบริการ</option>
-                          <option value='seo'>SEO Service</option>
-                          <option value='google-ads'>Google Ads</option>
-                          <option value='social-media'>
-                            Social Media Marketing
-                          </option>
-                          <option value='web-design'>Web Design</option>
-                          <option value='consultation'>ปรึกษาทั่วไป</option>
-                          <option value='other'>อื่นๆ</option>
+                          <option value='' className='text-gray-900'>เลือกบริการ</option>
+                          <option value='seo' className='text-gray-900'>SEO Service</option>
+                          <option value='google-ads' className='text-gray-900'>Google Ads</option>
+                          <option value='social-media' className='text-gray-900'>Social Media Marketing</option>
+                          <option value='web-design' className='text-gray-900'>Web Design</option>
+                          <option value='consultation' className='text-gray-900'>ปรึกษาทั่วไป</option>
+                          <option value='other' className='text-gray-900'>อื่นๆ</option>
                         </select>
                       </div>
 
                       <div>
-                        <div className='block text-sm font-medium text-gray-700 mb-2'>
+                        <div className='block text-sm font-medium text-white/80 mb-2'>
                           งบประมาณโดยประมาณ (บาท/เดือน)
                         </div>
                         <select
                           name='budget'
                           value={formData.budget}
                           onChange={handleInputChange}
-                          className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent'
+                          className='w-full px-4 py-3 glass-button text-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent'
                         >
-                          <option value=''>เลือกช่วงงบประมาณ</option>
-                          <option value='under-10k'>ต่ำกว่า 10,000</option>
-                          <option value='10k-30k'>10,000 - 30,000</option>
-                          <option value='30k-50k'>30,000 - 50,000</option>
-                          <option value='50k-100k'>50,000 - 100,000</option>
-                          <option value='over-100k'>มากกว่า 100,000</option>
+                          <option value='' className='text-gray-900'>เลือกช่วงงบประมาณ</option>
+                          <option value='under-10k' className='text-gray-900'>ต่ำกว่า 10,000</option>
+                          <option value='10k-30k' className='text-gray-900'>10,000 - 30,000</option>
+                          <option value='30k-50k' className='text-gray-900'>30,000 - 50,000</option>
+                          <option value='50k-100k' className='text-gray-900'>50,000 - 100,000</option>
+                          <option value='over-100k' className='text-gray-900'>มากกว่า 100,000</option>
                         </select>
                       </div>
                     </div>
 
                     <div>
-                      <div className='block text-sm font-medium text-gray-700 mb-2'>
+                      <div className='block text-sm font-medium text-white/80 mb-2'>
                         รายละเอียดเพิ่มเติม
                       </div>
                       <div className='relative'>
-                        <MessageCircle className='absolute left-3 top-3 h-5 w-5 text-gray-400' />
+                        <MessageCircle className='absolute left-3 top-3 h-5 w-5 text-white/50' />
                         <textarea
                           name='message'
                           value={formData.message}
                           onChange={handleInputChange}
                           rows={4}
-                          className='w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none'
+                          style={{
+                            borderRadius: 20
+                          }}
+                          className='w-full pl-10 pr-4 py-3 glass-button text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent resize-none'
                           placeholder='บอกเราเกี่ยวกับธุรกิจของคุณและสิ่งที่คุณต้องการความช่วยเหลือ...'
                         />
                       </div>
                     </div>
 
-                    <div className='flex items-center space-x-3 text-sm text-gray-600'>
-                      <CheckCircle className='w-5 h-5 text-green-500 flex-shrink-0' />
-                      <span>
-                        เราจะไม่เผยแพร่ข้อมูลส่วนตัวของคุณให้กับบุคคลที่สาม
-                      </span>
+                    <div className='flex items-center space-x-3 text-sm text-white/70'>
+                      <CheckCircle className='w-5 h-5 text-green-400 flex-shrink-0' />
+                      <span>เราให้ความสำคัญกับความเป็นส่วนตัว ข้อมูลของคุณจะไม่ถูกเปิดเผยต่อบุคคลภายนอก</span>
                     </div>
 
                     <button
                       type='button'
                       onClick={handleSubmit}
                       disabled={isSubmitted}
-                      className='w-full flex items-center justify-center px-8 py-4 bg-blue-800 hover:bg-blue-950 disabled:bg-green-500 text-white font-semibold rounded-lg transition-colors'
+                      className='w-full flex items-center justify-center px-8 py-4 glass-button text-white font-semibold hover:bg-white/30 disabled:bg-green-500'
                     >
                       {isSubmitted ? (
                         <>
@@ -401,37 +403,36 @@ export default function ContactUs () {
         </section>
 
         {/* Quick Contact Section */}
-        <section className='py-16 bg-blue-800'>
+        <section className='py-16 backdrop-blur-md bg-blue-900/50 relative z-10'>
           <div className='container mx-auto px-4 md:px-6 text-center'>
-            <h2 className='text-3xl font-bold text-white mb-4'>
+            <h2 className='text-3xl font-bold text-white mb-4 drop-shadow-lg'>
               ต้องการความช่วยเหลือด่วน?
             </h2>
-            <p className='text-blue-100 mb-8 max-w-2xl mx-auto'>
+            <p className='text-white/80 mb-8 max-w-2xl mx-auto'>
               ติดต่อเราผ่าน Line Official Account
               สำหรับการตอบกลับที่รวดเร็วที่สุด
             </p>
-            <div className='flex flex-col sm:flex-row gap-4 items-center justify-center'>
+            <div className='grid md:grid-cols-2 max-w-3xl mx-auto gap-4 items-center justify-center'>
               <a
                 href='tel:0954965989'
-                className='inline-flex items-center px-8 py-5
-                
-                bg-white text-blue-950 hover:bg-gray-100 font-semibold rounded-full transition-colors'
+                className='inline-flex items-center px-8 py-5 glass-button text-white font-semibold hover:bg-white/30'
               >
                 <Phone className='w-5 h-5 mr-2' />
                 โทรเลย 095-496-5989
               </a>
 
-              <a
-                href='https://line.me/R/ti/p/@655rkaej'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                <img
-                  className='w-[300px] h-auto'
-                  src='/addline.webp'
-                  alt='add line button'
-                />
-              </a>
+              <div className="">
+                <a
+                  href="https://line.me/R/ti/p/@655rkaej"
+                  rel="nofollow"
+                  className="inline-flex items-center justify-center gap-2 w-full px-8 py-5 
+                   bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700
+                    text-white font-bold rounded-full transition-all duration-300 shadow-lg shadow-green-500/30 hover:shadow-green-500/50 hover:-translate-y-1 backdrop-blur-sm"
+                >
+                  <FaLine className="text-2xl" />
+                  <span>Add Friend</span>
+                </a>
+              </div>
             </div>
           </div>
         </section>

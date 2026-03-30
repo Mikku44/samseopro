@@ -34,10 +34,10 @@ export default function Layout ({ children }: Readonly<{ children: ReactNode }>)
         rel='stylesheet'
       ></link>
       {/* <Banner /> */}
-      <Header />
       <FoatingButton />
       <div className='flex-1'>{children}</div>
       <Footer />
+      <Header />
     </div>
   )
 }

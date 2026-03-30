@@ -13,7 +13,7 @@ export const meta: MetaFunction = () => {
     {
       name: 'description',
       content:
-        'บริการรับทำ SEOจากผู้เชี่ยวชาญ เรียนรู้การทำ SEO อย่างถูกต้อง เข้าใจกลยุทธ์การตลาดออนไลน์ ปฏิบัติได้จริง พร้อมใบประกาศนียบัตร'
+        'คอร์สอบรม SEO จากผู้เชี่ยวชาญ เรียนรู้การทำ SEO อย่างถูกต้อง เข้าใจกลยุทธ์การตลาดออนไลน์ ปฏิบัติได้จริง พร้อมใบประกาศนียบัตร'
     },
     {
       name: 'keywords',
@@ -43,61 +43,69 @@ export const meta: MetaFunction = () => {
   ]
 }
 
-export default function SEOTrainingService () {
+export default function SEOTrainingService() {
   return (
     <Layout>
-      <motion.section
-        className=' w-full h-screen max-h-[600px] p-5 md:p-24 relative overflow-hidden
-         bg-blue-800 bg-cover bg-no-repeat bg-center *:
-         bg-[url("/bg.avif")]'
-      >
-        {/* Text Content */}
-        <div className='h-full max-w-7xl md:px-20 mx-auto md:m-0 m-auto py-5 flex flex-col justify-center gap-5 relative z-10'>
-          <motion.div
-            className='text-white/80'
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-          >
-            เพิ่มยอดขาย ขยายธุรกิจให้ปัง!
-          </motion.div>
+      {/* Dynamic Background Elements */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/10 rounded-full blur-[120px]"></div>
+        <div className="absolute bottom-[10%] right-[-5%] w-[35%] h-[35%] bg-indigo-600/10 rounded-full blur-[100px]"></div>
+      </div>
 
-          <motion.h1
-            className='md:text-5xl text-4xl text-white font-bold'
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8, ease: 'easeOut' }}
-          >
-            RundeeAds <br />
-            คอร์สอบรม Google Ads แบบมืออาชีพ
-          </motion.h1>
+      {/* Hero Section */}
+      <section className='w-full min-h-[70vh] flex items-center relative overflow-hidden pt-32 pb-20'>
+        <div className='container-x relative z-10'>
+          <div className='max-w-4xl'>
+            <motion.div
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border-white/10 mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+              </span>
+              <span className="text-xs font-medium text-blue-200/80 tracking-wider uppercase">เรียนกับอดีต Account Manager จาก Google</span>
+            </motion.div>
 
-          <motion.h2
-            className='text-white mt-4'
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8, ease: 'easeOut' }}
-          >
-            เรียน Google Ads กับอดีตคนใน Google ตัวจริง!
-            เปลี่ยนงบโฆษณาให้เป็นกำไร ด้วยกลยุทธ์ที่ใช้ได้ผลจริง <br />
-            สอนโดยอดีต Account Manager จาก Google ที่ดูแลบัญชีมาแล้วกว่า 1,000
-            ธุรกิจ
-          </motion.h2>
+            <motion.h1
+              className='text-5xl md:text-7xl font-bold leading-tight tracking-tight text-white mb-8'
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+            >
+              RundeeAds <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">
+                คอร์สอบรม Google Ads แบบมืออาชีพ
+              </span>
+            </motion.h1>
+
+            <motion.p
+              className='text-xl md:text-2xl text-slate-300/90 leading-relaxed max-w-2xl mb-12'
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+            >
+              เรียน Google Ads กับอดีตคนใน Google ตัวจริง! เปลี่ยนงบโฆษณาให้เป็นกำไร ด้วยกลยุทธ์ที่ใช้ได้ผลจริง พร้อมทริกที่ไม่มีบอกในคู่มือทั่วไป
+            </motion.p>
+
+          
+          </div>
         </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#020617] pointer-events-none"></div>
+      </section>
 
-        {/* Gradient Overlay */}
-        <div className='absolute inset-0 bg-gradient-to-b from-black/0 to-black/80'></div>
-      </motion.section>
+      <section className="mt-10">
+        <div className="container-x mx-auto py-16 flex items-center justify-between md:flex-row flex-col-reverse gap-10">
 
-      <section className=' mt-10'>
-        <div className='container-x mx-auto py-16 flex items-center justify-between md:flex-row flex-col-reverse gap-10'>
           {/* Text Content */}
-          <div className='md:basis-1/2'>
-            <h2 className='text-3xl md:text-4xl font-bold text-[--secondary]'>
+          <div className="md:basis-1/2">
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
               เคยไหม?
             </h2>
 
-            <ul className='mt-6 space-y-4'>
+            <ul className="mt-6 space-y-4">
               {[
                 'ลงเงินกับ Google Ads ไปเท่าไหร่ก็ไม่เห็นผลลัพธ์',
                 'รู้สึกเหมือนเอาเงินไปทิ้ง งบโฆษณาบานปลาย ควบคุมไม่ได้',
@@ -107,18 +115,24 @@ export default function SEOTrainingService () {
               ].map((text, i) => (
                 <li
                   key={i}
-                  className='flex gap-3 items-start rounded-xl bg-neutral-50 border border-neutral-200 p-3 shadow-sm'
+                  className="
+              flex gap-3 items-start rounded-xl p-4
+              bg-white/10 backdrop-blur-lg
+              border border-white/20
+              shadow-lg shadow-black/10
+              hover:bg-white/20 transition
+            "
                 >
-                  <FaCircleCheck className='text-[--secondary] mt-0.5 shrink-0 text-lg' />
-                  <span className='text-sm md:text-base leading-relaxed text-neutral-700'>
+                  <FaCircleCheck className="text-blue-500 mt-0.5 shrink-0 text-lg" />
+                  <span className="text-sm md:text-base leading-relaxed text-white/90">
                     {text}
                   </span>
                 </li>
               ))}
             </ul>
 
-            <div className='max-w-[500px] mt-6 text-neutral-800 leading-relaxed'>
-              <span className='font-semibold text-neutral-900'>
+            <div className="max-w-[500px] mt-6 leading-relaxed text-white/80">
+              <span className="font-semibold text-white">
                 หยุดเสียเงินและเวลาไปกับการลองผิดลองถูก!
               </span>{' '}
               ผมจะสอนคุณให้ใช้ Google Ads อย่างมืออาชีพ เข้าใจทุกซอกทุกมุม
@@ -127,19 +141,27 @@ export default function SEOTrainingService () {
           </div>
 
           {/* Image */}
-          <div className='relative md:basis-1/2 flex justify-center'>
-            <div className='relative'>
+          <div className="relative md:basis-1/2 flex justify-center">
+            <div className="relative">
+
+              {/* Glow background */}
+              <div className="absolute -inset-4 bg-gradient-to-tr from-[--secondary]/30 to-[--tertiary]/30 blur-2xl opacity-60 rounded-2xl" />
+
               <img
-                src='/dashboard.webp'
-                alt='Google Ads dashboard preview'
-                className='relative z-10 w-full max-w-[400px] md:max-w-[500px] rounded-xl border border-neutral-200 shadow-lg'
+                src="/dashboard.webp"
+                alt="Google Ads dashboard preview"
+                className="
+            relative z-10 w-full max-w-[400px] md:max-w-[500px]
+            rounded-2xl
+            bg-white/10 backdrop-blur-xl
+            border border-white/20
+            shadow-xl
+          "
               />
 
-              {/* Subtle gradient layers */}
-              <div className='absolute top-6 left-4 w-full h-full max-w-[400px] md:max-w-[500px] rounded-xl bg-[--secondary]/10 blur-sm' />
-              <div className='absolute top-12 left-8 w-full h-full max-w-[400px] md:max-w-[500px] rounded-xl bg-[--tertiary]/10 blur-sm' />
             </div>
           </div>
+
         </div>
       </section>
 
@@ -241,7 +263,7 @@ export default function SEOTrainingService () {
             ครบทุกฟีเจอร์ตั้งแต่เริ่มต้น
           </div>
 
-          <div className='mt-5 text-black/60 text-lg'>
+          <div className='mt-5 text-white/60 text-lg'>
             เราจะเริ่มสอนคุณตั้งแต่ศูนย์ ไปจนถึงขั้นแอดวานซ์แบบจับมือทำ
             คุณจะเข้าใจและทำเองได้ทั้งหมด
           </div>
@@ -258,10 +280,9 @@ export default function SEOTrainingService () {
             <CourseTargetAudience />
           </div>
         </section>
-        <section className='md:py-20 py-10  overflow-hidden relative text-white min-h-[500px]'>
-          <div className='container-x'>
+        <section className='md:py-20 py-10 overflow-hidden relative text-white min-h-[500px]'>
             <CoursePricing />
-          </div>
+          
         </section>
       </section>
     </Layout>
