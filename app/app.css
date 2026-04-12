@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+html,
+body {
+  isolation: isolate;
+  font-family: "Google Sans Flex","Noto Sans Thai", "Playpen Sans Thai", sans-serif;
+  font-optical-sizing: auto;
+
+}
+
+
+main {
+  @apply mx-auto max-w-7xl px-4 w-full;
+  position: relative;
+  z-index: 1;
+}
+
+.container-x {
+  @apply mx-auto max-w-7xl px-4 w-full;
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+button,
+.button {
+  @apply rounded-md px-3 py-2 text-black/70 duration-150 hover:opacity-90;
+}
+
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Kanit", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+
+:root {
+  --primary-color: #121b2a;
+  --tertiary-color: #FFF5DF;
+  --secondary-color: #3F2723;
+
+   --primary: #b91c1c;
+  --secondary: #121b2a;
+  --tertiary: #FF9B00;
+  --default: #0000;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+
+.scroll-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.box-container {
+  @apply max-w-7xl mx-auto px-4;
+}
+
+.box-container-md {
+  @apply md:max-w-7xl md:mx-auto px-4;
+}
+
+.merriweather {
+  font-family: "Merriweather", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+
+}
+
+.social-icon {
+  @apply hover:-translate-y-1 duration-150 hover:opacity-75 opacity-80;
+}
+
+.mc-hd .nav-item .nav-lnk {
+  position: relative;
+  padding: 0;
+  line-height: 18px;
+  height: 18px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.mc-hd .nav-item .nav-lnk img {
+  background-size: cover;
+  position: relative;
+  bottom: 5px;
+}
+
+.mc-hd .nav-item .nav-lnk::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  top: 24px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.mc-hd .nav-item .nav-lnk-active {
+  @apply border-b-2 border-blue-800 py-[5px] text-blue-800 font-bold;
+}
+
+.mc-hd .nav-item .nav-lnk:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.mc-hd .nav-item .nav-lnk:hover {
+  color: white;
+}
+
+.header-0 {
+  @apply md:text-5xl text-3xl;
+}
+
+.header-1 {
+  @apply md:text-4xl text-2xl;
+}
+
+.PhotoView-Slider__Backdrop{
+  background-color: #00000059 !important;
+  @apply backdrop-blur-md;
+}
+
+.PhotoView-Slider__BannerWrap {
+  background-color: rgba(255, 255, 255, 0.251) !important;
+  @apply flex my-2 ml-5  rounded-xl max-w-[180px] border-white shadow px-2 backdrop-blur-md;
+}
+
+.input {
+  @apply border border-gray-300 bg-white rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)];
+}
+
+.toggle {
+  @apply border-2 bg-[var(--secondary-color)] p-2 rounded-sm flex justify-center;
+}
+
+.animated-slide-bg {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--secondary-color);
+  z-index: 0; /* parent z-index for pseudo-element */
+}
+
+.animated-slide-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -110%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--secondary-color);
+  z-index: 1; /* behind text but above parent background */
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.animated-slide-bg:hover::before {
+  left: 0;
+}
+
+.animated-slide-bg span {
+  position: relative;
+  z-index: 2; /* make sure text is above pseudo-element */
+  transition: color 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.animated-slide-bg:hover span {
+  color: white;
+}
+
+.custom-dot {
+  width: 12px;
+  height: 12px;
+  background: gray;
+  border-radius: 50%;
+  margin: 0 4px;
+  transition: background 0.3s;
+}
+
+.swiper-pagination-bullet-active.custom-dot {
+  background: rgb(255, 4, 0); /* active color */
+}
+

@@ -1,6 +1,6 @@
-import { Link } from "@remix-run/react"
+import { Link } from "react-router";
 import { Article } from "~/models/blogModel"
-import { ArrowUpRight } from "lucide-react" // Optional: adds a nice touch
+import { ArrowRight } from "lucide-react"
 
 interface CardBlogProps {
   data: Article
@@ -10,41 +10,48 @@ export default function CardBlog({ data }: Readonly<CardBlogProps>) {
   return (
     <Link
       to={`/blog/${data.slug}`}
-      className="group block w-[320px] h-[420px] glass-card hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden"
+      className="group block max-w-[350px] bg-white border border-slate-100 rounded-[20px]
+      overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-blue-500/5 hover:border-blue-100"
     >
-      {/* Image Container with Zoom Effect */}
-      <div className="relative h-[200px] overflow-hidden">
+      {/* Image Section: Cleaner Aspect Ratio */}
+      <div className="relative h-[220px] overflow-hidden m-2 rounded-[15px]">
         <img
           src={data.image[0] || "/icon.png"}
           alt={data.title}
-          className="object-cover h-full w-full transition-transform duration-700 group-hover:scale-110"
+          className="object-cover h-full w-full transition-transform duration-1000 group-hover:scale-105"
         />
-        {/* Subtle Overlay on Hover */}
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
-
-        {/* Date or Category Tag (Optional) */}
-        <div className="absolute top-4 left-4">
-          <span className="px-3 py-1 text-xs font-bold bg-white/90 backdrop-blur-md text-blue-600 rounded-full shadow-sm">
-            Insights
+        
+        {/* Category Tag: Subtle & Minimal */}
+        <div className="absolute top-3 left-3">
+          <span className="px-4 py-1.5 text-[10px] uppercase tracking-[0.15em] font-bold bg-white/80 backdrop-blur-md text-slate-800 rounded-full">
+            Journal
           </span>
         </div>
       </div>
 
       {/* Content Area */}
-      <div className="flex flex-col p-6 h-[220px] justify-between">
-        <div>
-          <h3 className="text-xl font-bold text-white line-clamp-2 group-hover:text-blue-300 transition-colors duration-300 leading-snug">
+      <div className="flex flex-col p-6 pt-4">
+        <div className="space-y-3">
+          {/* Subtle Date */}
+          <time className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">
+            April 11, 2026
+          </time>
+          
+          <h3 className="text-xl font-bold text-slate-900 line-clamp-2 leading-tight group-hover:text-blue-600 transition-colors duration-300">
             {data.title}
           </h3>
-          <p className="mt-3 text-sm text-slate-200 line-clamp-3 leading-relaxed">
+          
+          <p className="text-sm text-slate-500 line-clamp-3 leading-relaxed font-medium">
             {data.excerpt}
           </p>
         </div>
 
-        {/* Action Footer */}
-        <div className="flex items-center text-blue-300 text-sm font-bold gap-1 mt-auto group/btn">
-          <span>Read Article</span>
-          <ArrowUpRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
+        {/* Minimal Footer with Red Accent */}
+        <div className="mt-8 pt-5 border-t border-slate-50 flex items-center justify-between text-slate-900">
+          <span className="text-xs font-bold uppercase tracking-wider">Read More</span>
+          <div className="size-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+            <ArrowRight className="w-4 h-4" />
+          </div>
         </div>
       </div>
     </Link>

@@ -1,6 +1,6 @@
-import { type LoaderFunctionArgs ,MetaFunction} from '@remix-run/node'
+import { type LoaderFunctionArgs, MetaFunction } from 'react-router';
 
-import { useLoaderData } from '@remix-run/react'
+import { useLoaderData } from 'react-router';
 import { LuChevronLeft } from 'react-icons/lu'
 // import { LuBookmark, LuChevronLeft, LuLink, LuShare2 } from 'react-icons/lu'
 import Layout from '~/components/Layout'

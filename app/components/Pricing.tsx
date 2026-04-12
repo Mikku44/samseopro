@@ -29,7 +29,8 @@ export default function CoursePricingCTA() {
             <p className="text-lg text-white/70">
               ทั้งหมดนี้ในราคาเพียง
             </p>
-            <p className='text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-500 to-green-400 bg-clip-text text-transparent mt-2'> 9,900 บาท </p>
+            <p className='text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-500 to-green-400 bg-clip-text text-transparent mt-2'> 
+              3,500 บาท </p>
            
           </div>
 
@@ -67,7 +68,7 @@ export default function CoursePricingCTA() {
               จากคนที่ผ่านมาหลายร้อยธุรกิจ
             </p>
 
-            <p className="text-sm md:text-base text-[--tertiary] font-medium">
+            <p className="text-sm md:text-base text-red-500 font-bold">
               รับจำนวนจำกัด เพื่อการดูแลอย่างทั่วถึง!
             </p>
 

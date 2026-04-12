@@ -61,7 +61,7 @@ export default function FloatingContact() {
           <a
             target='_blank'
             href='mailto:rundee.ads@gmail.com'
-            className='flex items-center gap-3 px-5 py-2.5 glass-button text-white shadow-xl hover:bg-white/30 transition-all hover:-translate-x-1'
+            className='flex items-center gap-3 px-5 py-2.5 rounded-full bg-black text-white shadow-xl hover:bg-white/30 transition-all hover:-translate-x-1'
           >
             <span className="text-sm font-medium">Email Us</span>
             <div className="bg-white/20 p-1.5 rounded-full"><Mail size={18} /></div>

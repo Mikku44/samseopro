@@ -3,8 +3,9 @@ import { ReactNode } from 'react'
 // import Banner from './Banner'
 import Header from './Header'
 import Footer from './Footer'
-import { LinksFunction } from '@remix-run/react/dist/routeModules';
-import FoatingButton from './FoatingButton';
+
+import FloatingButton from './FloatingButton';
+import { LinksFunction } from 'react-router';
 
 export const links: LinksFunction = () => {
   return [
@@ -34,7 +35,7 @@ export default function Layout ({ children }: Readonly<{ children: ReactNode }>)
         rel='stylesheet'
       ></link>
       {/* <Banner /> */}
-      <FoatingButton />
+      <FloatingButton />
       <div className='flex-1'>{children}</div>
       <Footer />
       <Header />

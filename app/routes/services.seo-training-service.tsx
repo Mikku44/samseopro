@@ -1,6 +1,6 @@
 // app/routes/services/seo-training-service.tsx
 import Layout from '~/components/Layout'
-import type { MetaFunction } from '@remix-run/node'
+import type { MetaFunction } from 'react-router';
 import { BookOpen, Users, CheckCircle, Clock, Send, ArrowRight, Target, BarChart3, Globe, MessageSquare } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
@@ -57,31 +57,36 @@ export default function SEOTrainingService() {
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setIsSubmitted(true);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitted(true);
 
-  try {
-    const response = await fetch('https://script.google.com/macros/s/AKfycbzQmgdhOim_POLNraGZWQ8Nn8qd3R5cCbnJ6V6EzzREWpqvdr4Qk6Akse8qlRkMpDreEQ/exec', {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbzQmgdhOim_POLNraGZWQ8Nn8qd3R5cCbnJ6V6EzzREWpqvdr4Qk6Akse8qlRkMpDreEQ/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    setTimeout(() => setIsSubmitted(false), 3000);
-  } catch (error) {
-    console.error("Error submitting form:", error);
-    setIsSubmitted(false);
-    alert("Something went wrong. Please try again.");
-  }
-};
+      setTimeout(() => setIsSubmitted(false), 3000);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setIsSubmitted(false);
+      alert("Something went wrong. Please try again.");
+    }
+  };
+
+  const characterVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
 
   return (
     <Layout>
-      <div className='min-h-screen relative overflow-hidden'>
+      <div className='min-h-screen relative overflow-hidden bg-black'>
         {/* Dynamic Background Elements */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
           <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/10 rounded-full blur-[120px]"></div>
@@ -90,6 +95,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 
         {/* Hero Section */}
         <section className='w-full min-h-[70vh] flex items-center relative overflow-hidden pt-32 pb-20'>
+          <img src="/team.avif" alt="seo training service" className="w-full h-full object-cover absolute top-0" />
           <div className='container-x relative z-10'>
             <div className='max-w-4xl'>
               <motion.div
@@ -111,9 +117,20 @@ const handleSubmit = async (e: React.FormEvent) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
               >
-                RundeeAds <br />
+                {/* Wrap each character in RundeeAds in a motion.span with variants and delay */}
+                {'RundeeAds'.split('').map((char, index) => (
+                  <motion.span key={index} variants={characterVariants} initial="hidden" animate="visible" transition={{ delay: 0.2 + index * 0.1 }}>
+                    {char}
+                  </motion.span>
+                ))}
+                <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">
-                  บริการรับทำ SEOแบบมืออาชีพ
+                  {/* Wrap each character in "บริการรับทำ SEOแบบมืออาชีพ" in a motion.span with variants and delay */}
+                  {'บริการรับทำ SEO แบบมืออาชีพ'.split('').map((char, index) => (
+                    <motion.span key={index} variants={characterVariants} initial="hidden" animate="visible" transition={{ delay: 0.4 + index * 0.1 }}>
+                      {char}
+                    </motion.span>
+                  ))}
                 </span>
               </motion.h1>
 
@@ -123,9 +140,13 @@ const handleSubmit = async (e: React.FormEvent) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
               >
-                เรียนรู้การทำ SEO อย่างถูกต้อง ปฏิบัติได้จริง เพิ่มอันดับเว็บไซต์บน Google ด้วยกลยุทธ์ที่ใช้ได้ผลจริงในปี 2024
+                {/* Wrap each character in the paragraph in a motion.span with variants and delay */}
+                {'เรียนรู้การทำ SEO อย่างถูกต้อง ปฏิบัติได้จริง เพิ่มอันดับเว็บไซต์บน Google ด้วยกลยุทธ์ที่ใช้ได้ผลจริงในปี 2024'.split('').map((char, index) => (
+                  <motion.span key={index} variants={characterVariants} initial="hidden" animate="visible" transition={{ delay: 0.6 + index * 0.05 }}>
+                    {char}
+                  </motion.span>
+                ))}
               </motion.p>
-
               <motion.div
                 className="flex flex-wrap gap-4"
                 initial={{ opacity: 0, y: 30 }}
@@ -133,7 +154,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                 transition={{ delay: 0.6, duration: 0.8 }}
               >
                 <a href='#register'>
-                  <button className='glass-button-primary px-10 py-4 rounded-full text-white font-bold text-lg shadow-[0_0_30px_rgba(59,130,246,0.2)]'>
+                  <button className='bg-blue-800 px-10 py-4 rounded-full text-white font-bold text-lg'>
                     ลงทะเบียนเรียน
                   </button>
                 </a>
@@ -145,7 +166,7 @@ const handleSubmit = async (e: React.FormEvent) => {
               </motion.div>
             </div>
           </div>
-          
+
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#020617] pointer-events-none"></div>
         </section>
 
@@ -188,10 +209,12 @@ const handleSubmit = async (e: React.FormEvent) => {
             ].map((card, i) => (
               <motion.div
                 key={i}
-                className='glass-card p-10 group'
+                className='bg-white/5 rounded-xl p-10 group'
                 whileHover={{ y: -10 }}
               >
-                <div className="size-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-8 group-hover:bg-blue-500/20 transition-all duration-500">
+                <div className="size-16 rounded-full bg-white/5 border
+                 border-white/10 flex items-center justify-center mb-8
+                  group-hover:bg-blue-500/20 transition-all duration-500">
                   {card.icon}
                 </div>
                 <h3 className='text-2xl font-bold text-white mb-4'>{card.title}</h3>
@@ -241,10 +264,10 @@ const handleSubmit = async (e: React.FormEvent) => {
         <section id="register" className='py-24 md:py-32 relative z-10'>
           <div className='container-x max-w-6xl'>
             <div
-           
-            className='glass-card p-1 md:p-12 overflow-hidden relative border-white/5'>
+
+              className='glass-card p-1 md:p-12 overflow-hidden relative border-white/5'>
               <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/10 blur-[120px] -mr-48 -mt-48"></div>
-              
+
               <div className='grid lg:grid-cols-2 gap-16 relative z-10'>
                 <div>
                   <h2 className='text-4xl md:text-5xl font-bold text-white mb-8 leading-tight'>
@@ -265,7 +288,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                         <p className='text-white font-bold text-lg'>1 วันเต็ม (09:00 - 17:00)</p>
                       </div>
                     </div>
-                    
+
                     <div className='flex items-center p-6 glass rounded-full border-white/5'>
                       <div className="p-3 bg-indigo-500/10 rounded-full mr-6">
                         <Users className='w-6 h-6 text-indigo-400' />
@@ -279,11 +302,11 @@ const handleSubmit = async (e: React.FormEvent) => {
                 </div>
 
                 {/* Form */}
-                <div 
-                 style={{
-              borderRadius:20
-            }}
-                className='glass p-8 md:p-10 rounded-sm border-white/10 shadow-2xl'>
+                <div
+                  style={{
+                    borderRadius: 20
+                  }}
+                  className='glass p-8 md:p-10 rounded-sm border-white/10 shadow-2xl'>
                   <h3 className='text-2xl font-bold text-white mb-2'>ลงทะเบียนสำรองที่นั่ง</h3>
                   <p className='text-slate-400 mb-8'>กรอกข้อมูลเพื่อให้ทีมงานติดต่อกลับภายใน 24 ชม.</p>
 
@@ -326,7 +349,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                     <button
                       type='submit'
                       disabled={isSubmitted}
-                      className='w-full glass-button-primary py-5 rounded-full text-white font-bold text-lg hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-all'
+                      className='w-full bg-blue-800  py-5 rounded-full text-white font-bold text-lg hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-all'
                     >
                       {isSubmitted ? (
                         <span className="flex items-center justify-center">
@@ -351,7 +374,8 @@ const handleSubmit = async (e: React.FormEvent) => {
         <section className='pb-20 relative z-10'>
           <div className='container-x text-center'>
             <div className="glass-card p-16 relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10"></div>
+              <div className="absolute inset-0 bg-gradient-to-r  rounded-3xl
+              border-white/10 border from-blue-600/10 to-indigo-600/10"></div>
               <div className="relative z-10">
                 <h2 className='text-3xl md:text-5xl font-bold text-white mb-6'>
                   ต้องการข้อมูลเพิ่มเติม?
@@ -361,7 +385,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                 </p>
                 <a
                   href='tel:0954965989'
-                  className='glass-button-primary px-12 py-5 rounded-full text-white font-bold text-xl inline-flex items-center'
+                  className='bg-blue-800 px-12 py-5 rounded-full text-white font-bold text-xl inline-flex items-center'
                 >
                   <MessageSquare className='w-6 h-6 mr-3' />
                   095-496-5989

@@ -1,6 +1,6 @@
 // app/routes/services/seo-training-service.tsx
 import Layout from '~/components/Layout'
-import type { MetaFunction } from '@remix-run/node'
+import type { MetaFunction } from 'react-router';
 import { motion } from 'framer-motion'
 import GoogleAdsCourseTimeline from '~/components/Course'
 import CourseTargetAudience from '~/components/TargetAudiuce'
@@ -9,27 +9,27 @@ import { FaCircleCheck } from 'react-icons/fa6'
 
 export const meta: MetaFunction = () => {
   return [
-    { title: 'อบรม SEO แบบมืออาชีพ - RundeeAds | SEO Training Service' },
+    { title: 'คอร์สอบรม Google Ads แบบมืออาชีพ - RundeeAds | Google Ads Training' },
     {
       name: 'description',
       content:
-        'คอร์สอบรม SEO จากผู้เชี่ยวชาญ เรียนรู้การทำ SEO อย่างถูกต้อง เข้าใจกลยุทธ์การตลาดออนไลน์ ปฏิบัติได้จริง พร้อมใบประกาศนียบัตร'
+        'คอร์สอบรม Google Ads จากอดีตคนใน Google เรียนรู้กลยุทธ์การทำโฆษณาอย่างถูกต้อง เพิ่มยอดขาย และบริหารงบประมาณอย่างมีประสิทธิภาพ'
     },
     {
       name: 'keywords',
       content:
-        'SEO Training, อบรม SEO, คอร์ส SEO, SEO Workshop, สอน SEO, เรียน SEO, Digital Marketing Training'
+        'Google Ads Training, อบรม Google Ads, คอร์ส Google Ads, เรียน Google Ads, สอน Google Ads, Google Ads Workshop'
     },
-    { property: 'og:title', content: 'อบรม SEO แบบมืออาชีพ - RundeeAds' },
+    { property: 'og:title', content: 'คอร์สอบรม Google Ads แบบมืออาชีพ - RundeeAds' },
     {
       property: 'og:description',
       content:
-        'เรียนรู้การทำ SEO อย่างถูกต้องกับผู้เชี่ยวชาญ พร้อมเวิร์กชอปปฏิบัติจริง'
+        'เรียนรู้ Google Ads กับอดีต Account Manager จาก Google ตัวจริง พร้อมทริกเพิ่มยอดขาย'
     },
     { property: 'og:type', content: 'website' },
     {
       property: 'og:url',
-      content: 'https://www.rundeeads.com/services/seo-training-service'
+      content: 'https://www.rundeeads.com/services/ads-training-service'
     },
     { property: 'og:site_name', content: 'RundeeAds' },
     { property: 'og:locale', content: 'th_TH' },
@@ -38,22 +38,26 @@ export const meta: MetaFunction = () => {
     { name: 'author', content: 'RundeeAds' },
     {
       rel: 'canonical',
-      href: 'https://www.rundeeads.com/services/seo-training-service'
+      href: 'https://www.rundeeads.com/services/ads-training-service'
     }
   ]
 }
 
-export default function SEOTrainingService() {
+export default function AdsTrainingService() {
   return (
     <Layout>
       {/* Dynamic Background Elements */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0 bg-[var(--primary-color)]">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/10 rounded-full blur-[120px]"></div>
         <div className="absolute bottom-[10%] right-[-5%] w-[35%] h-[35%] bg-indigo-600/10 rounded-full blur-[100px]"></div>
       </div>
 
       {/* Hero Section */}
       <section className='w-full min-h-[70vh] flex items-center relative overflow-hidden pt-32 pb-20'>
+
+        <img src="/gray.avif" alt="ads training service hero"
+        
+        className='w-full h-full object-cover absolute top-0'/>
         <div className='container-x relative z-10'>
           <div className='max-w-4xl'>
             <motion.div
@@ -259,7 +263,7 @@ export default function SEOTrainingService() {
           <h2 className=' md:text-5xl py-2 text-4xl font-bold mb-1 bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text'>
             สิ่งที่คุณจะได้เรียนรู้ในคอร์สนี้
           </h2>
-          <div className='md:text-5xl py-2 text-4xl '>
+          <div className='md:text-5xl py-2 text-4xl text-white'>
             ครบทุกฟีเจอร์ตั้งแต่เริ่มต้น
           </div>
 

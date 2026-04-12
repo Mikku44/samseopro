@@ -1,11 +1,11 @@
-import { Link } from "@remix-run/react"
+import { Link } from "react-router";
 import { FaLine } from "react-icons/fa6"
 import { IoCallOutline } from "react-icons/io5"
 import { MdOutlineEmail, MdOutlineLocationOn } from "react-icons/md"
 
 export default function Footer() {
   return (
-    <footer className="backdrop-blur-xl bg-slate-900/80 text-slate-300 border-t border-white/10">
+    <footer className="backdrop-blur-xl bg-slate-900 text-slate-300 border-t border-white/10">
       <div className="container max-w-7xl mx-auto px-6 py-16">
         <div className="grid gap-12 lg:grid-cols-4 md:grid-cols-2">
 
