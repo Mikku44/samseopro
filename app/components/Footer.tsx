@@ -67,10 +67,9 @@ export default function Footer() {
             <a
               href="https://line.me/R/ti/p/@655rkaej"
               rel="nofollow"
-              className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold rounded-xl transition-all duration-300 shadow-lg shadow-green-500/30 hover:shadow-green-500/50 hover:-translate-y-1 backdrop-blur-sm"
+              className="inline-flex items-center justify-center gap-2 w-full rounded-xl overflow-hidden"
             >
-              <FaLine className="text-2xl" />
-              <span>Add Friend</span>
+              <img src="http://localhost:5173/line-qr.jpg" alt="SAMSEOPRO Line QR Code" />
             </a>
           </div>
 
