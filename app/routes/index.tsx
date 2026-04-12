@@ -1,20 +1,12 @@
 import { MetaFunction } from 'react-router';
 import {
   ArrowRight,
-  BarChart3,
   Compass,
-  DollarSign,
   Feather,
   FileText,
-  Globe,
-  MessageSquare,
-  Phone,
   RefreshCw,
   Search,
-  Target,
-  TrendingUp,
   Wallet,
-  Zap
 } from 'lucide-react';
 import CardBlog from '~/components/CardBlog';
 import { EmblaCarousel } from '~/components/Draggable';

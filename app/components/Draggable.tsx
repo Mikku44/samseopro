@@ -1,4 +1,4 @@
-'use client'
+
 import useEmblaCarousel  from 'embla-carousel-react'
 import {  EmblaOptionsType } from 'embla-carousel';
 import { PropsWithChildren } from 'react'
