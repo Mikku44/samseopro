@@ -10,7 +10,6 @@ import {
 } from 'lucide-react';
 import CardBlog from '~/components/CardBlog';
 import { EmblaCarousel } from '~/components/Draggable';
-import Layout from '~/components/Layout';
 import { getBlogs } from '~/services/blogService';
 
 export const meta: MetaFunction = () => {
@@ -57,13 +56,15 @@ export default function Index() {
   const blogs = getBlogs();
 
   return (
-    <Layout>
-    
+    <>
+
 
       {/* Hero Section */}
       <section className="w-full min-h-[90vh] bg-[#051f43] flex items-center relative overflow-hidden px-4 md:px-0">
         <div className="container-x relative z-10 grid md:grid-cols-2 gap-12 items-center">
-          <div className='flex flex-col justify-center gap-8 py-12 md:py-24'>
+
+          {/* LEFT/TOP SIDE: Text Content */}
+          <div className='flex flex-col justify-center gap-8 pt-24 pb-12 md:py-24'>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border-white/10 w-fit">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
@@ -83,18 +84,21 @@ export default function Index() {
                 ยกระดับธุรกิจของคุณด้วยกลยุทธ์ SEO และ Ads ที่ออกแบบมาเพื่อสร้างยอดขายและการเติบโตที่ยั่งยืน
               </p>
             </div>
-
-          
           </div>
 
-          <div className='hidden md:flex relative  items-center justify-center'>
-           <img src={teamList[0].src} alt={teamList[0].name} className=" md:h-[450px] h-[300px]
-            w-auto rounded-full object-cover transition-transform duration-1000" />
+          {/* RIGHT/BOTTOM SIDE: Image (Now visible on all screens) */}
+          <div className='flex relative items-center justify-center pb-24 md:pb-0'>
+            <img
+              src={teamList[0].src}
+              alt={teamList[0].name}
+              className="h-[300px] md:h-[450px] w-auto rounded-full object-cover transition-transform duration-1000 shadow-2xl"
+            />
           </div>
+
         </div>
+
         <div className='absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#020617] to-transparent z-10'></div>
       </section>
-
       {/* Featured Leadership Section */}
       {/* <div className="relative max-w-6xl mx-auto px-6 py-24">
         {teamList.slice(0, 1).map((item, index) => (
@@ -164,12 +168,12 @@ export default function Index() {
           <h3 className='text-3xl md:text-4xl font-bold mb-6'>เริ่มวางแผนธุรกิจกับเราวันนี้</h3>
           <p className='text-xl text-slate-300 mb-10 max-w-3xl mx-auto'>ปรึกษาฟรี! ทีมงานของเราพร้อมช่วยวิเคราะห์และวางแผนเพื่อให้คุณได้รับ ROI ที่คุ้มค่าที่สุด</p>
           <div className='flex justify-center'>
-             <a href='/contact-us' className='bg-black group flex items-center gap-3 px-12 py-5 rounded-full font-bold text-xl'>
-               ติดต่อเราเพื่อเริ่มต้น <ArrowRight className='group-hover:translate-x-1 duration-100' />
-             </a>
+            <a href='/contact-us' className='bg-black group flex items-center gap-3 px-12 py-5 rounded-full font-bold text-xl'>
+              ติดต่อเราเพื่อเริ่มต้น <ArrowRight className='group-hover:translate-x-1 duration-100' />
+            </a>
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 }

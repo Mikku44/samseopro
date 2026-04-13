@@ -1,10 +1,12 @@
 // app/routes/services/google-ads-service.tsx
-import Layout from '~/components/Layout'
+
 import type { MetaFunction } from 'react-router';
-import { Target, BarChart3, Globe, MessageSquare, MousePointerClick, TrendingUp, Search, CheckCircle, Clock, Send } from 'lucide-react'
+import {  BarChart3, Globe, MessageSquare, MousePointerClick, TrendingUp, Search, CheckCircle, Clock, Send } from 'lucide-react'
 import { BsStars } from "react-icons/bs";
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import { customerList } from '~/const/app';
+import ConsultationForm from '~/components/SubmitForm';
 
 export const meta: MetaFunction = () => {
     return [
@@ -58,8 +60,23 @@ export default function GoogleAdsService() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitted(true);
-        // ... logic for submission stays the same
-        setTimeout(() => setIsSubmitted(false), 3000);
+
+        try {
+            const response = await fetch('https://script.google.com/macros/s/AKfycbzQmgdhOim_POLNraGZWQ8Nn8qd3R5cCbnJ6V6EzzREWpqvdr4Qk6Akse8qlRkMpDreEQ/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            setTimeout(() => setIsSubmitted(false), 3000);
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            setIsSubmitted(false);
+            alert("Something went wrong. Please try again.");
+        }
     };
 
     const characterVariants = {
@@ -68,7 +85,7 @@ export default function GoogleAdsService() {
     };
 
     return (
-        <Layout>
+        <>
             <div className='min-h-screen relative overflow-hidden bg-black text-white'>
                 {/* Dynamic Background Elements */}
                 <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
@@ -134,6 +151,68 @@ export default function GoogleAdsService() {
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black pointer-events-none"></div>
                 </section>
 
+                <section className='py-32 relative z-10 bg-[#020617] overflow-hidden'>
+                    <div className='container-x'>
+                        {/* Minimal Header */}
+                        <div className="max-w-3xl mb-20">
+                            <motion.h2
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                className='text-3xl md:text-4xl font-semibold text-white tracking-tight'
+                            >
+                                ส่วนหนึ่งจากลูกค้า<span className="text-slate-500 font-normal"> ที่ไว้วางใจให้เราดูแล</span>
+                            </motion.h2>
+                            <div className="w-12 h-[1px] bg-blue-500 mt-6"></div>
+                        </div>
+                    </div>
+
+                    {/* Marquee Container */}
+                    <div className="relative flex overflow-hidden border-y border-white/5 bg-white/[0.01] py-12">
+                        <motion.div
+                            className="flex whitespace-nowrap"
+                            animate={{
+                                x: ["0%", "-50%"],
+                            }}
+                            transition={{
+                                duration: 30, // Adjust speed here (higher = slower)
+                                ease: "linear",
+                                repeat: Infinity,
+                            }}
+                        >
+                            {[...customerList, ...customerList].map((item, index) => (
+                                <a
+                                    key={index}
+                                    href={item.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className='group flex flex-col items-center justify-center px-12 md:px-20 border-r border-white/5 transition-colors hover:bg-white/[0.02]'
+                                >
+                                    <div className="relative z-10 h-12 md:h-16 flex items-center justify-center mb-4">
+                                        {item.src ? (
+                                            <img
+                                                src={item.src}
+                                                alt={item.label}
+                                                className='max-h-full w-auto object-contain opacity-40 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-500'
+                                            />
+                                        ) : (
+                                            <Globe className="w-8 h-8 text-slate-600 group-hover:text-blue-500 transition-colors" />
+                                        )}
+                                    </div>
+
+                                    <p className='text-[10px] md:text-[12px] uppercase tracking-[0.2em] text-slate-500 font-medium '>
+                                        {item.label}
+                                    </p>
+                                </a>
+                            ))}
+                        </motion.div>
+
+                        {/* Optional: Gradient Overlays for a "fade out" effect at the edges */}
+                        <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#020617] to-transparent z-20"></div>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#020617] to-transparent z-20"></div>
+                    </div>
+                </section>
+
                 {/* Pain Point Section - Minimalist Version */}
                 <section className='py-24 relative z-10'>
                     <div className='container-x max-w-4xl'>
@@ -159,8 +238,8 @@ export default function GoogleAdsService() {
                                     <p className='text-xl text-slate-200 leading-relaxed font-light'>
                                         จ่ายค่าแอดหลักหมื่น แต่ผลลัพธ์กลับมีแค่ยอดคลิกที่ <span className="text-white font-medium italic">"กินไม่ได้"</span>
                                     </p>
-                                    <p className='text-slate-400 leading-relaxed'>
-                                        คนทักเงียบ คู่แข่งดันราคา และเอเจนซี่ที่ทำได้เพียง "ลองผิดลองถูก" บนงบประมาณของคุณ
+                                    <p className='text-slate-400 leading-relaxed text-lg'>
+                                        คนทักเงียบ คู่แข่งดันราคา และเอเจนซี่ที่ทำได้เพียง "ลองผิดลองถูก"<br /> บนงบประมาณของคุณ
                                     </p>
                                 </div>
 
@@ -168,7 +247,7 @@ export default function GoogleAdsService() {
                                     <p className='text-xl text-yellow-500/90 leading-relaxed italic'>
                                         "ระบบ Google ไม่ได้ถูกออกแบบมาให้คุณประหยัดเงินที่สุด แต่ถูกออกแบบมาให้คุณใช้งบให้หมดง่ายที่สุด"
                                     </p>
-                                    <p className='text-slate-400'>
+                                    <p className='text-slate-400  text-lg'>
                                         หากใช้ค่า Default ตามที่ระบบแนะนำ... คุณกำลังปล่อยให้เงินรั่วไหลโดยไม่จำเป็น
                                     </p>
                                 </div>
@@ -215,7 +294,7 @@ export default function GoogleAdsService() {
                                     <BsStars className="w-8 h-8 text-green-500" />
                                 </div>
                                 <h3 className='text-2xl font-bold mb-4 text-white'>ปิดก๊อกเงินรั่ว อุดรอยรั่วทันที</h3>
-                                <p className='text-slate-400 leading-relaxed'>
+                                <p className='text-slate-400 leading-relaxed  text-lg'>
                                     ผมไม่สนยอด Impression หรือตัวเลขสวยๆ ที่หลอกตา ผมสนแค่ว่า <span className="text-white font-semibold">"คีย์เวิร์ดไหนทำเงิน"</span> และ <span className="text-red-400 font-semibold">"คีย์เวิร์ดไหนกินเงินฟรี"</span> ผมจะเข้าไปตัดส่วนที่ขาดทุนทิ้งทันที และเทงบทั้งหมดไปที่ตัวที่สร้างกำไรให้คุณ
                                 </p>
                             </div>
@@ -227,7 +306,7 @@ export default function GoogleAdsService() {
                                     <TrendingUp className="w-8 h-8 text-blue-500" />
                                 </div>
                                 <h3 className='text-2xl font-bold mb-4 text-white'>จ่ายค่าคลิกถูกกว่า แต่แย่งลูกค้าคู่แข่งได้</h3>
-                                <p className='text-slate-400 leading-relaxed'>
+                                <p className='text-slate-400 leading-relaxed  text-lg'>
                                     การประมูลไม่ได้วัดกันที่เงินหนาเพียงอย่างเดียว ด้วยเทคนิคการดัน <span className="text-blue-400 font-semibold">Quality Score</span> แบบวงใน จะทำให้แอดของคุณโชว์ในตำแหน่งที่สูงกว่าคู่แข่งได้... โดยที่คุณอาจจะ <span className="text-white font-semibold">จ่ายค่าคลิกน้อยกว่าพวกเขา</span> ด้วยซ้ำ
                                 </p>
                             </div>
@@ -239,7 +318,7 @@ export default function GoogleAdsService() {
                                     <MousePointerClick className="w-8 h-8 text-yellow-500" />
                                 </div>
                                 <h3 className='text-2xl font-bold mb-4 text-white'>เปลี่ยน "คนแปลกหน้า" เป็น "ลูกค้าพร้อมโอน"</h3>
-                                <p className='text-slate-400 leading-relaxed'>
+                                <p className='text-slate-400 leading-relaxed  text-lg'>
                                     เราจะไม่ยิงแอดหว่านแหให้เปลืองงบ แต่เราจะดักจับคนที่มี <span className="text-yellow-400 font-semibold">Search Intent</span> (ความต้องการซื้อระดับสูงสุด) ให้เขาเจอบริการของคุณเป็นคลิกแรก และตัดสินใจซื้อเป็นคลิกสุดท้าย
                                 </p>
                             </div>
@@ -290,7 +369,7 @@ export default function GoogleAdsService() {
                                 >
                                     <div className="mb-6">{item.icon}</div>
                                     <h3 className="text-xl font-bold mb-4">{item.title}</h3>
-                                    <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                                    <p className="text-slate-400  text-lg leading-relaxed ">{item.desc}</p>
                                 </div>
                             ))}
                         </div>
@@ -331,7 +410,7 @@ export default function GoogleAdsService() {
                             </div>
 
                             <motion.a
-                                href="https://line.me/ti/p/RundeeAds" 
+                                href="https://line.me/ti/p/RundeeAds"
                                 target="_blank"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
@@ -349,73 +428,7 @@ export default function GoogleAdsService() {
                 </section>
 
 
-                {/* Consultation Form Section */}
-                <section id="register" className='py-24 relative z-10'>
-                    <div className='container-x max-w-6xl'>
-                        <div className='glass-card p-1 md:p-12 overflow-hidden relative border-white/5'>
-                            <div className='grid lg:grid-cols-2 gap-16 relative z-10'>
-                                <div>
-                                    <h2 className='text-4xl md:text-5xl font-bold mb-8 leading-tight'>
-                                        วิเคราะห์แผน <br />
-                                        <span className="text-blue-500">Google Ads ฟรี!</span>
-                                    </h2>
-                                    <p className='text-xl text-slate-300 leading-relaxed mb-10'>
-                                        ให้ผู้เชี่ยวชาญช่วยตรวจสอบบัญชีเดิม หรือวางแผนเริ่มต้นใหม่ เพื่อการใช้เงินที่คุ้มค่าที่สุด
-                                    </p>
-
-                                    <div className='space-y-6'>
-                                        <div className='flex items-center p-6 glass rounded-full border-white/5'>
-                                            <Clock className='w-6 h-6 text-blue-400 mr-6' />
-                                            <div>
-                                                <p className='text-sm text-slate-400 uppercase'>ความเร็วในการเริ่มงาน</p>
-                                                <p className='text-white font-bold text-lg'>เปิดแคมเปญได้ภายใน 3-5 วัน</p>
-                                            </div>
-                                        </div>
-                                        <div className='flex items-center p-6 glass rounded-full border-white/5'>
-                                            <Globe className='w-6 h-6 text-indigo-400 mr-6' />
-                                            <div>
-                                                <p className='text-sm text-slate-400 uppercase'>ขอบเขตบริการ</p>
-                                                <p className='text-white font-bold text-lg'>ครอบคลุมทุก Platform ในเครือ Google</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className='glass p-8 md:p-10 rounded-3xl border-white/10 shadow-2xl'>
-                                    <h3 className='text-2xl font-bold mb-2'>ขอรับคำปรึกษาฟรี</h3>
-                                    <p className='text-slate-400 mb-8'>กรอกข้อมูลเพื่อให้ทีมงานติดต่อกลับพร้อมแผนเบื้องต้น</p>
-
-                                    <form onSubmit={handleSubmit} className='space-y-5'>
-                                        <input
-                                            type='text' name='name' placeholder='ชื่อธุรกิจ / ชื่อของคุณ *' required
-                                            className='w-full px-6 py-4 bg-white/5 border border-white/10 rounded-full text-white outline-none focus:border-blue-500'
-                                        />
-                                        <input
-                                            type='email' name='email' placeholder='อีเมลติดต่อ *' required
-                                            className='w-full px-6 py-4 bg-white/5 border border-white/10 rounded-full text-white outline-none focus:border-blue-500'
-                                        />
-                                        <input
-                                            type='tel' name='phone' placeholder='เบอร์โทรศัพท์'
-                                            className='w-full px-6 py-4 bg-white/5 border border-white/10 rounded-full text-white outline-none focus:border-blue-500'
-                                        />
-                                        <textarea
-                                            name='message' placeholder='งบประมาณที่คาดหวัง หรือ เว็บไซต์ของคุณ' rows={3}
-                                            className='w-full px-6 py-5 bg-white/5 border border-white/10 rounded-[2rem] text-white outline-none focus:border-blue-500 resize-none'
-                                        />
-
-                                        <button
-                                            type='submit'
-                                            disabled={isSubmitted}
-                                            className='w-full bg-blue-600 hover:bg-blue-700 py-5 rounded-full text-white font-bold text-lg transition-all'
-                                        >
-                                            {isSubmitted ? 'ส่งข้อมูลเรียบร้อย!' : 'ปรึกษาผู้เชี่ยวชาญเลย'}
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+             <ConsultationForm />
 
                 {/* Final CTA */}
                 <section className='pb-20 relative z-10'>
@@ -438,6 +451,6 @@ export default function GoogleAdsService() {
                     </div>
                 </section>
             </div>
-        </Layout>
+        </>
     )
 }

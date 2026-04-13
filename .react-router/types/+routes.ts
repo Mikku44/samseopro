@@ -17,6 +17,9 @@ type Pages = {
   "/contact-us": {
     params: {};
   };
+  "/blog": {
+    params: {};
+  };
   "/blog/:slug": {
     params: {
       "slug": string;
@@ -42,7 +45,11 @@ type Pages = {
 type RouteFiles = {
   "root.tsx": {
     id: "root";
-    page: "/" | "/contact-us" | "/blog/:slug" | "/admin/registrations" | "/services/ads-training-service" | "/services/seo-training-service" | "/services/web-maker" | "/google-ads-service";
+    page: "/" | "/contact-us" | "/blog" | "/blog/:slug" | "/admin/registrations" | "/services/ads-training-service" | "/services/seo-training-service" | "/services/web-maker" | "/google-ads-service";
+  };
+  "components/Layout.tsx": {
+    id: "components/Layout";
+    page: "/" | "/contact-us" | "/blog" | "/blog/:slug" | "/admin/registrations" | "/services/ads-training-service" | "/services/seo-training-service" | "/services/web-maker" | "/google-ads-service";
   };
   "routes/index.tsx": {
     id: "routes/index";
@@ -51,6 +58,10 @@ type RouteFiles = {
   "routes/contact-us.tsx": {
     id: "routes/contact-us";
     page: "/contact-us";
+  };
+  "routes/blog.tsx": {
+    id: "routes/blog";
+    page: "/blog";
   };
   "routes/blogDetail.tsx": {
     id: "routes/blogDetail";
@@ -80,8 +91,10 @@ type RouteFiles = {
 
 type RouteModules = {
   "root": typeof import("./app/root.tsx");
+  "components/Layout": typeof import("./app/components/Layout.tsx");
   "routes/index": typeof import("./app/routes/index.tsx");
   "routes/contact-us": typeof import("./app/routes/contact-us.tsx");
+  "routes/blog": typeof import("./app/routes/blog.tsx");
   "routes/blogDetail": typeof import("./app/routes/blogDetail.tsx");
   "routes/admin.registrations": typeof import("./app/routes/admin.registrations.tsx");
   "routes/services.ads-training-service": typeof import("./app/routes/services.ads-training-service.tsx");

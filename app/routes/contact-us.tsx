@@ -1,11 +1,10 @@
 import { useState } from 'react'
 import {
   Phone, Mail, MessageSquare, Clock,
-  CheckCircle, ChevronRight
+  CheckCircle, ChevronRight, Loader2
 } from 'lucide-react'
 
 import { motion } from 'framer-motion'
-import Layout from '~/components/Layout'
 import type { MetaFunction } from 'react-router'
 import { SLIDE_UP } from '~/const/app'
 
@@ -15,9 +14,9 @@ export const meta: MetaFunction = () => [
 ]
 
 const ContactCard = ({ icon: Icon, title, value, sub, colorClass }: any) => (
-  <div className='bg-white border border-slate-100 p-6 rounded-2xl group'>
+  <div className='bg-white border border-slate-100 p-6 rounded-2xl group hover:border-blue-200 transition-colors duration-300'>
     <div className='flex items-center space-x-5'>
-      <div className={`w-14 h-14 ${colorClass} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-inner transition-transform`}>
+      <div className={`w-14 h-14 ${colorClass} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-inner transition-transform group-hover:scale-110`}>
         <Icon className='w-7 h-7 text-white' />
       </div>
       <div>
@@ -30,6 +29,7 @@ const ContactCard = ({ icon: Icon, title, value, sub, colorClass }: any) => (
 )
 
 export default function ContactUs() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [formData, setFormData] = useState({
     name: '', email: '', phone: '', service: '', budget: '', message: ''
@@ -39,14 +39,34 @@ export default function ContactUs() {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitted(true)
-    setTimeout(() => setIsSubmitted(false), 3000)
-  }
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Google Apps Script Web App URL
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby2iQWBcpiR-IK-hqouKjn5aiReahOzumhvHYkhmtgVS81ZDd6NoqbvCEgIMZpkOymwXA/exec";
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors', 
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      
+      // Because 'no-cors' mode doesn't allow reading the response,
+      // we proceed to the success state if no network error occurred.
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("ขออภัย! เกิดข้อผิดพลาดบางอย่าง กรุณาลองใหม่อีกครั้งหรือติดต่อเราผ่านทางไลน์");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
-    <Layout>
+    <>
       {/* Hero Section */}
       <section className='relative flex items-center justify-center text-white bg-slate-950 overflow-hidden min-h-[500px]'>
         <div className='absolute inset-0'>
@@ -58,7 +78,7 @@ export default function ContactUs() {
           <div className='absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent' />
         </div>
         
-        <div className="container-x relative z-10 text-center">
+        <div className="container-x relative z-10 text-center px-4">
             <motion.div {...SLIDE_UP}>
                 <h1 className='text-4xl md:text-6xl font-black mb-6'>ติดต่อเรา</h1>
                 <p className='text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed'>
@@ -71,7 +91,7 @@ export default function ContactUs() {
 
       {/* Main Content */}
       <div className='bg-white py-24'>
-        <div className='container-x max-w-7xl'>
+        <div className='container-x max-w-7xl px-4 mx-auto'>
           
           <div className='grid lg:grid-cols-12 gap-16'>
             {/* Left Column: Info */}
@@ -139,24 +159,24 @@ export default function ContactUs() {
                   <div className='grid md:grid-cols-2 gap-6'>
                     <div className="space-y-2">
                       <label className='text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] ml-1'>Full Name</label>
-                      <input name='name' required onChange={handleChange} className='minimal-input' placeholder='ชื่อ-นามสกุล' />
+                      <input name='name' value={formData.name} required onChange={handleChange} className='minimal-input' placeholder='ชื่อ-นามสกุล' />
                     </div>
                     <div className="space-y-2">
                       <label className='text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] ml-1'>Phone Number</label>
-                      <input name='phone' type='tel' required onChange={handleChange} className='minimal-input' placeholder='08x-xxx-xxxx' />
+                      <input name='phone' value={formData.phone} type='tel' required onChange={handleChange} className='minimal-input' placeholder='08x-xxx-xxxx' />
                     </div>
                   </div>
 
                   <div className="space-y-2">
                     <label className='text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] ml-1'>Email Address</label>
-                    <input name='email' type='email' required onChange={handleChange} className='minimal-input' placeholder='example@mail.com' />
+                    <input name='email' value={formData.email} type='email' required onChange={handleChange} className='minimal-input' placeholder='example@mail.com' />
                   </div>
 
                   <div className='grid md:grid-cols-2 gap-6'>
                     <div className="space-y-2">
                       <label className='text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] ml-1'>Services</label>
                       <div className="relative">
-                        <select name='service' onChange={handleChange} className='minimal-input appearance-none'>
+                        <select name='service' value={formData.service} onChange={handleChange} className='minimal-input appearance-none'>
                           <option value=''>เลือกบริการที่สนใจ</option>
                           <option value='google-ads'>Google Ads (แนะนำ)</option>
                           <option value='seo'>SEO Service</option>
@@ -168,7 +188,7 @@ export default function ContactUs() {
                     <div className="space-y-2">
                       <label className='text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] ml-1'>Budget</label>
                       <div className="relative">
-                        <select name='budget' onChange={handleChange} className='minimal-input appearance-none'>
+                        <select name='budget' value={formData.budget} onChange={handleChange} className='minimal-input appearance-none'>
                           <option value=''>ช่วงงบประมาณ</option>
                           <option value='low'>10,000 - 30,000</option>
                           <option value='mid'>30,000 - 100,000</option>
@@ -181,18 +201,23 @@ export default function ContactUs() {
 
                   <div className="space-y-2">
                     <label className='text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] ml-1'>Message</label>
-                    <textarea name='message' rows={4} onChange={handleChange} className='minimal-input py-4 min-h-[120px] resize-none' placeholder='เล่ารายละเอียดโปรเจกต์ของคุณให้เราฟัง...' />
+                    <textarea name='message' value={formData.message} rows={4} onChange={handleChange} className='minimal-input py-4 min-h-[120px] resize-none' placeholder='เล่ารายละเอียดโปรเจกต์ของคุณให้เราฟัง...' />
                   </div>
 
                   <button
-                    disabled={isSubmitted}
+                    type="submit"
+                    disabled={isSubmitting || isSubmitted}
                     className={`w-full py-5 rounded-full font-black text-lg transition-all duration-500 flex items-center justify-center gap-3
                       ${isSubmitted
                         ? 'bg-emerald-500 text-white shadow-emerald-100 shadow-2xl'
-                        : 'bg-blue-800 text-white hover:shadow-2xl hover:shadow-blue-100 hover:-translate-y-1'}`}
+                        : isSubmitting 
+                          ? 'bg-blue-400 text-white cursor-not-allowed' 
+                          : 'bg-blue-800 text-white hover:shadow-2xl hover:shadow-blue-100 hover:-translate-y-1'}`}
                   >
                     {isSubmitted ? (
                       <><CheckCircle className='w-6 h-6' /> ส่งข้อมูลสำเร็จ!</>
+                    ) : isSubmitting ? (
+                      <><Loader2 className='w-6 h-6 animate-spin' /> กำลังส่งข้อมูล...</>
                     ) : (
                       <>ส่งข้อความ <ChevronRight className='w-5 h-5' /></>
                     )}
@@ -226,6 +251,6 @@ export default function ContactUs() {
           color: #94a3b8;
         }
       `}} />
-    </Layout>
+    </>
   )
 }

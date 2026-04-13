@@ -1,5 +1,5 @@
 // app/routes/services/seo-training-service.tsx
-import Layout from '~/components/Layout'
+
 import type { MetaFunction } from 'react-router';
 import { motion } from 'framer-motion'
 import GoogleAdsCourseTimeline from '~/components/Course'
@@ -45,7 +45,7 @@ export const meta: MetaFunction = () => {
 
 export default function AdsTrainingService() {
   return (
-    <Layout>
+    <>
       {/* Dynamic Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0 bg-[var(--primary-color)]">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/10 rounded-full blur-[120px]"></div>
@@ -289,6 +289,6 @@ export default function AdsTrainingService() {
           
         </section>
       </section>
-    </Layout>
+    </>
   )
 }

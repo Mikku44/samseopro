@@ -5,7 +5,7 @@ import Header from './Header'
 import Footer from './Footer'
 
 import FloatingButton from './FloatingButton';
-import { LinksFunction } from 'react-router';
+import { LinksFunction, Outlet } from 'react-router';
 
 export const links: LinksFunction = () => {
   return [
@@ -18,7 +18,7 @@ export const links: LinksFunction = () => {
   ];
 };
 
-export default function Layout ({ children }: Readonly<{ children: ReactNode }>) {
+export default function Layout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <div className='flex min-h-screen flex-col'>
       <link rel='preconnect' href='https://fonts.googleapis.com' />
@@ -36,7 +36,7 @@ export default function Layout ({ children }: Readonly<{ children: ReactNode }>)
       ></link>
       {/* <Banner /> */}
       <FloatingButton />
-      <div className='flex-1'>{children}</div>
+      <Outlet />
       <Footer />
       <Header />
     </div>

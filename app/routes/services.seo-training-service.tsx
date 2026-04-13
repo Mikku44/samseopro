@@ -1,9 +1,12 @@
 // app/routes/services/seo-training-service.tsx
-import Layout from '~/components/Layout'
+
 import type { MetaFunction } from 'react-router';
 import { BookOpen, Users, CheckCircle, Clock, Send, ArrowRight, Target, BarChart3, Globe, MessageSquare } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import { customerList } from '~/const/app';
+import ConsultationForm from '~/components/SubmitForm';
+import SearchPerformance from '~/components/SearchPerfomance';
 
 export const meta: MetaFunction = () => {
   return [
@@ -42,56 +45,39 @@ export const meta: MetaFunction = () => {
 }
 
 export default function SEOTrainingService() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  })
-  const [isSubmitted, setIsSubmitted] = useState(false)
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitted(true);
-
-    try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbzQmgdhOim_POLNraGZWQ8Nn8qd3R5cCbnJ6V6EzzREWpqvdr4Qk6Akse8qlRkMpDreEQ/exec', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      setTimeout(() => setIsSubmitted(false), 3000);
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      setIsSubmitted(false);
-      alert("Something went wrong. Please try again.");
-    }
-  };
-
+ 
   const characterVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
+  const DEFAULT_FEATURES: any[] = [
+  {
+    icon: Clock,
+    label: 'ระยะเวลาอบรม',
+    value: '1 วันเต็ม (09:00 - 17:00)',
+    colorClass: 'text-blue-400',
+    bgClass: 'bg-blue-500/10'
+  },
+  {
+    icon: Users,
+    label: 'รูปแบบการเรียน',
+    value: 'Intensive Workshop',
+    colorClass: 'text-indigo-400',
+    bgClass: 'bg-indigo-500/10'
+  }
+];
+
   return (
-    <Layout>
+    <>
       <div className='min-h-screen relative overflow-hidden bg-black'>
         {/* Dynamic Background Elements */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
           <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/10 rounded-full blur-[120px]"></div>
           <div className="absolute bottom-[10%] right-[-5%] w-[35%] h-[35%] bg-indigo-600/10 rounded-full blur-[100px]"></div>
         </div>
+
+
 
         {/* Hero Section */}
         <section className='w-full min-h-[70vh] flex items-center relative overflow-hidden pt-32 pb-20'>
@@ -170,6 +156,68 @@ export default function SEOTrainingService() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#020617] pointer-events-none"></div>
         </section>
 
+        <section className='py-32 relative z-10 bg-[#020617] overflow-hidden'>
+          <div className='container-x'>
+            {/* Minimal Header */}
+            <div className="max-w-3xl mb-20">
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className='text-3xl md:text-4xl font-semibold text-white tracking-tight'
+              >
+                ส่วนหนึ่งจากลูกค้า<span className="text-slate-500 font-normal"> ที่ไว้วางใจให้เราดูแล</span>
+              </motion.h2>
+              <div className="w-12 h-[1px] bg-blue-500 mt-6"></div>
+            </div>
+          </div>
+
+          {/* Marquee Container */}
+          <div className="relative flex overflow-hidden border-y border-white/5 bg-white/[0.01] py-12">
+            <motion.div
+              className="flex whitespace-nowrap"
+              animate={{
+                x: ["0%", "-50%"],
+              }}
+              transition={{
+                duration: 30, // Adjust speed here (higher = slower)
+                ease: "linear",
+                repeat: Infinity,
+              }}
+            >
+              {[...customerList, ...customerList].map((item, index) => (
+                <a
+                  key={index}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className='group flex flex-col items-center justify-center px-12 md:px-20 border-r border-white/5 transition-colors hover:bg-white/[0.02]'
+                >
+                  <div className="relative z-10 h-12 md:h-16 flex items-center justify-center mb-4">
+                    {item.src ? (
+                      <img
+                        src={item.src}
+                        alt={item.label}
+                        className='max-h-full w-auto object-contain opacity-40 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-500'
+                      />
+                    ) : (
+                      <Globe className="w-8 h-8 text-slate-600 group-hover:text-blue-500 transition-colors" />
+                    )}
+                  </div>
+
+                  <p className='text-[10px] md:text-[12px] uppercase tracking-[0.2em] text-slate-500 font-medium '>
+                    {item.label}
+                  </p>
+                </a>
+              ))}
+            </motion.div>
+
+            {/* Optional: Gradient Overlays for a "fade out" effect at the edges */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#020617] to-transparent z-20"></div>
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#020617] to-transparent z-20"></div>
+          </div>
+        </section>
+
         {/* Benefits Section */}
         <section id="content" className='py-24 md:py-32 container-x relative z-10'>
           <div className="text-center mb-20">
@@ -232,6 +280,8 @@ export default function SEOTrainingService() {
           </div>
         </section>
 
+        <SearchPerformance />
+
         {/* Course Details Grid */}
         <section className="py-24 container-x relative z-10">
           <div className="grid lg:grid-cols-2 gap-8">
@@ -261,7 +311,18 @@ export default function SEOTrainingService() {
         </section>
 
         {/* Registration Section */}
-        <section id="register" className='py-24 md:py-32 relative z-10'>
+        <ConsultationForm
+        title={<h2 className='text-4xl md:text-5xl font-bold text-white mb-8 leading-tight'>
+                    พร้อมยกระดับ <br />
+                    <span className="text-blue-500">ธุรกิจของคุณหรือยัง?</span>
+                  </h2>}
+
+                  subtitle={"คอร์สนี้ออกแบบมาสำหรับนักการตลาด เจ้าของธุรกิจ และฟรีแลนซ์ที่ต้องการผลลัพธ์ที่จับต้องได้จริง"}
+                  features={DEFAULT_FEATURES}
+
+                  service='คอร์ส SEO'
+         />
+        {/* <section id="register" className='py-24 md:py-32 relative z-10'>
           <div className='container-x max-w-6xl'>
             <div
 
@@ -301,7 +362,7 @@ export default function SEOTrainingService() {
                   </div>
                 </div>
 
-                {/* Form */}
+                
                 <div
                   style={{
                     borderRadius: 20
@@ -368,7 +429,7 @@ export default function SEOTrainingService() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Footer CTA */}
         <section className='pb-20 relative z-10'>
@@ -395,6 +456,6 @@ export default function SEOTrainingService() {
           </div>
         </section>
       </div>
-    </Layout>
+    </>
   )
 }

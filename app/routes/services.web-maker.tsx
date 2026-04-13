@@ -1,20 +1,11 @@
-import Layout from '~/components/Layout'
 import { motion } from 'framer-motion'
 import { Link, MetaFunction } from 'react-router';
 import {
-  BookOpen,
-  Package,
-  Palette,
-  Search,
-  Shield,
-  Smartphone,
-  Zap,
-  Monitor,
+
   Globe,
   ArrowRight
 } from 'lucide-react'
-import { FaCircleArrowRight } from 'react-icons/fa6';
-import { SLIDE_UP } from '~/const/app';
+import { customerList, SLIDE_UP, webPackages } from '~/const/app';
 
 export const meta: MetaFunction = () => {
   return [
@@ -97,52 +88,11 @@ const features = [
   }
 ]
 
-const customerList = [
-  {
-    src: '/customers/supeerose.svg',
-    label: 'Supee Rose - สุพีย์โรส',
-    href: '#'
-  },
-  {
-    src: '/customers/tjbatt.jpg',
-    label: 'TJ Batt - ตั้งใจขายแบต',
-    href: '#'
-  },
-  {
-    src: '/customers/dryergroup.png',
-    label: 'Dryer Group - ดรายเออร์ กรุ๊ป',
-    href: '#'
-  },
-  {
-    src: '/customers/homsleepsalon.ico',
-    label: 'Hom Sleep Salon - ฮอม สลีป ซาลอน',
-    href: 'https://www.homsleepsalon.com/'
-  },
-  {
-    src: '/customers/ngulekpatum.ico',
-    label: 'Ngulek Patum - งูเหล็กปทุม',
-    href: 'https://ngulekpatum.vercel.app/'
-  },
-  {
-    src: '/customers/nextflipestate.ico',
-    label: 'Next Flip Estate - เน็กซ์ฟลิป เอสเตท',
-    href: 'https://www.nextflipestate.com/'
-  },
-  {
-    src: '/customers/paintproof.ico',
-    label: 'PaintProof - เพ็นท์พรูฟ',
-    href: 'https://www.paintproof.co.th/'
-  },
-  {
-    src: '/customers/homepropertyconsulting.ico',
-    label: 'Home Property Consulting - โฮม พร็อพเพอร์ตี้ คอนซัลติ้ง',
-    href: 'https://homepropertyconsultinglimited.com/'
-  }
-]
+
 
 export default function WebMaker() {
   return (
-    <Layout>
+    <>
       <div className='min-h-screen relative overflow-hidden bg-[--primary-color]'>
         {/* Dynamic Background Elements */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
@@ -290,6 +240,63 @@ export default function WebMaker() {
           </motion.div>
         </section>
 
+        <section className='py-24 bg-[#020617]'>
+          <div className='container-x'>
+            <div className='text-center max-w-3xl mx-auto mb-16'>
+              <h2 className='text-3xl sm:text-4xl font-bold mb-4 text-white/80'>แพ็กเกจทำเว็บไซต์</h2>
+              <p className='text-lg text-gray-600'>เว็บไซต์มืออาชีพในราคาโปร่งใส</p>
+            </div>
+
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
+              {webPackages.map((pkg, i) => (
+                <div
+                  key={i}
+                  className={`p-6 rounded-3xl border-2 flex flex-col transition-all duration-300 hover:shadow-xl
+                    ${pkg.highlight
+                      ? 'border-black shadow-2xl scale-105 z-10 bg-white/90 relative'
+                      : 'border-gray-100 shadow-sm hover:border-gray-300 bg-white/90'
+                    }`}
+                >
+                  {pkg.highlight && (
+                    <span className="bg-black text-white px-4 py-1 rounded-full text-xs font-bold self-start mb-4 tracking-wider">
+                      MOST POPULAR
+                    </span>
+                  )}
+
+                  <h3 className='text-xl font-bold mb-2'>{pkg.name}</h3>
+                  <p className='text-gray-500 mb-4 text-sm'>{pkg.description}</p>
+                  <p className='text-xs text-gray-400 mb-4'>{pkg.bestFor}</p>
+
+                  <div className='mb-4'>
+                    <span className='text-3xl font-bold'>{pkg.price}</span>
+                    <span className='text-gray-500 text-sm ml-1'>{pkg.period}</span>
+                    <div className='text-xs text-gray-400 mt-1'>{pkg.baht}</div>
+                  </div>
+
+                  <ul className='space-y-3 mb-6 flex-grow'>
+                    {pkg.features.map((feat, idx) => (
+                      <li key={idx} className='flex items-start text-xs text-gray-700'>
+                        <span className='mr-2 text-emerald-500 font-bold'>✓</span>
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Link to='/contact-us' className="mt-auto">
+                    <div
+                      className={`w-full text-sm font-semibold transition-all text-center py-2 rounded-full
+                        ${pkg.highlight ? 'bg-black text-white ' : 'bg-gray-100 text-black hover:bg-gray-200'}`}
+                    
+                    >
+                      Get Started
+                    </div>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className='py-32 relative z-10 bg-[#020617]'>
           <div className='container-x'>
             {/* Minimal Header */}
@@ -306,7 +313,7 @@ export default function WebMaker() {
               <div className="w-12 h-[1px] bg-blue-500 mt-6"></div>
             </div>
 
-            {/* Clean Grid Layout */}
+            {/* Clean Grid  */}
             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 border-l border-t border-white/5'>
               {customerList.map((item, index) => (
                 <motion.a
@@ -407,57 +414,57 @@ export default function WebMaker() {
         </section>
 
         {/* Closing CTA */}
-      <section className='h-[600px] flex items-center justify-center bg-[var(--tertiary-color)]'>
-      <div className='box-container w-full px-4'>
-        <div className='w-full h-[550px] relative overflow-hidden rounded-[3rem] shadow-2xl'>
-          
-          {/* Gradient & Content Overlay */}
-          <div
-            className='w-full h-full bg-gradient-to-t md:bg-gradient-to-r from-black/90 via-black/60 to-transparent 
+        <section className='h-[600px] flex items-center justify-center bg-[var(--tertiary-color)]'>
+          <div className='box-container w-full px-4'>
+            <div className='w-full h-[550px] relative overflow-hidden rounded-[3rem] shadow-2xl'>
+
+              {/* Gradient & Content Overlay */}
+              <div
+                className='w-full h-full bg-gradient-to-t md:bg-gradient-to-r from-black/90 via-black/60 to-transparent 
             flex flex-col justify-center items-center md:items-start p-8 md:p-20 absolute z-[9] top-0 left-0'
-          >
-            <motion.div 
-              {...SLIDE_UP}
-              className="space-y-6 max-w-[600px] text-center md:text-left"
-            >
-              
-
-              <h2 className='text-3xl md:text-5xl font-bold text-white leading-tight'>
-                เป้าหมายสูงสุดคือการสร้าง <br />
-                <span className="text-blue-500">"พนักงานขายที่เก่งที่สุด"</span>
-              </h2>
-
-              <p className='text-lg md:text-xl text-slate-300 leading-relaxed max-w-md'>
-                หากคุณพร้อมที่จะเปลี่ยนเว็บไซต์ให้เป็นเครื่องมือสร้างยอดขาย... มาคุยกันครับ
-              </p>
-
-              <div className="pt-4">
-                <Link
-                  to='/contact-us'
-                  className='group h-[60px] px-10 bg-blue-600 hover:bg-blue-500 text-white rounded-full 
-                  inline-flex gap-3 items-center justify-center transition-all duration-300 shadow-lg hover:shadow-blue-500/40'
+              >
+                <motion.div
+                  {...SLIDE_UP}
+                  className="space-y-6 max-w-[600px] text-center md:text-left"
                 >
-                  <span className='font-bold text-lg'>โทรสอบถาม 095-496-5989</span>
-                  <ArrowRight className='size-5 group-hover:translate-x-2 duration-200' />
-                </Link>
-              </div>
-            </motion.div>
-          </div>
 
-          {/* Background Image */}
-          <img
-            src='/cta.avif' // Keep your original image or replace with a tech-focused one
-            loading='lazy'
-            alt='Digital Salesperson Background'
-            className='w-full h-full object-cover object-center'
-          />
-          
-          {/* Optional: Add a slight blue tint to the image to match the theme */}
-          <div className="absolute inset-0 bg-blue-900/10 pointer-events-none"></div>
-        </div>
+
+                  <h2 className='text-3xl md:text-5xl font-bold text-white leading-tight'>
+                    เป้าหมายสูงสุดคือการสร้าง <br />
+                    <span className="text-blue-500">"พนักงานขายที่เก่งที่สุด"</span>
+                  </h2>
+
+                  <p className='text-lg md:text-xl text-slate-300 leading-relaxed max-w-md'>
+                    หากคุณพร้อมที่จะเปลี่ยนเว็บไซต์ให้เป็นเครื่องมือสร้างยอดขาย... มาคุยกันครับ
+                  </p>
+
+                  <div className="pt-4">
+                    <Link
+                      to='/contact-us'
+                      className='group h-[60px] px-10 bg-blue-600 hover:bg-blue-500 text-white rounded-full 
+                  inline-flex gap-3 items-center justify-center transition-all duration-300 shadow-lg hover:shadow-blue-500/40'
+                    >
+                      <span className='font-bold text-lg'>โทรสอบถาม 095-496-5989</span>
+                      <ArrowRight className='size-5 group-hover:translate-x-2 duration-200' />
+                    </Link>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Background Image */}
+              <img
+                src='/cta.avif' // Keep your original image or replace with a tech-focused one
+                loading='lazy'
+                alt='Digital Salesperson Background'
+                className='w-full h-full object-cover object-center'
+              />
+
+              {/* Optional: Add a slight blue tint to the image to match the theme */}
+              <div className="absolute inset-0 bg-blue-900/10 pointer-events-none"></div>
+            </div>
+          </div>
+        </section>
       </div>
-    </section>
-      </div>
-    </Layout>
+    </>
   )
 }

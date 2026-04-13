@@ -8,5 +8,6 @@ export interface Article {
   image: string[];
   content: ArticleContentBlock[];
   title: string;
+  tags ?: string[];
   excerpt: string;
 }
