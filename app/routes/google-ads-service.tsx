@@ -116,12 +116,12 @@ export default function GoogleAdsService() {
 
                             {/* Buttons */}
                             <div className="flex flex-wrap gap-4">
-                                <a href='#register'>
+                                <a href="https://line.me/ti/p/RundeeAds" target="_blank">
                                     <button className='bg-blue-600 hover:bg-blue-700 px-10 py-4 rounded-full text-white font-bold text-lg transition-all active:scale-95'>
                                         ทักไลน์ตอนนี้
                                     </button>
                                 </a>
-                                <a href="#content">
+                                <a href="#register">
                                     <button className='glass-button px-10 py-4 rounded-full text-white font-semibold text-lg hover:bg-white/10 transition-all'>
                                         ตรวจสุขภาพบัญชีโฆษณาฟรี!
                                     </button>
