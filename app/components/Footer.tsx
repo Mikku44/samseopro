@@ -69,7 +69,7 @@ export default function Footer() {
               rel="nofollow"
               className="inline-flex items-center justify-center gap-2 w-full rounded-xl overflow-hidden"
             >
-              <img src="http://localhost:5173/line-qr.jpg" alt="SAMSEOPRO Line QR Code" />
+              <img src="/line-qr.jpg" alt="SAMSEOPRO Line QR Code" />
             </a>
           </div>
 
