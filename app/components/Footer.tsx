@@ -65,7 +65,7 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-6">ติดตามเรา</h4>
             <a
-              href="https://line.me/R/ti/p/@655rkaej"
+              href="https://line.me/ti/p/RundeeAds"
               rel="nofollow"
               className="inline-flex items-center justify-center gap-2 w-full rounded-xl overflow-hidden"
             >

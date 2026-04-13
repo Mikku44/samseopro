@@ -76,7 +76,7 @@ export default function CoursePricingCTA() {
             <div className="pt-6">
               <a
                 target="_blank"
-                href="https://line.me/R/ti/p/@655rkaej"
+                href="https://line.me/ti/p/RundeeAds"
                 rel="noreferrer"
               >
                 <button

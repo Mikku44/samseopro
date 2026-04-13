@@ -331,7 +331,7 @@ export default function GoogleAdsService() {
                             </div>
 
                             <motion.a
-                                href="https://line.me/R/ti/p/@655rkaej" // ใส่ Link Line ของคุณที่นี่
+                                href="https://line.me/ti/p/RundeeAds" 
                                 target="_blank"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
