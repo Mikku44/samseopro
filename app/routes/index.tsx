@@ -33,10 +33,10 @@ const serviceList = [
 
 const teamList = [
   {
-    src: "/team3.jpg",
-    name: "PPC & Ads Manager",
+    src: "/pjosep.jpg",
+    name: "คุณโจเซฟ",
     role: "Ads Strategy Expert",
-    description: "ผู้ดูแลแคมเปญโฆษณาออนไลน์ที่เชี่ยวชาญการบริหารงบประมาณและเพิ่ม CTR ให้เกิดผลลัพธ์สูงสุด"
+    description: "ดูแลแคมเปญโฆษณาออนไลน์ และบริหารงบประมาณให้แบบเหมาะสม"
   },
   {
     src: "/team1.jpg",
@@ -88,10 +88,20 @@ export default function Index() {
 
           {/* RIGHT/BOTTOM SIDE: Image (Now visible on all screens) */}
           <div className='flex relative items-center justify-center pb-24 md:pb-0'>
+            {/* <div className="absolute rounded-xl bg-white/50 py-2 px-4
+            backdrop-blur-md
+            text-white/70 bottom-[10%] right-24 border border-white/80">
+            <div className="">{teamList[0].name}</div>
+            </div>
+            <div className="absolute rounded-xl bg-white/50 py-2 px-4
+            backdrop-blur-md
+            text-white/70 bottom-[-1%] right-0 border border-white/80">
+            <div className="">{teamList[0].role}</div> */}
+            {/* </div> */}
             <img
               src={teamList[0].src}
               alt={teamList[0].name}
-              className="h-[300px] md:h-[450px] w-auto rounded-full object-cover transition-transform duration-1000 shadow-2xl"
+              className="max-h-[600px] md:h-[450px] w-auto rounded-3xl object-cover transition-transform duration-1000 shadow-2xl"
             />
           </div>
 
