@@ -8,7 +8,7 @@ export default function FloatingContact() {
 
   const lineID = "RundeeAds"
   // Replace this URL with your actual QR code image path
-  const qrCodeImage = "/line-qr.jpg"
+  const qrCodeImage = "/lineqr.png"
 
   return (
     <div className='fixed bottom-6 right-6 flex flex-col items-end gap-3 z-50'>
@@ -44,7 +44,7 @@ export default function FloatingContact() {
 
               <a
                 target='_blank'
-                href={`https://line.me/ti/p/${lineID}`}
+                href={`https://line.me/R/ti/p/@rundee`}
                 className="block w-full py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl font-bold hover:from-green-600 hover:to-emerald-700 transition-all shadow-lg"
               >
                 Open in LINE App

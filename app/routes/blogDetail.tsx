@@ -1,15 +1,15 @@
 import { Link, type LoaderFunctionArgs, MetaFunction } from 'react-router';
 import { useLoaderData } from 'react-router';
 import { useEffect } from 'react';
-import { 
-  LuCalendar, 
-  LuChevronLeft, 
-  LuClock, 
-  LuLink, 
-  LuShare2, 
-  LuTag, 
-  LuTwitter, 
-  LuFacebook 
+import {
+  LuCalendar,
+  LuChevronLeft,
+  LuClock,
+  LuLink,
+  LuShare2,
+  LuTag,
+  LuTwitter,
+  LuFacebook
 } from 'react-icons/lu';
 
 import { Article } from '~/models/blogModel';
@@ -74,10 +74,20 @@ export default function BlogSlug() {
     alert("คัดลอกลิงก์เรียบร้อยแล้ว!");
   };
 
+  const shareOnFacebook = () => {
+    const url = encodeURIComponent(window.location.href);
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+  };
+
+  const shareOnTwitter = () => {
+    const url = encodeURIComponent(window.location.href);
+    window.open(`https://twitter.com/intent/tweet?url=${url}`, '_blank');
+  };
+
   return (
     <div className="min-h-screen bg-white transition-colors duration-300">
       <article className="w-full">
-        
+
         {/* HERO SECTION: Full-width with Overlay */}
         <div className="w-full h-[400px] md:h-[650px] overflow-hidden relative">
           <img
@@ -85,7 +95,7 @@ export default function BlogSlug() {
             alt={article.title}
             className="w-full h-full object-cover"
           />
-          
+
           {/* Visual Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
@@ -108,7 +118,7 @@ export default function BlogSlug() {
 
         {/* CONTENT CONTAINER */}
         <div className="container mx-auto max-w-7xl p-6 lg:p-12">
-          
+
           {/* Breadcrumbs & Meta Bar */}
           <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-12 border-b border-gray-100 pb-8">
             <Link to="/blog" className="group flex items-center text-sm font-semibold text-gray-500 hover:text-blue-600 transition-colors">
@@ -126,7 +136,7 @@ export default function BlogSlug() {
 
             {/* MAIN COLUMN (8 cols) */}
             <div className="lg:col-span-8">
-              
+
               {/* Excerpt Section */}
               <p className="text-xl md:text-2xl text-slate-500 italic leading-relaxed mb-12 border-l-4 border-blue-600 pl-6">
                 {article.excerpt}
@@ -171,10 +181,10 @@ export default function BlogSlug() {
                   <button onClick={copyLink} className="p-3 bg-white border border-gray-200 rounded-full hover:shadow-md transition-shadow text-gray-600" title="Copy Link">
                     <LuLink className="w-5 h-5" />
                   </button>
-                  <button className="p-3 bg-[#1877F2] text-white rounded-full hover:opacity-90 transition-opacity">
+                  <button onClick={shareOnFacebook} className="p-3 bg-[#1877F2] text-white rounded-full hover:opacity-90 transition-opacity" title="Share on Facebook">
                     <LuFacebook className="w-5 h-5" />
                   </button>
-                  <button className="p-3 bg-[#1DA1F2] text-white rounded-full hover:opacity-90 transition-opacity">
+                  <button onClick={shareOnTwitter} className="p-3 bg-[#1DA1F2] text-white rounded-full hover:opacity-90 transition-opacity" title="Share on Twitter">
                     <LuTwitter className="w-5 h-5" />
                   </button>
                 </div>
@@ -184,7 +194,7 @@ export default function BlogSlug() {
             {/* SIDEBAR COLUMN (4 cols) */}
             <aside className="lg:col-span-4 space-y-12">
               <div className="sticky top-24">
-                
+
                 {/* Related Blogs Widget */}
                 <h3 className="text-xl font-bold text-gray-900 mb-8 flex items-center">
                   <span className="w-2 h-8 bg-blue-600 mr-4 rounded-full"></span>
@@ -229,14 +239,14 @@ export default function BlogSlug() {
                 {/* Sidebar Banner / CTA */}
                 <div className="mt-16 p-8 bg-slate-900 rounded-[2.5rem] text-white relative overflow-hidden group">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/20 blur-3xl rounded-full -mr-16 -mt-16 group-hover:bg-blue-600/30 transition-colors" />
-                  
+
                   <h4 className="text-xl font-bold mb-3 relative z-10">วิเคราะห์บัญชี Ads ฟรี!</h4>
                   <p className="text-sm text-slate-400 mb-8 relative z-10 leading-relaxed">
                     ให้ผู้เชี่ยวชาญช่วยตรวจสอบแคมเปญของคุณ เพื่อหาจุดที่สามารถประหยัดงบและเพิ่มยอดขายได้ทันที
                   </p>
-                  
-                  <Link 
-                    to="/contact-us" 
+
+                  <Link
+                    to="/contact-us"
                     className="w-full flex items-center justify-center py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl text-sm font-bold transition-all transform active:scale-95 relative z-10"
                   >
                     รับคำปรึกษาตอนนี้

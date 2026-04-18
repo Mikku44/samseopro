@@ -133,7 +133,7 @@ export default function GoogleAdsService() {
 
                             {/* Buttons */}
                             <div className="flex flex-wrap gap-4">
-                                <a href="https://line.me/ti/p/RundeeAds" target="_blank">
+                                <a href="https://line.me/R/ti/p/@rundee" target="_blank">
                                     <button className='bg-blue-600 hover:bg-blue-700 px-10 py-4 rounded-full text-white font-bold text-lg transition-all active:scale-95'>
                                         ทักไลน์ตอนนี้
                                     </button>
@@ -410,7 +410,7 @@ export default function GoogleAdsService() {
                             </div>
 
                             <motion.a
-                                href="https://line.me/ti/p/RundeeAds"
+                                href="https://line.me/R/ti/p/@rundee"
                                 target="_blank"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}

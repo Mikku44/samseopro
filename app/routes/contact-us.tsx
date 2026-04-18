@@ -117,7 +117,7 @@ export default function ContactUs() {
                 <ContactCard
                   icon={MessageSquare}
                   title="Line Support"
-                  value="@RundeeAds"
+                  value="@Rundee"
                   sub="แชทคุยกับผู้เชี่ยวชาญ 24 ชม."
                   colorClass="bg-emerald-500"
                 />
