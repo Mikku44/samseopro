@@ -65,13 +65,23 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-6">ติดตามเรา</h4>
             <a
+            target="_blank"
               href="https://line.me/R/ti/p/@rundee"
               rel="nofollow"
               className="inline-flex items-center justify-center gap-2 w-full rounded-xl overflow-hidden"
             >
-              <img src="/lineqr.png" alt="SAMSEOPRO Line QR Code" />
+              <div className="bg-green-500 flex items-center gap-5 py-4 px-5 w-full rounded-sm">
+                <FaLine className="text-xl size-7 text-white shrink-0"/>
+                <div className="text-white w-full text-center">Add friend</div>
+              </div>
             </a>
+            <a href="https://www.google.com/partners/agency?id=4396088046" target="_blank">
+              <img src="https://www.gstatic.com/partners/badge/images/2026/PartnerBadgeClickable.svg" />
+            </a>
+
           </div>
+
+
 
         </div>
 
