@@ -11,6 +11,7 @@ import {
 import CardBlog from '~/components/CardBlog';
 import { EmblaCarousel } from '~/components/Draggable';
 import { getBlogs } from '~/services/blogService';
+import RundeeFAQ from '~/components/Faq';
 
 export const meta: MetaFunction = () => {
   return [
@@ -170,6 +171,8 @@ export default function Index() {
           </div>
         </div>
       </section>
+
+      <RundeeFAQ />
 
 
       {/* Contact CTA */}
