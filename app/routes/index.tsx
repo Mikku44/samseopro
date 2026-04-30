@@ -62,8 +62,12 @@ export default function Index() {
 
       {/* Hero Section */}
       <section className="w-full min-h-[90vh] bg-[#051f43] flex items-center relative overflow-hidden px-4 md:px-0">
+       {/* LEFT/TOP SIDE: Image (Now visible on all screens) */}
+          <img src="/pattern.svg"
+          className='w-full h-full object-cover absolute inset-0 left-0 mix-blend-overlay opacity-10'
+          alt="dot pattern" />
         <div className="container-x relative z-10 grid md:grid-cols-2 gap-12 items-center">
-
+         
           {/* LEFT/TOP SIDE: Text Content */}
           <div className='flex flex-col justify-center gap-8 pt-24 pb-12 md:py-24'>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border-white/10 w-fit">
@@ -99,11 +103,13 @@ export default function Index() {
             text-white/70 bottom-[-1%] right-0 border border-white/80">
             <div className="">{teamList[0].role}</div> */}
             {/* </div> */}
-            <img
-              src={teamList[0].src}
-              alt={teamList[0].name}
-              className="max-h-[600px] md:h-[450px] w-auto rounded-3xl object-cover transition-transform duration-1000 shadow-2xl"
-            />
+            <div className="rounded-full max-h-[600px] aspect-square flex items-center bg-black overflow-hidden">
+              <img
+                src={teamList[0].src}
+                alt={teamList[0].name}
+                className="max-h-[600px] md:h-[450px] w-auto object-cover transition-transform duration-1000 shadow-2xl"
+              />
+            </div>
           </div>
 
         </div>
