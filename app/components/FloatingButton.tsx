@@ -1,8 +1,10 @@
 // components/FloatingContact.tsx
+import { useTranslation } from 'react-i18next';
 import { useState } from 'react'
 import { Mail, Phone, MessageSquare, Plus, X } from 'lucide-react'
 
 export default function FloatingContact() {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false)
   const [showQR, setShowQR] = useState(false)
 
@@ -26,9 +28,9 @@ export default function FloatingContact() {
 
             <div className="text-center space-y-4">
               <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white py-2 px-4 rounded-full inline-block text-sm font-bold backdrop-blur-sm">
-                LINE Official Account
+                {t('floatingButton.lineTitle')}
               </div>
-              <h3 className="text-xl font-bold text-white">Scan to Add Friend</h3>
+              <h3 className="text-xl font-bold text-white">{t('floatingButton.lineScan')}</h3>
 
               <div className="bg-white/10 p-4 rounded-2xl border-2 border-dashed border-white/30 backdrop-blur-sm">
                 <img
@@ -47,7 +49,7 @@ export default function FloatingContact() {
                 href={`https://line.me/R/ti/p/@rundee`}
                 className="block w-full py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl font-bold hover:from-green-600 hover:to-emerald-700 transition-all shadow-lg"
               >
-                Open in LINE App
+                {t('floatingButton.lineOpen')}
               </a>
             </div>
           </div>
@@ -63,7 +65,7 @@ export default function FloatingContact() {
             href='mailto:rundee.ads@gmail.com'
             className='flex items-center gap-3 px-5 py-2.5 rounded-full bg-black text-white shadow-xl  transition-all hover:-translate-x-1'
           >
-            <span className="text-sm font-medium">Email Us</span>
+            <span className="text-sm font-medium">{t('floatingButton.email')}</span>
             <div className="bg-white/20 p-1.5 rounded-full"><Mail size={18} /></div>
           </a>
 
@@ -72,17 +74,17 @@ export default function FloatingContact() {
             onClick={() => setShowQR(true)}
             className='flex items-center gap-3 px-5 py-2.5 bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-xl rounded-full hover:from-green-600 hover:to-emerald-700 transition-all hover:-translate-x-1'
           >
-            <span className="text-sm font-bold text-white">Line QR Code</span>
+            <span className="text-sm font-bold text-white">{t('floatingButton.line')}</span>
             <div className="bg-white/20 p-1.5 rounded-full"><MessageSquare size={18} /></div>
           </button>
 
           {/* Phone */}
           <a
             target='_blank'
-            href='tel:0954965989'
+            href='tel:0622080994'
             className='flex items-center gap-3 px-5 py-2.5 bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow-xl rounded-full hover:from-blue-600 hover:to-indigo-700 transition-all hover:-translate-x-1'
           >
-            <span className="text-sm font-bold">Call Now</span>
+            <span className="text-sm font-bold">{t('floatingButton.call')}</span>
             <div className="bg-white/20 p-1.5 rounded-full"><Phone size={18} /></div>
           </a>
         </div>

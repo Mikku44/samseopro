@@ -1,10 +1,13 @@
+import { useTranslation } from 'react-i18next';
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MENU } from '~/const/app'
-import { FaChevronDown } from 'react-icons/fa' // Example icon for toggle
+import { FaChevronDown } from 'react-icons/fa'
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Drawer() {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false)
   // Track which sub-menu is expanded
   const [expandedSubMenu, setExpandedSubMenu] = useState<string | null>(null)
@@ -65,10 +68,10 @@ export default function Drawer() {
                 {MENU.map(menu => {
                   const hasSubMenu = menu.subMenu && menu.subMenu.length > 0
                   const isActive = location.pathname === menu.href
-                  const isExpanded = expandedSubMenu === menu.label
+                  const isExpanded = expandedSubMenu === menu.labelKey
 
                   return (
-                    <div key={menu.label} className="flex flex-col">
+                    <div key={menu.labelKey} className="flex flex-col">
                       {/* Main Item */}
                       <div className="flex items-center justify-between">
                         <Link
@@ -76,7 +79,7 @@ export default function Drawer() {
                           onClick={(e) => {
                             if (hasSubMenu) {
                               e.preventDefault()
-                              toggleSubMenu(menu.label)
+                              toggleSubMenu(menu.labelKey)
                             } else {
                               setIsOpen(false)
                             }
@@ -85,7 +88,7 @@ export default function Drawer() {
                             isActive ? 'text-blue-800 font-semibold' : 'text-white'
                           }`}
                         >
-                          {menu.label}
+                          {t(menu.labelKey)}
                         </Link>
                         
                         {hasSubMenu && (
@@ -117,10 +120,10 @@ export default function Drawer() {
                               >
                                 <div className="flex items-center gap-2 text-white/90 text-sm font-medium">
                                   {sub.icon && <sub.icon className="text-blue-800" />}
-                                  {sub.label}
+                                  {t(sub.labelKey)}
                                 </div>
                                 <span className="text-[10px] text-white/50 leading-tight">
-                                  {sub.desc}
+                                  {t(sub.descKey)}
                                 </span>
                               </Link>
                             ))}
@@ -138,8 +141,9 @@ export default function Drawer() {
                   onClick={() => setIsOpen(false)}
                   className='flex-1 bg-blue-800 text-white text-center py-3 rounded-lg font-medium hover:opacity-90'
                 >
-                  ติดต่อเรา
+                  {t('common.contactUs')}
                 </Link>
+                <LanguageSwitcher />
               </div>
             </motion.div>
           </>

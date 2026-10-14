@@ -3,26 +3,26 @@ import { FaArrowTrendUp } from "react-icons/fa6";
 
 export const MENU = [
   {
-    href: "/", label: "หน้าแรก",
+    href: "/", labelKey: "header.home",
   },
   {
-    href: "#services", label: "บริการของเรา",
+    href: "#services", labelKey: "header.services",
     subMenu: [
       {
         href: "/services/seo-training-service",
-        label: "บริการรับทำ SEO มืออาชีพ",
-        desc: "เพิ่มอันดับ Google อย่างยั่งยืน",
+        labelKey: "header.seoService",
+        descKey: "header.seoServiceDesc",
         icon: FaSearch,
       },
       {
-        href: "/google-ads-service", label: "บริการรับทำ Google Ads",
-        desc: "ดันเว็ปไซต์ขึ้นหน้าแรก Google อย่างรวดเร็วด้วย Google Ads",
+        href: "/google-ads-service", labelKey: "header.googleAdsService",
+        descKey: "header.googleAdsServiceDesc",
         icon: FaArrowTrendUp ,
       },
       {
         href: "/services/ads-training-service",
-        label: "คอร์สอบรม Google Ads",
-        desc: "เรียนกับอดีตคนใน Google ตัวจริง",
+        labelKey: "header.adsTraining",
+        descKey: "header.adsTrainingDesc",
         icon: FaGoogle,
       },
 
@@ -32,12 +32,12 @@ export const MENU = [
 
   {
     href: "/services/web-maker",
-    label: "บริการออกแบบเว็บไซต์",
+    labelKey: "header.webDesign",
 
   },
   {
     href: "/blog",
-    label: "เทคนิคการตลาดออนไลน์",
+    labelKey: "header.blog",
 
   },
 ]

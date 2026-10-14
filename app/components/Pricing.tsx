@@ -1,11 +1,13 @@
 import { FaCircleCheck } from 'react-icons/fa6'
+import { useTranslation } from 'react-i18next';
 
 export default function CoursePricingCTA() {
+  const { t } = useTranslation();
   const benefits = [
-    'คอร์สสอนสด/ออนไลน์ (ระบุรูปแบบการสอน) แบบเข้มข้น',
-    'เอกสารประกอบการเรียน',
-    'ไฟล์ Template สำหรับวางแผนแคมเปญ',
-    '[พิเศษ] เซสชั่นให้คำปรึกษา วิเคราะห์กลยุทธ์เฉพาะธุรกิจของคุณ'
+    t('adsTraining.pricingBenefit1'),
+    t('adsTraining.pricingBenefit2'),
+    t('adsTraining.pricingBenefit3'),
+    t('adsTraining.pricingBenefit4'),
   ]
 
   return (
@@ -21,23 +23,23 @@ export default function CoursePricingCTA() {
 
           {/* Title */}
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
-            ค่าใช้จ่ายในการเรียน
+            {t('adsTraining.pricingTitle')}
           </h2>
 
           {/* Price */}
           <div className="mt-8 mb-10">
             <p className="text-lg text-white/70">
-              ทั้งหมดนี้ในราคาเพียง
+              {t('adsTraining.pricingSubtitle')}
             </p>
             <p className='text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-500 to-green-400 bg-clip-text text-transparent mt-2'> 
-              3,500 บาท </p>
+              {t('adsTraining.pricingPrice')} </p>
            
           </div>
 
           {/* Benefits */}
           <div className="max-w-xl mx-auto text-left mb-12">
             <h3 className="text-lg font-semibold mb-4 text-white/90">
-              สิ่งที่คุณจะได้รับ
+              {t('adsTraining.pricingWhatYouGet')}
             </h3>
 
             <ul className="space-y-4">
@@ -58,18 +60,19 @@ export default function CoursePricingCTA() {
           {/* CTA Content */}
           <div className="max-w-2xl mx-auto space-y-6">
             <p className="text-lg md:text-xl font-medium leading-relaxed">
-              พร้อมเปลี่ยนงบโฆษณา ให้กลายเป็นกำไรแล้วหรือยัง?
+              {t('adsTraining.pricingCta')}
             </p>
 
             <p className="text-base md:text-lg text-white/70 leading-relaxed">
-              การลงทุนครั้งนี้ ไม่ใช่แค่การเรียนเครื่องมือ แต่คือการซื้อ{' '}
-              <span className="font-semibold text-white">“ประสบการณ์”</span> และ{' '}
-              <span className="font-semibold text-white">“ทางลัด”</span>{' '}
-              จากคนที่ผ่านมาหลายร้อยธุรกิจ
+              {t('adsTraining.pricingCtaDetail1')}{' '}
+              <span className="font-semibold text-white">{t('adsTraining.pricingCtaBold1')}</span>{' '}
+              {t('adsTraining.pricingCtaAnd')}{' '}
+              <span className="font-semibold text-white">{t('adsTraining.pricingCtaBold2')}</span>{' '}
+              {t('adsTraining.pricingCtaDetail2')}
             </p>
 
             <p className="text-sm md:text-base text-red-500 font-bold">
-              รับจำนวนจำกัด เพื่อการดูแลอย่างทั่วถึง!
+              {t('adsTraining.pricingLimited')}
             </p>
 
             {/* CTA Button */}
@@ -89,7 +92,7 @@ export default function CoursePricingCTA() {
                     hover:scale-[1.03]
                   "
                 >
-                  ลงทะเบียนเรียน
+                  {t('adsTraining.pricingButton')}
                 </button>
               </a>
             </div>

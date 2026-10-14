@@ -447,7 +447,7 @@ export default function Index () {
                     <h4 className='font-semibold text-gray-900 mb-2'>
                       ติดต่อเราเลย
                     </h4>
-                    <p className='text-red-600 font-bold text-lg'>0954965989</p>
+                    <p className='text-red-600 font-bold text-lg'>0622080994</p>
                   </div>
 
                   <div className='flex flex-col items-center p-6 bg-blue-50 rounded-xl'>
@@ -525,7 +525,7 @@ export default function Index () {
                   <h4 className='font-semibold text-gray-900 mb-2'>
                     ติดต่อเราเลย
                   </h4>
-                  <p className='text-[#121b2a] font-bold text-lg'>0954965989</p>
+                  <p className='text-[#121b2a] font-bold text-lg'>0622080994</p>
                 </div>
 
                 <div className='flex flex-col items-center p-6 bg-gray-50 rounded-xl'>

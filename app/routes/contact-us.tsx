@@ -4,6 +4,8 @@ import {
   CheckCircle, ChevronRight, Loader2
 } from 'lucide-react'
 
+import { useTranslation } from 'react-i18next'
+
 import { motion } from 'framer-motion'
 import type { MetaFunction } from 'react-router'
 import { SLIDE_UP } from '~/const/app'
@@ -29,6 +31,7 @@ const ContactCard = ({ icon: Icon, title, value, sub, colorClass }: any) => (
 )
 
 export default function ContactUs() {
+  const { t } = useTranslation();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [formData, setFormData] = useState({
@@ -80,10 +83,9 @@ export default function ContactUs() {
         
         <div className="container-x relative z-10 text-center px-4">
             <motion.div {...SLIDE_UP}>
-                <h1 className='text-4xl md:text-6xl font-black mb-6'>ติดต่อเรา</h1>
+                <h1 className='text-4xl md:text-6xl font-black mb-6'>{t('contact.heroTitle')}</h1>
                 <p className='text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed'>
-                    ยกระดับธุรกิจของคุณไปอีกขั้น ด้วยกลยุทธ์การตลาดที่วัดผลได้จริง <br className="hidden md:block"/>
-                    ปรึกษาทีมงานผู้เชี่ยวชาญของเราได้ฟรีวันนี้
+                    {t('contact.heroDesc')}
                 </p>
             </motion.div>
         </div>
@@ -98,32 +100,32 @@ export default function ContactUs() {
             <div className='lg:col-span-5 space-y-6'>
               <div className='mb-12'>
                 <motion.span className="text-blue-600 font-bold tracking-widest uppercase text-sm block mb-4">
-                  Get in touch
+                  {t('contact.getInTouch')}
                 </motion.span>
                 <h2 className='text-4xl font-black text-slate-900 leading-tight'>
-                  พร้อมเริ่มโปรเจกต์ <br /> 
-                  <span className="text-blue-600 underline decoration-blue-100 underline-offset-8">ไปกับเราหรือยัง?</span>
+                  {t('contact.sectionTitle')} <br /> 
+                  <span className="text-blue-600 underline decoration-blue-100 underline-offset-8">{t('contact.sectionTitleEnd')}</span>
                 </h2>
               </div>
 
               <div className="space-y-4">
                 <ContactCard
                   icon={Phone}
-                  title="Call Center"
-                  value="095-496-5989"
+                  title={t('contact.callCenter')}
+                  value="062-208-0994"
                   sub="โทรสอบถามได้ทันที 09:00 - 18:00"
                   colorClass="bg-blue-600"
                 />
                 <ContactCard
                   icon={MessageSquare}
-                  title="Line Support"
+                  title={t('contact.lineSupport')}
                   value="@Rundee"
                   sub="แชทคุยกับผู้เชี่ยวชาญ 24 ชม."
                   colorClass="bg-emerald-500"
                 />
                 <ContactCard
                   icon={Mail}
-                  title="Email Support"
+                  title={t('contact.emailSupport')}
                   value="rundee.ads@gmail.com"
                   sub="รับใบเสนอราคาภายใน 1 วัน"
                   colorClass="bg-slate-800"
@@ -132,15 +134,15 @@ export default function ContactUs() {
 
               <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100 mt-10">
                 <h4 className="text-slate-900 font-bold mb-4 flex items-center gap-2">
-                  <Clock className="w-5 h-5 text-blue-600" /> เวลาทำการ
+                  <Clock className="w-5 h-5 text-blue-600" /> {t('contact.businessHours')}
                 </h4>
                 <div className="space-y-3 text-sm text-slate-600 font-medium">
                   <div className="flex justify-between border-b border-slate-200 pb-2">
-                    <span>จันทร์ - ศุกร์</span>
+                    <span>{t('contact.monFri')}</span>
                     <span className="text-slate-900">09:00 - 18:00</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>เสาร์</span>
+                    <span>{t('contact.saturday')}</span>
                     <span className="text-slate-900">09:00 - 16:00</span>
                   </div>
                 </div>

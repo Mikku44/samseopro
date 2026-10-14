@@ -5,6 +5,7 @@ import {
   Globe,
   ArrowRight
 } from 'lucide-react'
+import { useTranslation } from 'react-i18next';
 import { customerList, SLIDE_UP, webPackages } from '~/const/app';
 
 export const meta: MetaFunction = () => {
@@ -43,54 +44,47 @@ export const meta: MetaFunction = () => {
   ]
 }
 
-const features = [
-  {
-    icon: <div className='font-bold text-4xl'>1</div>,
-    title: 'การออกแบบที่ตอบโจทย์ธุรกิจ',
-    subtitle: 'Professional & UI/UX Design',
-    description:
-      'เราไม่ได้ใช้ Template สำเร็จรูป แต่จะออกแบบดีไซน์เฉพาะสำหรับแบรนด์ของคุณ เพื่อสร้างความน่าเชื่อถือและแตกต่าง โดยเน้นการออกแบบให้ลูกค้าใช้งานง่าย (User Experience) เพื่อนำทางพวกเขาไปสู่การตัดสินใจซื้อได้ง่ายที่สุด'
-  },
-  {
-    icon: <div className='font-bold text-4xl'>2</div>,
-    title: 'รองรับทุกการแสดงผล',
-    subtitle: 'Mobile Responsive Design',
-    description:
-      'เว็บไซต์ของคุณจะสวยงามและใช้งานได้อย่างสมบูรณ์แบบในทุกอุปกรณ์ ไม่ว่าจะเป็นคอมพิวเตอร์ แท็บเล็ต หรือโดยเฉพาะบน "มือถือ" ที่เป็นช่องทางหลักของลูกค้าในปัจจุบัน'
-  },
-  {
-    icon: <div className='font-bold text-4xl'>3</div>,
-    title: 'โครงสร้างที่เป็นมิตรต่อ Google',
-    subtitle: 'SEO-Friendly Structure',
-    description:
-      'เราวางโครงสร้างเว็บไซต์ตามหลักการ SEO พื้นฐานที่สำคัญ เพื่อเป็นรากฐานที่ดีให้เว็บไซต์ของคุณมีโอกาสติดอันดับบน Google ในระยะยาว'
-  },
-  {
-    icon: <div className='font-bold text-4xl'>4</div>,
-    title: 'โหลดเร็ว ไม่ให้ลูกค้ารอนาน',
-    subtitle: 'Speed Optimization',
-    description:
-      'เพราะทุกวินาทีมีค่า เราจะปรับแต่งให้เว็บไซต์ของคุณโหลดได้รวดเร็วที่สุด เพื่อมอบประสบการณ์ที่ดีและลดโอกาสการเสียลูกค้าไป'
-  },
-  {
-    icon: <div className='font-bold text-4xl'>5</div>,
-    title: 'ฟังก์ชันที่จำเป็นครบครัน',
-    subtitle: 'Essential Features',
-    description:
-      'ไม่ว่าจะเป็นระบบตะกร้าสินค้า (E-commerce), การเชื่อมต่อระบบชำระเงิน, ฟอร์มติดต่อ, แผนที่, ปุ่มแชทผ่าน LINE/Messenger ไปจนถึงการเชื่อมต่อ Social Media ต่างๆ'
-  },
-  {
-    icon: <div className='font-bold text-4xl'>6</div>,
-    title: 'ระบบความปลอดภัยพื้นฐาน',
-    subtitle: 'Basic Security - SSL',
-    description:
-      'ติดตั้ง SSL (HTTPS) เพื่อสร้างความปลอดภัยและความมั่นใจให้กับลูกค้าในการกรอกข้อมูลและทำธุรกรรมบนเว็บไซต์ของคุณ'
-  }
-]
-
-
-
 export default function WebMaker() {
+  const { t } = useTranslation();
+
+  const features = [
+    {
+      icon: <div className='font-bold text-4xl'>1</div>,
+      title: t('webMaker.feature1Title'),
+      subtitle: t('webMaker.feature1Subtitle'),
+      description: t('webMaker.feature1Desc')
+    },
+    {
+      icon: <div className='font-bold text-4xl'>2</div>,
+      title: t('webMaker.feature2Title'),
+      subtitle: t('webMaker.feature2Subtitle'),
+      description: t('webMaker.feature2Desc')
+    },
+    {
+      icon: <div className='font-bold text-4xl'>3</div>,
+      title: t('webMaker.feature3Title'),
+      subtitle: t('webMaker.feature3Subtitle'),
+      description: t('webMaker.feature3Desc')
+    },
+    {
+      icon: <div className='font-bold text-4xl'>4</div>,
+      title: t('webMaker.feature4Title'),
+      subtitle: t('webMaker.feature4Subtitle'),
+      description: t('webMaker.feature4Desc')
+    },
+    {
+      icon: <div className='font-bold text-4xl'>5</div>,
+      title: t('webMaker.feature5Title'),
+      subtitle: t('webMaker.feature5Subtitle'),
+      description: t('webMaker.feature5Desc')
+    },
+    {
+      icon: <div className='font-bold text-4xl'>6</div>,
+      title: t('webMaker.feature6Title'),
+      subtitle: t('webMaker.feature6Subtitle'),
+      description: t('webMaker.feature6Desc')
+    }
+  ];
   return (
     <>
       <div className='min-h-screen relative overflow-hidden bg-[--primary-color]'>
@@ -121,7 +115,7 @@ export default function WebMaker() {
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
                   </span>
                   <span className="text-xs font-semibold text-blue-200 tracking-[0.1em] uppercase">
-                    หากคุณต้องการเพิ่มยอดขาย
+                    {t('webMaker.heroBadge')}
                   </span>
                 </motion.div>
 
@@ -133,7 +127,7 @@ export default function WebMaker() {
                 >
                   RundeeAds <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-blue-500">
-                    รับออกแบบเว็บไซต์คุณภาพ
+                    {t('webMaker.heroTitleHighlight')}
                   </span>
                 </motion.h1>
 
@@ -143,8 +137,7 @@ export default function WebMaker() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4, duration: 0.8 }}
                 >
-                  เปลี่ยนเว็บไซต์ให้เป็น <span className="text-blue-400 font-bold">&quot;เครื่องมือทำเงิน&quot;</span>
-                  ที่ทำงานหนักที่สุดแทนคุณ พร้อมโครงสร้างที่รองรับการปิดการขายและ SEO อย่างเต็มรูปแบบ
+                  {t('webMaker.heroDesc')}
                 </motion.p>
 
                 <motion.div
@@ -153,14 +146,14 @@ export default function WebMaker() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6, duration: 0.8 }}
                 >
-                  <a href='tel:0954965989' className="group">
+                  <a href='tel:0622080994' className="group">
                     <button className='bg-blue-600 hover:bg-blue-500 transition-all duration-300 px-10 py-4 rounded-full text-white font-bold text-lg shadow-[0_0_20px_rgba(37,99,235,0.3)] group-hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] group-hover:-translate-y-1'>
-                      ปรึกษาเราเลย
+                      {t('webMaker.ctaConsult')}
                     </button>
                   </a>
                   <a href="#what-we-do">
                     <button className='bg-white/5 hover:bg-white/10 border border-white/10 backdrop-blur-sm px-10 py-4 rounded-full text-white font-semibold text-lg transition-all duration-300'>
-                      รายละเอียดบริการ
+                      {t('webMaker.ctaDetails')}
                     </button>
                   </a>
                 </motion.div>
@@ -192,7 +185,7 @@ export default function WebMaker() {
                   backdrop-blur-xl p-5 rounded-2xl border border-blue-400/20 shadow-xl hidden md:block"
 
                 >
-                  <p className="text-blue-200 text-xs uppercase tracking-widest mb-1">Conversion Rate</p>
+                  <p className="text-blue-200 text-xs uppercase tracking-widest mb-1">{t('webMaker.conversionRate')}</p>
                   <p className="text-white text-3xl font-bold">+150%</p>
                 </div>
               </div>
@@ -205,7 +198,7 @@ export default function WebMaker() {
         </section>
 
         {/* Philosophy Section */}
-        <section className='py-24 container-x'>
+        <section className='py-24 container-x '>
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -214,27 +207,27 @@ export default function WebMaker() {
             className='max-w-4xl mx-auto text-center space-y-8'
           >
             <p className='text-xl text-slate-400 italic'>
-              เว็บไซต์ที่ดูดีแต่ไม่สร้างยอดขาย อาจกลายเป็นเพียง <span className='text-rose-400 font-bold'>“ค่าใช้จ่าย”</span> แทนที่จะเป็น <span className='text-blue-400 font-bold'>“สินทรัพย์”</span>
+              {t('webMaker.philosophyQuote')}
             </p>
 
             <h2 className='text-3xl md:text-5xl font-bold text-white'>
-              ถึงเวลาเปลี่ยนเว็บไซต์ให้กลายเป็นเครื่องมือการตลาดที่แท้จริง
+              {t('webMaker.philosophyTitle')}
             </h2>
 
             <div className='bg-white/5 border border-white/10 p-10 rounded-2xl'>
               <p className='text-2xl md:text-3xl font-semibold text-blue-100'>
-                “ธุรกิจจำนวนมากลงทุนโฆษณามหาศาล <br /> แต่กลับสูญเสียลูกค้าด้วยเว็บไซต์ที่ไม่ตอบโจทย์”
+                {t('webMaker.philosophyHighlight')}
               </p>
             </div>
 
             <div className='grid md:grid-cols-2 gap-8 text-left pt-8'>
               <div className="space-y-3">
-                <h4 className="text-rose-400 font-bold uppercase text-sm">The Challenge</h4>
-                <p className="text-slate-400">เว็บไซต์โหลดช้า หรือใช้งานบนมือถือยาก ทำให้ลูกค้าปิดหนีทันที</p>
+                <h4 className="text-rose-400 font-bold uppercase text-sm">{t('webMaker.challengeTitle')}</h4>
+                <p className="text-slate-400">{t('webMaker.challengeDesc')}</p>
               </div>
               <div className="space-y-3">
-                <h4 className="text-blue-400 font-bold uppercase text-sm">The Results</h4>
-                <p className="text-slate-400">เราสร้างเว็บไซต์ที่พร้อมปิดการขาย จากประสบการณ์ดูแลธุรกิจกว่า 300+ แห่ง</p>
+                <h4 className="text-blue-400 font-bold uppercase text-sm">{t('webMaker.resultsTitle')}</h4>
+                <p className="text-slate-400">{t('webMaker.resultsDesc')}</p>
               </div>
             </div>
           </motion.div>
@@ -243,8 +236,8 @@ export default function WebMaker() {
         <section className='py-24 bg-[#020617]'>
           <div className='container-x'>
             <div className='text-center max-w-3xl mx-auto mb-16'>
-              <h2 className='text-3xl sm:text-4xl font-bold mb-4 text-white/80'>แพ็กเกจทำเว็บไซต์</h2>
-              <p className='text-lg text-gray-600'>เว็บไซต์มืออาชีพในราคาโปร่งใส</p>
+              <h2 className='text-3xl sm:text-4xl font-bold mb-4 text-white/80'>{t('webMaker.packagesTitle')}</h2>
+              <p className='text-lg text-gray-600'>{t('webMaker.packagesSubtitle')}</p>
             </div>
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
@@ -259,7 +252,7 @@ export default function WebMaker() {
                 >
                   {pkg.highlight && (
                     <span className="bg-black text-white px-4 py-1 rounded-full text-xs font-bold self-start mb-4 tracking-wider">
-                      MOST POPULAR
+                      {t('webMaker.mostPopular')}
                     </span>
                   )}
 
@@ -288,7 +281,7 @@ export default function WebMaker() {
                         ${pkg.highlight ? 'bg-black text-white ' : 'bg-gray-100 text-black hover:bg-gray-200'}`}
                     
                     >
-                      Get Started
+                      {t('webMaker.getStarted')}
                     </div>
                   </Link>
                 </div>
@@ -308,7 +301,7 @@ export default function WebMaker() {
                 // variants={fadeIn}
                 className='text-3xl md:text-4xl font-semibold text-white tracking-tight'
               >
-                ส่วนหนึ่งจากลูกค้า<span className="text-slate-500 font-normal"> ที่ไว้วางใจให้เราดูแล</span>
+                {t('webMaker.customerTitle')}<span className="text-slate-500 font-normal"> {t('webMaker.customerTitleEnd')}</span>
               </motion.h2>
               <div className="w-12 h-[1px] bg-blue-500 mt-6"></div>
             </div>
@@ -362,15 +355,15 @@ export default function WebMaker() {
                 whileInView={{ opacity: 1 }}
                 className='text-blue-500 font-bold tracking-[0.3em] text-xs mb-4'
               >
-                OUR CORE EXPERTISE
+                {t('webMaker.ourCoreExpertise')}
               </motion.p>
               <motion.h2
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 className='text-4xl md:text-5xl font-bold text-white tracking-tight'
               >
-                เราสร้าง <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">ระบบการขายออนไลน์</span> <br className="hidden md:block" />
-                ที่สมบูรณ์แบบเพื่อธุรกิจของคุณ
+                {t('webMaker.expertiseTitle')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">{t('webMaker.expertiseTitleHighlight')}</span> <br className="hidden md:block" />
+                {t('webMaker.expertiseTitleEnd')}
               </motion.h2>
             </div>
 
@@ -430,12 +423,12 @@ export default function WebMaker() {
 
 
                   <h2 className='text-3xl md:text-5xl font-bold text-white leading-tight'>
-                    เป้าหมายสูงสุดคือการสร้าง <br />
-                    <span className="text-blue-500">"พนักงานขายที่เก่งที่สุด"</span>
+                    {t('webMaker.ctaFinalTitle')} <br />
+                    <span className="text-blue-500">{t('webMaker.ctaFinalTitleHighlight')}</span>
                   </h2>
 
                   <p className='text-lg md:text-xl text-slate-300 leading-relaxed max-w-md'>
-                    หากคุณพร้อมที่จะเปลี่ยนเว็บไซต์ให้เป็นเครื่องมือสร้างยอดขาย... มาคุยกันครับ
+                    {t('webMaker.ctaFinalDesc')}
                   </p>
 
                   <div className="pt-4">
@@ -444,7 +437,7 @@ export default function WebMaker() {
                       className='group h-[60px] px-10 bg-blue-600 hover:bg-blue-500 text-white rounded-full 
                   inline-flex gap-3 items-center justify-center transition-all duration-300 shadow-lg hover:shadow-blue-500/40'
                     >
-                      <span className='font-bold text-lg'>โทรสอบถาม 095-496-5989</span>
+                      <span className='font-bold text-lg'>{t('webMaker.ctaFinalPhone')}</span>
                       <ArrowRight className='size-5 group-hover:translate-x-2 duration-200' />
                     </Link>
                   </div>

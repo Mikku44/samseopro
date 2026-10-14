@@ -1,6 +1,8 @@
 import { Link, type LoaderFunctionArgs } from 'react-router';
 import { useLoaderData } from 'react-router';
 import { LuSearch, LuArrowRight, LuCalendar, LuClock } from 'react-icons/lu';
+import { useTranslation } from 'react-i18next'
+
 import { getBlogs } from '~/services/blogService';
 import { Article } from '~/models/blogModel';
 
@@ -18,6 +20,7 @@ export const meta = () => {
 
 
 export default function BlogIndex() {
+  const { t } = useTranslation();
   const { blogs } = useLoaderData<typeof loader>();
   
   // The first blog is treated as the "Featured" post
@@ -31,11 +34,10 @@ export default function BlogIndex() {
         <div className="container mx-auto max-w-7xl px-6">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-6xl font-black text-slate-200 mb-6 leading-tight">
-              Blog & <span className="text-blue-600">Insights</span>
+              {t('blog.title')}
             </h1>
             <p className="text-xl text-slate-500 leading-relaxed">
-              แบ่งปันประสบการณ์ กลยุทธ์ และเทคนิคการทำโฆษณาออนไลน์ให้เห็นผลจริง 
-              จากมุมมองของคนทำงานเบื้องหลัง
+              {t('blog.subtitle')}
             </p>
           </div>
         </div>
@@ -48,7 +50,7 @@ export default function BlogIndex() {
           <div className="mb-20">
             <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600 mb-8 flex items-center">
               <span className="w-10 h-[2px] bg-blue-600 mr-4"></span>
-              บทความแนะนำ
+              {t('blog.featured')}
             </h2>
             <Link 
               to={`/blog/${featuredPost.slug}`}
@@ -78,7 +80,7 @@ export default function BlogIndex() {
                 <div className="flex items-center text-slate-400 text-sm font-medium">
                   <span className="flex items-center mr-6"><LuCalendar className="mr-2" /> 24 ม.ค. 2024</span>
                   <span className="flex items-center text-blue-600 font-bold group-hover:translate-x-2 transition-transform">
-                    อ่านต่อ <LuArrowRight className="ml-2" />
+                    {t('blog.readMore')} <LuArrowRight className="ml-2" />
                   </span>
                 </div>
               </div>
@@ -88,7 +90,7 @@ export default function BlogIndex() {
 
         {/* LATEST POSTS GRID */}
         <div className="mb-12 flex items-center justify-between">
-          <h2 className="text-2xl font-bold text-slate-900">บทความทั้งหมด</h2>
+          <h2 className="text-2xl font-bold text-slate-900">{t('blog.allPosts')}</h2>
           <div className="relative hidden md:block">
              <input 
               type="text" 
@@ -130,7 +132,7 @@ export default function BlogIndex() {
                   {post.excerpt}
                 </p>
                 <div className="mt-auto pt-4 border-t border-slate-50 flex items-center text-blue-600 font-bold text-sm">
-                  อ่านบทความนี้ <LuArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" />
+                  {t('blog.readMore')} <LuArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" />
                 </div>
               </div>
             </Link>
@@ -141,15 +143,15 @@ export default function BlogIndex() {
         <div className="mt-24 p-8 md:p-16 bg-blue-600 rounded-[3rem] text-center text-white relative overflow-hidden">
           <div className="absolute top-0 left-0 w-64 h-64 bg-white/10 blur-[100px] rounded-full -ml-32 -mt-32" />
           <div className="relative z-10">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">เริ่มสร้างยอดขายด้วย Google Ads วันนี้</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">{t('blog.ctaTitle')}</h2>
             <p className="text-blue-100 mb-10 max-w-2xl mx-auto text-lg">
-              หากคุณมีคำถามหรือต้องการคำแนะนำในการวางแผนโฆษณา เราพร้อมช่วยวิเคราะห์ให้ฟรีไม่มีค่าใช้จ่าย
+              {t('blog.ctaDesc')}
             </p>
             <Link 
               to="/contact-us" 
               className="inline-flex items-center px-10 py-5 bg-white text-blue-600 font-black rounded-full hover:bg-blue-50 transition-all shadow-xl hover:scale-105 active:scale-95"
             >
-              ติดต่อรับคำปรึกษาฟรี
+              {t('blog.ctaButton')}
             </Link>
           </div>
         </div>

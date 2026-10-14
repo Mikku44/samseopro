@@ -1,3 +1,7 @@
+import { useEffect } from 'react';
+import { I18nextProvider } from 'react-i18next';
+import i18n from '~/lib/i18n';
+import { TIKTOK_PIXEL_ID, trackTiktokPageview } from '~/lib/tiktok';
 import {
   Links,
   Meta,
@@ -5,6 +9,7 @@ import {
   Scripts,
   ScrollRestoration,
   isRouteErrorResponse,
+  useLocation,
 } from "react-router";
 import type { LinksFunction } from "react-router";
 
@@ -41,8 +46,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-55FSS299');`;
 
+  // TikTok Pixel base code — https://ads.tiktok.com/help/article/tiktok-pixel
+  const tiktokPixelScript = `!function (w, d, t) {
+w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._c=ttq._c||{},ttq._c[e]=o,ttq._o=ttq._o||{},ttq._o[e]=n||{};var a=d.createElement("script");a.type="text/javascript",a.async=!0,a.src=r+"?sdkid="+e+"&lib="+t;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(a,s)};
+ttq.load('${TIKTOK_PIXEL_ID}');
+ttq.page();
+}(window, document, 'ttq');`;
+
   return (
-    <html lang="en">
+    <html lang={i18n.language || 'th'}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -51,6 +63,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <script
           suppressHydrationWarning
           dangerouslySetInnerHTML={{ __html: gtmScript }}
+        />
+        <script
+          id="tiktok-pixel"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: tiktokPixelScript }}
         />
       </head>
       <body>
@@ -63,7 +80,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           ></iframe>
         </noscript>
         
-        {children}
+        <I18nextProvider i18n={i18n}>
+          {children}
+        </I18nextProvider>
         
         <ScrollRestoration />
         <Scripts />
@@ -74,6 +93,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 // 3. The default export is the "App" entry point
 export default function App() {
+  const location = useLocation();
+
+  // React Router เป็น SPA — ยิง ttq.page() ทุกครั้งที่เปลี่ยนหน้า
+  // (ครั้งแรก base code ใน <head> ยิงให้แล้ว ส่วนครั้งถัดไป effect นี้ดูแล)
+  useEffect(() => {
+    trackTiktokPageview();
+  }, [location.pathname, location.search]);
+
   return <Outlet />;
 }
 

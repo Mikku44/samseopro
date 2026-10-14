@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { MetaFunction } from 'react-router';
 import {
   ArrowRight,
@@ -54,6 +55,7 @@ const teamList = [
 ];
 
 export default function Index() {
+  const { t } = useTranslation();
   const blogs = getBlogs();
 
   return (
@@ -75,18 +77,18 @@ export default function Index() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
               </span>
-              <span className="text-xs font-medium text-blue-200/80 tracking-wider uppercase">Scale Your Business Faster</span>
+              <span className="text-xs font-medium text-blue-200/80 tracking-wider uppercase">{t('home.heroBadge')}</span>
             </div>
 
             <div className="space-y-4">
               <h1 className='text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight text-white'>
                 RundeeAds <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">
-                  Organic Growth Builder
+                  {t('home.heroTitleHighlight')}
                 </span>
               </h1>
               <p className='text-lg md:text-xl text-slate-300/90 leading-relaxed max-w-xl'>
-                ยกระดับธุรกิจของคุณด้วยกลยุทธ์ SEO และ Ads ที่ออกแบบมาเพื่อสร้างยอดขายและการเติบโตที่ยั่งยืน
+                {t('home.heroDesc')}
               </p>
             </div>
           </div>
@@ -141,10 +143,10 @@ export default function Index() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
           <div className="max-w-2xl">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
-              บริการของเรา<span className="text-blue-500">ที่พร้อมซัพพอร์ต</span>คุณ
+              {t('home.servicesTitle')}<span className="text-blue-500">{t('home.servicesTitleEnd')}</span>
             </h2>
             <p className="text-slate-400 text-xl leading-relaxed">
-              เราดูแลทุกขั้นตอนของการทำโฆษณาออนไลน์ เพื่อผลลัพธ์ที่วัดผลได้จริง
+              {t('home.servicesDesc')}
             </p>
           </div>
         </div>
@@ -184,11 +186,11 @@ export default function Index() {
       {/* Contact CTA */}
       <section id='contact' className='py-20 container-x'>
         <div className=' p-20 text-center relative overflow-hidden rounded-3xl bg-[#051f43] text-white/80'>
-          <h3 className='text-3xl md:text-4xl font-bold mb-6'>เริ่มวางแผนธุรกิจกับเราวันนี้</h3>
-          <p className='text-xl text-slate-300 mb-10 max-w-3xl mx-auto'>ปรึกษาฟรี! ทีมงานของเราพร้อมช่วยวิเคราะห์และวางแผนเพื่อให้คุณได้รับ ROI ที่คุ้มค่าที่สุด</p>
+          <h3 className='text-3xl md:text-4xl font-bold mb-6'>{t('home.ctaTitle')}</h3>
+          <p className='text-xl text-slate-300 mb-10 max-w-3xl mx-auto'>{t('home.ctaDesc')}</p>
           <div className='flex justify-center'>
             <a href='/contact-us' className='bg-black group flex items-center gap-3 px-12 py-5 rounded-full font-bold text-xl'>
-              ติดต่อเราเพื่อเริ่มต้น <ArrowRight className='group-hover:translate-x-1 duration-100' />
+              {t('home.ctaButton')} <ArrowRight className='group-hover:translate-x-1 duration-100' />
             </a>
           </div>
         </div>

@@ -1,7 +1,10 @@
+import { useTranslation } from 'react-i18next';
+
 export default function Banner() {
+  const { t } = useTranslation();
   return (
     <div className="bg-red-600 text-white py-2 px-4 text-center text-sm font-medium">
-      <p>🔥🔥 บริการ SEO ในตำนานเปิดแล้ว! ลดราคาพิเศษเฉพาะ 5 ปีนี้ 6.6 เท่านั้น ห้ามพลาด!</p>
+      <p>{t('banner.text')}</p>
     </div>
   )
 }

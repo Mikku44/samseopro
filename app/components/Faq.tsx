@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ChevronDown, MessageCircle } from 'lucide-react';
 
 const FAQItem = ({ question, answer } : {question: string, answer: string}) => {
@@ -27,33 +28,22 @@ const FAQItem = ({ question, answer } : {question: string, answer: string}) => {
 };
 
 const RundeeFAQ = () => {
+  const { t } = useTranslation();
   const faqData = [
-    {
-      question: "บริการหลักของ Rundee Ads มีอะไรบ้าง?",
-      answer: "เราเชี่ยวชาญด้านการทำการตลาดออนไลน์แบบครบวงจร ครอบคลุมทั้งการทำ SEO เพื่อติดอันดับต้นๆ บน Google, การยิงโฆษณา Google Ads (SEM), การออกแบบเว็บไซต์ที่เน้นยอดขาย และคอร์สอบรมการตลาดดิจิทัล"
-    },
-    {
-      question: "ทำไมต้องเลือกทำโฆษณากับ Rundee Ads?",
-      answer: "ทีมงานของเรานำโดยอดีต Account Manager จาก Google Ads โดยตรง เรามีความเข้าใจลึกซึ้งในระบบหลังบ้านและอัลกอริทึม ช่วยให้คุณวางกลยุทธ์ได้แม่นยำและใช้งบประมาณได้อย่างคุ้มค่าที่สุด"
-    },
-    {
-      question: "การทำ SEO กับ Rundee Ads ต่างจากที่อื่นอย่างไร?",
-      answer: "เราเน้นการทำ SEO สายขาวที่ยั่งยืน โดยเริ่มตั้งแต่การปรับโครงสร้างเว็บไซต์ (On-Page) ไปจนถึงการสร้าง Content ที่มีคุณภาพและการทำ Backlink ที่ปลอดภัย เพื่อให้อันดับของคุณคงอยู่ได้ในระยะยาว"
-    },
-    {
-      question: "เริ่มต้นปรึกษาต้องทำอย่างไร?",
-      answer: "คุณสามารถทักแชทเพื่อปรึกษาและวิเคราะห์ธุรกิจเบื้องต้นได้ฟรี โดยไม่มีค่าใช้จ่าย เพื่อวางแผนก่อนเริ่มดำเนินการจริง"
-    }
+    { question: t('faq.q1'), answer: t('faq.a1') },
+    { question: t('faq.q2'), answer: t('faq.a2') },
+    { question: t('faq.q3'), answer: t('faq.a3') },
+    { question: t('faq.q4'), answer: t('faq.a4') },
   ];
 
   return (
     <section className="py-16 px-4 bg-white">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
-          คำถามที่พบบ่อย (FAQ)
+          {t('faq.title')}
         </h2>
         <p className="text-center text-gray-500 mb-12">
-          ทุกข้อสงสัยเกี่ยวกับบริการของ Rundee Ads เรามีคำตอบให้คุณ
+          {t('faq.subtitle')}
         </p>
         
         <div className="space-y-2">

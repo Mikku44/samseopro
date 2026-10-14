@@ -1,42 +1,45 @@
 import { motion } from 'framer-motion'
 import { FaCircleCheck } from 'react-icons/fa6'
+import { useTranslation } from 'react-i18next';
 
-const parts = [
+export default function GoogleAdsCourseTimeline () {
+  const { t } = useTranslation();
+  const parts = [
   {
-    part: 'Part 1',
-    title: 'ปูพื้นฐานให้แน่น',
+    part: t('adsTraining.coursePart1'),
+    title: t('adsTraining.coursePart1Title'),
     items: [
-      'Google Ads คืออะไร? ทำไมธุรกิจของคุณต้องใช้?',
-      'เข้าใจภาพรวมและประเภทของแคมเปญทั้งหมด (Search, Display, YouTube, Shopping, PMax)',
-      'วิธีตั้งค่าบัญชี Google Ads ที่ถูกต้องตั้งแต่ครั้งแรก เพื่อไม่ให้มีปัญหาตามมา'
+      t('adsTraining.coursePart1Item1'),
+      t('adsTraining.coursePart1Item2'),
+      t('adsTraining.coursePart1Item3')
     ]
   },
   {
-    part: 'Part 2',
-    title: 'วางแผนและลงมือสร้างแคมเปญ',
+    part: t('adsTraining.coursePart2'),
+    title: t('adsTraining.coursePart2Title'),
     items: [
-      'การวิเคราะห์ Keyword (คำค้นหา) ที่ใช่สำหรับธุรกิจคุณ หาคำที่ทำเงินและปิดการขายได้',
-      'วิธีเขียนข้อความโฆษณา (Ad Copy) ให้น่าคลิกและเอาชนะคู่แข่ง',
-      'สอนสร้างแคมเปญ Google Search Ads แบบละเอียดทุกขั้นตอน',
-      'รู้จักและใช้งาน Ad Extensions ส่วนขยายโฆษณาที่จะทำให้โฆษณาของคุณโดดเด่นกว่าใคร'
+      t('adsTraining.coursePart2Item1'),
+      t('adsTraining.coursePart2Item2'),
+      t('adsTraining.coursePart2Item3'),
+      t('adsTraining.coursePart2Item4')
     ]
   },
   {
-    part: 'Part 3',
-    title: 'วัดผลและต่อยอดสู่ขั้นแอดวานซ์',
+    part: t('adsTraining.coursePart3'),
+    title: t('adsTraining.coursePart3Title'),
     items: [
-      'การติดตั้ง Conversion Tracking เพื่อวัดผลว่าโฆษณาของคุณสร้างยอดขายได้จริงหรือไม่',
-      'วิธีอ่านรีพอร์ตและวิเคราะห์ข้อมูล เพื่อปรับปรุงแคมเปญให้ดีขึ้นเรื่อยๆ',
-      'เทคนิคการทำ Remarketing ตามหลอนลูกค้าที่เคยเข้าเว็บ แต่ยังไม่ซื้อ',
-      'เคล็ดลับการ Optimize โฆษณา ลดค่าคลิก เพิ่มผลลัพธ์ โดยใช้งบเท่าเดิม'
+      t('adsTraining.coursePart3Item1'),
+      t('adsTraining.coursePart3Item2'),
+      t('adsTraining.coursePart3Item3'),
+      t('adsTraining.coursePart3Item4')
     ]
   },
   {
-    part: 'Part 4',
-    title: 'Workshop และกลยุทธ์พิเศษ',
+    part: t('adsTraining.coursePart4'),
+    title: t('adsTraining.coursePart4Title'),
     items: [
-      '[พิเศษ!] วิเคราะห์กลยุทธ์ที่เหมาะสมกับธุรกิจของคุณโดยเฉพาะ: เราจะดูธุรกิจของคุณและแนะนำว่าควรใช้แคมเปญแบบไหน งบประมาณเท่าไหร่ ถึงจะคุ้มค่าที่สุด',
-      '[ไม่มีในคู่มือ!] แชร์ทริกสำคัญจากประสบการณ์ตรง: เช่น วิธีจัดการกับคู่แข่ง, เทคนิค Bidding Strategy ที่ได้ผล, การดู Quality Score และวิธีปรับปรุง'
+      t('adsTraining.coursePart4Item1'),
+      t('adsTraining.coursePart4Item2')
     ]
   }
 ]
@@ -54,7 +57,6 @@ const item = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
 }
 
-export default function GoogleAdsCourseTimeline () {
   return (
     <section className='relative w-full text-white '>
       <div className='container mx-auto px-4 '>

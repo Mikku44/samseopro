@@ -4,6 +4,7 @@ import type { MetaFunction } from 'react-router';
 import { BookOpen, Users, CheckCircle, Clock, Send, ArrowRight, Target, BarChart3, Globe, MessageSquare } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next';
 import { customerList } from '~/const/app';
 import ConsultationForm from '~/components/SubmitForm';
 import SearchPerformance from '~/components/SearchPerfomance';
@@ -45,7 +46,8 @@ export const meta: MetaFunction = () => {
 }
 
 export default function SEOTrainingService() {
- 
+  const { t } = useTranslation();
+  
   const characterVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
@@ -54,15 +56,15 @@ export default function SEOTrainingService() {
   const DEFAULT_FEATURES: any[] = [
   {
     icon: Clock,
-    label: 'ระยะเวลาอบรม',
-    value: '1 วันเต็ม (09:00 - 17:00)',
+    label: t('seoTraining.registrationDurationLabel'),
+    value: t('seoTraining.registrationDurationValue'),
     colorClass: 'text-blue-400',
     bgClass: 'bg-blue-500/10'
   },
   {
     icon: Users,
-    label: 'รูปแบบการเรียน',
-    value: 'Intensive Workshop',
+    label: t('seoTraining.registrationFormatLabel'),
+    value: t('seoTraining.registrationFormatValue'),
     colorClass: 'text-indigo-400',
     bgClass: 'bg-indigo-500/10'
   }
@@ -94,7 +96,7 @@ export default function SEOTrainingService() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
                 </span>
-                <span className="text-xs font-medium text-blue-200/80 tracking-wider uppercase">ยกระดับทักษะ SEO ของคุณ</span>
+                <span className="text-xs font-medium text-blue-200/80 tracking-wider uppercase">{t('seoTraining.heroBadge')}</span>
               </motion.div>
 
               <motion.h1
@@ -111,8 +113,7 @@ export default function SEOTrainingService() {
                 ))}
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">
-                  {/* Wrap each character in "บริการรับทำ SEOแบบมืออาชีพ" in a motion.span with variants and delay */}
-                  {'บริการรับทำ SEO แบบมืออาชีพ'.split('').map((char, index) => (
+                  {t('seoTraining.heroTitleHighlight').split('').map((char, index) => (
                     <motion.span key={index} variants={characterVariants} initial="hidden" animate="visible" transition={{ delay: 0.4 + index * 0.1 }}>
                       {char}
                     </motion.span>
@@ -127,7 +128,7 @@ export default function SEOTrainingService() {
                 transition={{ delay: 0.4, duration: 0.8 }}
               >
                 {/* Wrap each character in the paragraph in a motion.span with variants and delay */}
-                {'เรียนรู้การทำ SEO อย่างถูกต้อง ปฏิบัติได้จริง เพิ่มอันดับเว็บไซต์บน Google ด้วยกลยุทธ์ที่ใช้ได้ผลจริงในปี 2024'.split('').map((char, index) => (
+                {t('seoTraining.heroDesc').split('').map((char, index) => (
                   <motion.span key={index} variants={characterVariants} initial="hidden" animate="visible" transition={{ delay: 0.6 + index * 0.05 }}>
                     {char}
                   </motion.span>
@@ -141,12 +142,12 @@ export default function SEOTrainingService() {
               >
                 <a href='#register'>
                   <button className='bg-blue-800 px-10 py-4 rounded-full text-white font-bold text-lg'>
-                    ลงทะเบียนเรียน
+                    {t('seoTraining.ctaRegister')}
                   </button>
                 </a>
                 <a href="#content">
                   <button className='glass-button px-10 py-4 rounded-full text-white font-semibold text-lg'>
-                    รายละเอียดคอร์ส
+                    {t('seoTraining.ctaDetails')}
                   </button>
                 </a>
               </motion.div>
@@ -166,7 +167,7 @@ export default function SEOTrainingService() {
                 viewport={{ once: true }}
                 className='text-3xl md:text-4xl font-semibold text-white tracking-tight'
               >
-                ส่วนหนึ่งจากลูกค้า<span className="text-slate-500 font-normal"> ที่ไว้วางใจให้เราดูแล</span>
+                {t('seoTraining.customerTitle')}<span className="text-slate-500 font-normal"> {t('seoTraining.customerTitleEnd')}</span>
               </motion.h2>
               <div className="w-12 h-[1px] bg-blue-500 mt-6"></div>
             </div>
@@ -226,10 +227,10 @@ export default function SEOTrainingService() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
             >
-              INVEST IN YOUR FUTURE
+              {t('seoTraining.investTitle')}
             </motion.p>
             <h2 className='text-4xl md:text-6xl font-bold text-white tracking-tight mb-6'>
-              สิ่งที่คุณจะได้รับจาก<span className="text-blue-500">การอบรม</span>
+              {t('seoTraining.benefitsTitle')}<span className="text-blue-500">{t('seoTraining.benefitsTitleEnd')}</span>
             </h2>
             <div className="w-24 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
           </div>
@@ -237,21 +238,21 @@ export default function SEOTrainingService() {
           <div className='grid gap-8 md:grid-cols-2 lg:grid-cols-3'>
             {[
               {
-                title: 'หลักการทำ SEO เชิงลึก',
+                title: t('seoTraining.benefit1Title'),
                 icon: <Target className="w-8 h-8 text-blue-400" />,
-                description: 'เข้าใจทั้ง On-page และ Off-page อย่างลึกซึ้ง พร้อมเทคนิค Keyword Optimization ที่แม่นยำ',
+                description: t('seoTraining.benefit1Desc'),
                 items: ['Technical SEO Audit', 'Content Architecture', 'Link Building Strategy']
               },
               {
-                title: 'Workshop ปฏิบัติจริง',
+                title: t('seoTraining.benefit2Title'),
                 icon: <BarChart3 className="w-8 h-8 text-indigo-400" />,
-                description: 'เรียนรู้ผ่านกรณีศึกษาจริงจาก 5 ประเภทธุรกิจ เพื่อให้คุณนำไปปรับใช้ได้กับทุกสถานการณ์',
+                description: t('seoTraining.benefit2Desc'),
                 items: ['E-commerce Strategy', 'Local SEO Focus', 'Penalty Recovery']
               },
               {
-                title: 'เครื่องมือระดับมืออาชีพ',
+                title: t('seoTraining.benefit3Title'),
                 icon: <Globe className="w-8 h-8 text-purple-400" />,
-                description: 'เชี่ยวชาญการใช้เครื่องมือวิเคราะห์ระดับโลก อาทิ GSC, GA4, Ahrefs และการใช้ AI ช่วยงาน SEO',
+                description: t('seoTraining.benefit3Desc'),
                 items: ['Data-Driven Insights', 'Competitor Analysis', 'AI-Powered Content']
               }
             ].map((card, i) => (
@@ -287,14 +288,14 @@ export default function SEOTrainingService() {
           <div className="grid lg:grid-cols-2 gap-8">
             {[
               {
-                title: 'แผนปฏิบัติการ SEO 3 เดือน',
+                title: t('seoTraining.courseDetail1Title'),
                 img: 'https://images.unsplash.com/photo-1686061594183-8c864f508b00?q=80&w=1170&auto=format&fit=crop',
-                desc: 'ระบบติดตามผลและ Key Milestones ที่ช่วยให้คุณเห็นความก้าวหน้าอย่างชัดเจน'
+                desc: t('seoTraining.courseDetail1Desc')
               },
               {
-                title: 'ใบประกาศนียบัตรรับรอง',
+                title: t('seoTraining.courseDetail2Title'),
                 img: 'https://images.unsplash.com/photo-1589330694653-ded6df03f754?q=80&w=1216&auto=format&fit=crop',
-                desc: 'การันตีความรู้ความสามารถ พร้อมสิทธิ์เข้ากลุ่มที่ปรึกษาหลังจบการอบรม'
+                desc: t('seoTraining.courseDetail2Desc')
               }
             ].map((item, i) => (
               <div key={i} className="glass-card overflow-hidden group">
@@ -313,11 +314,11 @@ export default function SEOTrainingService() {
         {/* Registration Section */}
         <ConsultationForm
         title={<h2 className='text-4xl md:text-5xl font-bold text-white mb-8 leading-tight'>
-                    พร้อมยกระดับ <br />
-                    <span className="text-blue-500">ธุรกิจของคุณหรือยัง?</span>
+                    {t('seoTraining.registrationTitle')} <br />
+                    <span className="text-blue-500">{t('seoTraining.registrationTitleEnd')}</span>
                   </h2>}
 
-                  subtitle={"คอร์สนี้ออกแบบมาสำหรับนักการตลาด เจ้าของธุรกิจ และฟรีแลนซ์ที่ต้องการผลลัพธ์ที่จับต้องได้จริง"}
+                  subtitle={t('seoTraining.registrationSubtitle')}
                   features={DEFAULT_FEATURES}
 
                   service='คอร์ส SEO'
@@ -439,17 +440,17 @@ export default function SEOTrainingService() {
               border-white/10 border from-blue-600/10 to-indigo-600/10"></div>
               <div className="relative z-10">
                 <h2 className='text-3xl md:text-5xl font-bold text-white mb-6'>
-                  ต้องการข้อมูลเพิ่มเติม?
+                  {t('seoTraining.ctaTitle')}
                 </h2>
                 <p className='text-xl text-slate-400 mb-10 max-w-2xl mx-auto'>
-                  โทรสอบถามรายละเอียดคอร์สและรอบการอบรมที่ว่างอยู่ได้โดยตรง
+                  {t('seoTraining.ctaDesc')}
                 </p>
                 <a
-                  href='tel:0954965989'
+                  href='tel:0622080994'
                   className='bg-blue-800 px-12 py-5 rounded-full text-white font-bold text-xl inline-flex items-center'
                 >
                   <MessageSquare className='w-6 h-6 mr-3' />
-                  095-496-5989
+                  062-208-0994
                 </a>
               </div>
             </div>

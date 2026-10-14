@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import GoogleAdsCourseTimeline from '~/components/Course'
 import CourseTargetAudience from '~/components/TargetAudiuce'
 import CoursePricing from '~/components/Pricing'
+import { useTranslation } from 'react-i18next';
 import { FaCircleCheck } from 'react-icons/fa6'
 
 export const meta: MetaFunction = () => {
@@ -44,6 +45,7 @@ export const meta: MetaFunction = () => {
 }
 
 export default function AdsTrainingService() {
+  const { t } = useTranslation();
   return (
     <>
       {/* Dynamic Background Elements */}
@@ -70,7 +72,7 @@ export default function AdsTrainingService() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
               </span>
-              <span className="text-xs font-medium text-blue-200/80 tracking-wider uppercase">เรียนกับอดีต Account Manager จาก Google</span>
+              <span className="text-xs font-medium text-blue-200/80 tracking-wider uppercase">{t('adsTraining.heroBadge')}</span>
             </motion.div>
 
             <motion.h1
@@ -81,7 +83,7 @@ export default function AdsTrainingService() {
             >
               RundeeAds <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">
-                คอร์สอบรม Google Ads แบบมืออาชีพ
+                {t('adsTraining.heroTitleHighlight')}
               </span>
             </motion.h1>
 
@@ -91,7 +93,7 @@ export default function AdsTrainingService() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
             >
-              เรียน Google Ads กับอดีตคนใน Google ตัวจริง! เปลี่ยนงบโฆษณาให้เป็นกำไร ด้วยกลยุทธ์ที่ใช้ได้ผลจริง พร้อมทริกที่ไม่มีบอกในคู่มือทั่วไป
+              {t('adsTraining.heroDesc')}
             </motion.p>
 
           
@@ -106,17 +108,11 @@ export default function AdsTrainingService() {
           {/* Text Content */}
           <div className="md:basis-1/2">
             <h2 className="text-3xl md:text-4xl font-bold text-white">
-              เคยไหม?
+{t('adsTraining.painPointTitle')}
             </h2>
 
             <ul className="mt-6 space-y-4">
-              {[
-                'ลงเงินกับ Google Ads ไปเท่าไหร่ก็ไม่เห็นผลลัพธ์',
-                'รู้สึกเหมือนเอาเงินไปทิ้ง งบโฆษณาบานปลาย ควบคุมไม่ได้',
-                'พยายามทำเองแล้ว แต่เจอฟีเจอร์เยอะแยะไปหมดจนงง ไม่รู้จะเริ่มตรงไหน',
-                'อยากจ้างเอเจนซี่ แต่ก็อยากเข้าใจภาพรวมและคุยกับเขารู้เรื่อง',
-                'เห็นคู่แข่งอยู่อันดับ 1 ตลอด แต่ทำยังไงก็แซงไม่ได้'
-              ].map((text, i) => (
+              {[1, 2, 3, 4, 5].map(i => t(`adsTraining.painPoint${i}`)).map((text, i) => (
                 <li
                   key={i}
                   className="
@@ -137,10 +133,9 @@ export default function AdsTrainingService() {
 
             <div className="max-w-[500px] mt-6 leading-relaxed text-white/80">
               <span className="font-semibold text-white">
-                หยุดเสียเงินและเวลาไปกับการลองผิดลองถูก!
+                {t('adsTraining.stopWasting')}
               </span>{' '}
-              ผมจะสอนคุณให้ใช้ Google Ads อย่างมืออาชีพ เข้าใจทุกซอกทุกมุม
-              และสร้างแคมเปญที่ทำกำไรให้ธุรกิจของคุณได้จริง
+              {t('adsTraining.taughtByMe')}
             </div>
           </div>
 
@@ -217,40 +212,35 @@ export default function AdsTrainingService() {
           {/* Content */}
           <div className='md:basis-1/2 space-y-6'>
             <h2 className='text-4xl md:text-5xl font-bold text-white'>
-              ทำไมต้องเรียนคอร์สนี้กับเรา?
+              {t('adsTraining.whyTitle')}
             </h2>
             <p className='text-lg text-white/80'>
-              ประสบการณ์ที่หาจากตำราเล่มไหนไม่ได้
+              {t('adsTraining.whySubtitle')}
             </p>
             <p className='leading-relaxed text-white/90'>
-              ผมไม่ใช่แค่คนที่ใช้ Google Ads เป็น แต่ผมคือ{' '}
-              <b>อดีต Account Manager ของ Google Ads</b> ที่เคยทำงานกับ Google
-              โดยตรง
-              หน้าที่ของผมคือการดูแลและให้คำปรึกษาเจ้าของธุรกิจและเอเจนซี่ชั้นนำ
-              เพื่อสร้างแคมเปญที่ประสบความสำเร็จ
+              {t('adsTraining.whyDescStart')}{' '}
+              <b>{t('adsTraining.whyDescBold')}</b>{' '}
+              {t('adsTraining.whyDescEnd')}
             </p>
 
             {/* Key points */}
             <div className='space-y-6'>
               <div className='p-6 rounded-2xl border border-white/20 bg-white/5 backdrop-blur-sm'>
-                <b className='block mb-1'>ประสบการณ์ดูแลกว่า 1,000 บัญชี</b>
+                <b className='block mb-1'>{t('adsTraining.whyPoint1Title')}</b>
                 <p className='text-white/80 text-base'>
-                  ผมเห็นมาแล้วทุกรูปแบบธุรกิจ ทุกปัญหา และทุกกลยุทธ์
-                  ทำให้รู้ว่าธุรกิจแบบคุณต้องใช้กลยุทธ์แบบไหนถึงจะเห็นผลเร็วที่สุด
+                  {t('adsTraining.whyPoint1Desc')}
                 </p>
               </div>
               <div className='p-6 rounded-2xl border border-white/20 bg-white/5 backdrop-blur-sm'>
-                <b className='block mb-1'>รู้ลึกจาก &quot;คนใน&quot;</b>
+                <b className='block mb-1'>{t('adsTraining.whyPoint2Title')}</b>
                 <p className='text-white/80 text-base'>
-                  คุณจะได้เรียนรู้เทคนิคและเคล็ดลับมากมายที่ไม่มีบอกในคู่มือทั่วไป
-                  เป็นทริกที่ผมเคยใช้แนะนำลูกค้าตอนทำงานอยู่ที่ Google
+                  {t('adsTraining.whyPoint2Desc')}
                 </p>
               </div>
               <div className='p-6 rounded-2xl border border-white/20 bg-white/5 backdrop-blur-sm'>
-                <b className='block mb-1'>สอนด้วยภาษาคน ไม่ใช่ศัพท์เทคนิค</b>
+                <b className='block mb-1'>{t('adsTraining.whyPoint3Title')}</b>
                 <p className='text-white/80 text-base'>
-                  ผมจะย่อยเรื่องยากๆ ให้คุณเข้าใจง่ายและนำไปใช้ได้ทันที
-                  ไม่ต้องปวดหัวกับคำศัพท์การตลาดที่ซับซ้อน
+                  {t('adsTraining.whyPoint3Desc')}
                 </p>
               </div>
             </div>
@@ -261,15 +251,14 @@ export default function AdsTrainingService() {
       <section className='min-h-[80vh] relative mt-5 z-10'>
         <div className='container-x mx-auto py-10 text-center'>
           <h2 className=' md:text-5xl py-2 text-4xl font-bold mb-1 bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text'>
-            สิ่งที่คุณจะได้เรียนรู้ในคอร์สนี้
+            {t('adsTraining.learnTitle')}
           </h2>
           <div className='md:text-5xl py-2 text-4xl text-white'>
-            ครบทุกฟีเจอร์ตั้งแต่เริ่มต้น
+            {t('adsTraining.learnTitleEnd')}
           </div>
 
           <div className='mt-5 text-white/60 text-lg'>
-            เราจะเริ่มสอนคุณตั้งแต่ศูนย์ ไปจนถึงขั้นแอดวานซ์แบบจับมือทำ
-            คุณจะเข้าใจและทำเองได้ทั้งหมด
+            {t('adsTraining.learnDesc')}
           </div>
         </div>
 

@@ -1,11 +1,13 @@
+import { useTranslation } from 'react-i18next';
 import { AnimatePresence,motion } from 'framer-motion';
 import { Link, useLocation, useNavigation } from 'react-router'
 import { MENU } from '~/const/app';
 import Drawer from './Drawer';
+import LanguageSwitcher from './LanguageSwitcher';
 
 
 export default function Navigator() {
-
+  const { t } = useTranslation();
   const location = useLocation()
 
   const navigation = useNavigation();
@@ -49,7 +51,7 @@ export default function Navigator() {
               </div>
 
               <span className="text-sm font-medium tracking-wide text-zinc-600">
-                กำลังโหลด
+                {t('common.loading')}
               </span>
             </motion.div>
           </motion.div>
@@ -63,20 +65,20 @@ export default function Navigator() {
         </div>
         {/* menu */}
         <div className='md:flex hidden mc-hd items-center gap-5 text-sm'>
-          <div className="flex gap-6 nav-item items-center text-white">
-            {MENU.map((menu) => {
-              const isActive =
-                location.pathname === menu.href ||
-                menu.subMenu?.some((sub) => location.pathname === sub.href)
+               <div className="flex gap-6 nav-item items-center text-white">
+             {MENU.map((menu) => {
+               const isActive =
+                 location.pathname === menu.href ||
+                 menu.subMenu?.some((sub) => location.pathname === sub.href)
 
-              return (
-                <div key={menu.label} className="relative group">
-                  {/* Main menu */}
-                  <Link
-                    to={menu.href}
-                    className={isActive ? "nav-lnk-active" : "nav-lnk"}
-                  >
-                    {(menu.label)}
+               return (
+                 <div key={menu.labelKey} className="relative group">
+                   {/* Main menu */}
+                   <Link
+                     to={menu.href}
+                     className={isActive ? "nav-lnk-active" : "nav-lnk"}
+                   >
+                     {t(menu.labelKey)}
                   </Link>
 
                   {/* Submenu */}
@@ -96,13 +98,13 @@ export default function Navigator() {
               z-50
             "
                     >
-                      <ul className="p-4 space-y-2">
+                          <ul className="p-4 space-y-2">
                         {menu.subMenu.map((sub) => {
                           const Icon = sub.icon
                           const isSubActive = location.pathname === sub.href
 
                           return (
-                            <li key={sub.label}>
+                            <li key={sub.labelKey}>
                               <Link
                                 to={sub.href}
                                 className="
@@ -133,10 +135,10 @@ export default function Navigator() {
                                     className={`text-sm font-medium ${isSubActive ? "text-white" : "text-white/90"
                                       }`}
                                   >
-                                    {(sub.label)}
+                                    {t(sub.labelKey)}
                                   </div>
                                   <div className="text-xs text-white/70">
-                                    {sub.desc}
+                                    {t(sub.descKey)}
                                   </div>
                                 </div>
                               </Link>
@@ -151,11 +153,12 @@ export default function Navigator() {
             })}
           </div>
         
+          <LanguageSwitcher />
           <Link to="/contact-us"
             className='font-medium h-[40px] w-[100px] bg-blue-800 
             text-white flex items-center justify-center rounded-full '
           >
-            {"ติดต่อเรา"}
+            {t('common.contactUs')}
           </Link>
 
 
